@@ -1,159 +1,67 @@
-# rqke / SYSTEMS — HTML, CSS, JS + Vite
+# rqke / SYSTEMS
 
-Портфолио без React, Next.js и серверного фреймворка. Сам сайт написан на обычных HTML, CSS и Vanilla JavaScript, а Vite используется только как dev-server и production-сборщик.
+Personal portfolio built with plain HTML, CSS and Vanilla JavaScript. Vite is used only for local development and the production build.
 
-## Что сохранено
+**Live site:** https://rqkeqq-ui.github.io/portfolio/
 
-- intro-анимация;
-- sticky/parallax hero;
-- reveal-анимации при прокрутке;
-- фиксированная боковая навигация;
-- mobile menu;
-- RU/EN переключение;
-- вертикальный скролл, управляющий горизонтальной лентой кейсов;
-- journey dialog;
-- services / manifesto / proof slider / FAQ;
-- архив проектов и фильтры;
-- отдельные страницы кейсов;
-- lightbox галереи;
-- scroll progress;
-- адаптивная вёрстка;
-- полностью статическая форма проекта.
-
-## Стек
+## Stack
 
 - HTML5
 - CSS3
 - Vanilla JavaScript / ES Modules
 - Vite 8
+- GitHub Actions
+- GitHub Pages
 
-React, Next.js, TypeScript и backend для запуска сайта не нужны.
+No React, Next.js or backend is required to run the portfolio.
 
-## Последний дизайн-проход
+## Local development
 
-В этой версии также пересобраны сетка и типографическая иерархия: увеличен важный мелкий текст и интерактивные зоны, социальные ссылки вынесены в верхнюю навигацию, усилен первый экран, этапы подхода получили последовательную ось, секция проектов больше не конкурирует заголовком с карточками, а на страницах кейсов кнопка возврата остаётся доступной при прокрутке. Для русской версии однобуквенные предлоги и союзы автоматически связываются со следующим словом неразрывным пробелом.
-
-## Установка
-
-Нужен Node.js версии, совместимой с Vite 8. На момент настройки проекта Vite рекомендует Node.js 20.19+ или 22.12+.
+Requires Node.js 22.12+.
 
 ```bash
 npm install
-```
-
-## Команды
-
-### Development
-
-```bash
 npm run dev
 ```
 
-Vite запустит локальный dev-server, обычно на:
-
-```text
-http://localhost:5173/
-```
-
-### Production build
+Production build:
 
 ```bash
 npm run build
-```
-
-Готовая production-версия появится в:
-
-```text
-dist/
-```
-
-Собираются не только главная, но и:
-
-```text
-/projects/
-/projects/beauty-booking/
-/projects/library-system/
-/404.html
-```
-
-### Preview production build
-
-Сначала:
-
-```bash
-npm run build
-```
-
-затем:
-
-```bash
 npm run preview
 ```
 
-Обычно preview будет доступен на:
+The compiled site is written to `dist/`.
 
-```text
-http://localhost:4173/
-```
-
-## Структура
+## Structure
 
 ```text
 index.html
 404.html
-.nojekyll
-package.json
-vite.config.js
-.gitignore
 assets/
   css/
-    global.css
-    home.css
   js/
-    core.js
-    data.js
-    home.js
-    projects.js
-    project.js
   images/
 projects/
   index.html
-  beauty-booking/index.html
-  library-system/index.html
+  beauty-booking/
+  library-system/
+vite.config.js
 ```
 
-`assets/js/data.js` — единый источник данных проектов и ссылок.
+Project content and links live in `assets/js/data.js`. Shared UI and navigation logic lives in `assets/js/core.js`.
 
-`assets/js/core.js` — общая логика сайта: навигация, язык, header/footer, scroll progress и вспомогательные функции.
+## Deployment
 
-`home.js`, `projects.js` и `project.js` — отдельные entry-модули страниц.
+Every push to `main` runs `.github/workflows/pages.yml`:
 
-## GitHub Pages
+1. installs dependencies;
+2. builds the Vite project;
+3. verifies the required production pages and assets;
+4. publishes `dist/` to GitHub Pages.
 
-Vite настроен с относительным `base: './'`, поэтому production build подходит и для корневого GitHub Pages-домена, и для адреса вида:
+The Vite build uses relative paths so the site works under the repository subpath `/portfolio/`.
 
-```text
-username.github.io/repository/
-```
+## Notes
 
-Для публикации production-сборки:
-
-```bash
-npm install
-npm run build
-```
-
-После этого публикуйте содержимое `dist/`.
-
-`.nojekyll` автоматически попадает в production build.
-
-## Статический режим формы
-
-GitHub Pages не выполняет backend-код, поэтому форма не отправляет POST на `/api/contact`. Она работает полностью в браузере: валидирует данные, формирует бриф и позволяет передать его через доступные клиентские действия.
-
-
-### Последние правки интерфейса
-
-- FAQ собран в две независимые вертикальные колонки: раскрытие ответа не растягивает соседнюю карточку.
-- В анкете добавлен тип «Своё», а ограничение длины описания снято.
-- Hero-блок уменьшен и отделён от фонового wordmark `rqke`; подсказка «Листайте дальше» удалена.
+The contact form is fully client-side because GitHub Pages does not run server code. External project, GitHub and Telegram links remain normal outbound links.
