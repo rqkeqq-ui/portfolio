@@ -1,0 +1,14 @@
+{
+  "name": "rqke-portfolio",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "dev": "vite --host",
+    "build": "vite build",
+    "preview": "npm run build && vite preview --host"
+  },
+  "devDependencies": {
+    "vite": "^8.3.1"
+  }
+}
