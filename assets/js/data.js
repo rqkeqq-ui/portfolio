@@ -27,28 +27,28 @@
       "year": "2026",
       "role": "Product Design & Development",
       "coverImage": {
-        "src": "/images/projects/beauty-landing.webp",
+        "src": "/images/projects/beauty-landing.svg",
         "alt": "Главная страница платформы BeautyBook",
         "width": 1800,
         "height": 919
       },
       "gallery": [
         {
-          "src": "/images/projects/beauty-search.webp",
+          "src": "/images/projects/beauty-search.svg",
           "alt": "Каталог салонов BeautyBook с поиском и фильтрами",
           "caption": "Каталог, фильтры и карта",
           "width": 1667,
           "height": 1272
         },
         {
-          "src": "/images/projects/beauty-booking.webp",
+          "src": "/images/projects/beauty-booking.svg",
           "alt": "Сценарий бронирования услуги в BeautyBook",
           "caption": "Выбор услуги, специалиста и доступного времени",
           "width": 1448,
           "height": 1086
         },
         {
-          "src": "/images/projects/beauty-dashboard.webp",
+          "src": "/images/projects/beauty-dashboard.svg",
           "alt": "Панель владельца салона BeautyBook",
           "caption": "Операционная панель салона",
           "width": 1448,
@@ -144,28 +144,28 @@
       "year": "2026",
       "role": "Architecture & Development",
       "coverImage": {
-        "src": "/images/projects/library-banner.webp",
+        "src": "/images/projects/library-banner.svg",
         "alt": "Баннер Library Management System",
         "width": 1800,
         "height": 600
       },
       "gallery": [
         {
-          "src": "/images/projects/library-catalog.webp",
+          "src": "/images/projects/library-catalog.svg",
           "alt": "Каталог книг Library Management System",
           "caption": "Каталог и быстрый поиск",
           "width": 1800,
           "height": 1013
         },
         {
-          "src": "/images/projects/library-admin.webp",
+          "src": "/images/projects/library-admin.svg",
           "alt": "Панель обработки заявок библиотекарем",
           "caption": "Выдача, возврат и обработка заявок",
           "width": 1800,
           "height": 1013
         },
         {
-          "src": "/images/projects/library-books.webp",
+          "src": "/images/projects/library-books.svg",
           "alt": "Управление книгами в административной панели",
           "caption": "Добавление книг администратором",
           "width": 1800,
