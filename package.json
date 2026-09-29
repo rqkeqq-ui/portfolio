@@ -6,7 +6,10 @@
   "scripts": {
     "dev": "vite --host",
     "build": "vite build",
-    "preview": "npm run build && vite preview --host"
+    "preview": "vite preview --host"
+  },
+  "engines": {
+    "node": ">=22.12.0"
   },
   "devDependencies": {
     "vite": "^8.3.1"
