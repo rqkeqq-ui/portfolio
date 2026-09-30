@@ -265,8 +265,9 @@
     }
   ],
   "booking": {
-    "bookingUrl": "https://calendar.google.com/calendar/appointments/schedules/AcZssZ1yDopAwemJlVCMC_5SaphPv4gY8gVfQIh14DquWUOq39gLGT5Ywbnf3RtBzxfCg_2z2r6bbPvP",
-    "bookingEmbedUrl": "https://calendar.google.com/calendar/appointments/schedules/AcZssZ1yDopAwemJlVCMC_5SaphPv4gY8gVfQIh14DquWUOq39gLGT5Ywbnf3RtBzxfCg_2z2r6bbPvP?gv=true",
+    "provider": "calcom",
+    "bookingUrl": "https://cal.com/%D0%B4%D0%B6%D0%B5%D0%B8%D0%BA-%D1%80%D1%83%D0%BA-be4bgy/30min",
+    "calLink": "джеик-рук-be4bgy/30min",
     "durationMinutes": 30,
     "timeZone": "Asia/Barnaul",
     "availability": {

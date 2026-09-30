@@ -1,6 +1,8 @@
 import { RQKE } from './core.js';
 import { RQKE_DATA } from './data.js';
 import { dictionary, projectCopy, contactCopy } from './home-copy.js';
+import { mountCalBooking } from './booking.js';
+import heroImageUrl from '../images/statues/rqke-hero-cutout.png';
 
 (() => {
   'use strict';
@@ -66,13 +68,13 @@ import { dictionary, projectCopy, contactCopy } from './home-copy.js';
               <div class="project-rail-end" aria-label="${escape(projectText.endTitle)}"><span>rqke / NEXT</span><strong>${projectText.endTitle}</strong><span>${projectText.endText}</span><a href="#contact">${projectText.endCta} ${icons.arrowUpRight}</a></div>
             </div>
           </div>
-          <div class="projects-rail-footer"><span class="projects-rail-counter">01 / ${String(projects.length).padStart(2, '0')}</span><div class="project-rail-controls"><button type="button" data-project-direction="-1" aria-label="${language === 'ru' ? 'Предыдущая работа' : 'Previous work'}">${icons.arrowLeft}</button><button type="button" data-project-direction="1" aria-label="${language === 'ru' ? 'Следующая работа' : 'Next work'}">${icons.arrowRight}</button></div><a href="${internal('projects/', language)}">${projectText.all}${icons.arrowUpRight}</a></div>
+          <div class="projects-rail-footer"><span class="projects-rail-counter">01 / ${String(projects.length).padStart(2, '0')}</span><div class="project-rail-progress" aria-hidden="true"><span></span></div><a href="${internal('projects/', language)}">${projectText.all}${icons.arrowUpRight}</a></div>
         </div>
       </section>`;
   }
 
   const booking = data.booking;
-  const bookingEnabled = Boolean(booking.bookingUrl && booking.bookingEmbedUrl);
+  const bookingEnabled = Boolean(booking.bookingUrl && booking.calLink);
   let bookingOpen = sessionStorage.getItem('rqke-booking-open') === 'true';
   const track = name => document.dispatchEvent(new CustomEvent('rqke:analytics', { detail: { name } }));
   function renderContact() {
@@ -118,7 +120,7 @@ import { dictionary, projectCopy, contactCopy } from './home-copy.js';
       <section id="home" class="rk-hero-shell" aria-labelledby="hero-title"><div class="rk-hero-stage"><div class="rk-hero-grid" aria-hidden="true"></div><p class="rk-hero-wordmark" aria-hidden="true">rqke <span>/ SYSTEMS</span></p>
         <nav class="rk-hero-nav rk-hero-nav-left" aria-label="${copy.navLabel}">${navigation.slice(0,3).map(item => `<a href="#${item.id}">${rolling(item.label)}</a>`).join('')}</nav><nav class="rk-hero-nav rk-hero-nav-right" aria-label="${copy.navLabel}">${navigation.slice(3).map(item => `<a href="#${item.id}">${rolling(item.label)}</a>`).join('')}</nav>
         <div class="rk-hero-tools"><button class="rk-language js-language" type="button" aria-label="${copy.language}">${language === 'ru' ? 'EN' : 'RU'}</button><a href="${github}" target="_blank" rel="noreferrer" aria-label="GitHub rqke" title="GitHub">${icons.github}</a><a href="${telegram}" target="_blank" rel="noreferrer" aria-label="Telegram rqke" title="Telegram">${icons.telegram}</a></div>
-        <div class="rk-hero-sculpture" aria-hidden="true"><div class="rk-hero-orbit"></div><img src="${root('assets/images/statues/rqke-hero-cutout.png')}" alt="" width="1122" height="1402"></div>
+        <div class="rk-hero-sculpture" aria-hidden="true"><div class="rk-hero-orbit"></div><img src="${heroImageUrl}" alt="" width="1122" height="1402"></div>
         <div class="rk-hero-traits">${copy.traits.map(item => `<p>${icons.check}${item}</p>`).join('')}</div>
         <div class="rk-hero-copy"><p class="rk-hero-kicker">${copy.heroKicker}</p><h1 id="hero-title">${copy.heroTitle} <em>${copy.heroAccent}</em></h1><p class="rk-hero-lead">${copy.heroText}</p><p class="rk-hero-hint">${copy.heroHint}</p><div class="rk-hero-actions"><a class="rk-hero-primary" href="#contact">${rolling(copy.discussProject)}${icons.arrowUpRight}</a><a class="rk-hero-secondary" href="#projects">${rolling(copy.viewProjects)}${icons.arrowDown}</a></div></div>
       </div></section>
@@ -130,7 +132,6 @@ import { dictionary, projectCopy, contactCopy } from './home-copy.js';
       <section id="collaboration" class="rk-section rk-collaboration" aria-labelledby="collaboration-title"><span id="testimonial" aria-hidden="true"></span><div class="rk-section-intro" data-reveal><p class="rk-eyebrow">${copy.collaborationEyebrow}</p><h2 id="collaboration-title">${copy.collaborationTitle}</h2><p>${copy.collaborationLead}</p></div><div class="rk-cost" data-reveal><h3>${copy.costTitle}</h3><p>${copy.costText}</p><p>${copy.changeText}</p><a class="button button-dark" href="#contact">${copy.firstPhase}${icons.arrowUpRight}</a></div></section>
       <section id="faq" class="rk-section rk-faq" aria-labelledby="faq-title"><div class="rk-faq-heading" data-reveal><p class="rk-eyebrow">${copy.faqEyebrow}</p><h2 id="faq-title">${copy.faqTitle}</h2></div>${renderFaq()}</section>
       ${renderContact()}
-      <footer class="rk-footer"><span>rqke / SYSTEMS</span><p>${copy.footer}</p><a href="#contact">${copy.discussProject} ↗</a></footer>
       <a class="rk-floating-mark" href="#home" data-scene="home" aria-label="${copy.backToTop}">rqke</a>`;
   }
 
@@ -365,7 +366,7 @@ import { dictionary, projectCopy, contactCopy } from './home-copy.js';
   const projectCounter = main.querySelector('.projects-rail-counter');
   let scrollActive = 0;
   let hovered = null;
-  const compact = matchMedia('(max-width: 1100px), (max-height: 850px)');
+  const compact = matchMedia('(max-width: 1100px), (max-height: 639px)');
   function setProjectActive(index) {
     scrollActive = Math.min(projectCards.length - 1, Math.max(0, index));
     const display = hovered ?? scrollActive;
@@ -380,9 +381,28 @@ import { dictionary, projectCopy, contactCopy } from './home-copy.js';
     card.addEventListener('blur', () => { hovered = null; setProjectActive(scrollActive); });
   });
   function updateProjectRailFromPage() {
-    railSection?.style.setProperty('--rail-x','0px');
+    if (!railSection || !projectTrack) return;
+    let pinned = !compact.matches && !reducedMotion && !document.documentElement.classList.contains('rqke-force-mobile');
+    railSection.dataset.scrollRail = String(pinned);
+    if (pinned && projectCards.some(card => card.querySelector('.project-rail-copy').offsetHeight + 145 > card.clientHeight)) {
+      pinned = false;
+      railSection.dataset.scrollRail = 'false';
+    }
+    if (!pinned) {
+      railSection.style.setProperty('--rail-x', '0px');
+      railSection.style.setProperty('--rail-progress', '0');
+      return;
+    }
+    const travel = Math.max(0, projectTrack.scrollWidth - projectViewport.clientWidth);
+    railSection.style.setProperty('--rail-height', `${innerHeight + Math.max(innerHeight * 1.4, travel * 1.6)}px`);
+    const range = Math.max(1, railSection.offsetHeight - innerHeight);
+    const progress = clamp(-railSection.getBoundingClientRect().top / range);
+    railSection.style.setProperty('--rail-x', `${-progress * travel}px`);
+    railSection.style.setProperty('--rail-progress', String(progress));
+    setProjectActive(Math.round(progress * Math.max(0, projectCards.length - 1)));
   }
   projectViewport?.addEventListener('scroll', () => {
+    if (railSection.dataset.scrollRail === 'true') return;
     requestAnimationFrame(() => {
       const viewportLeft = projectViewport.getBoundingClientRect().left;
       const closest = projectCards.reduce((best, card, index) => {
@@ -393,12 +413,12 @@ import { dictionary, projectCopy, contactCopy } from './home-copy.js';
     });
   }, { passive: true });
 
-  main.querySelectorAll('[data-project-direction]').forEach(button => button.addEventListener('click', () => {
-    const direction = Number(button.dataset.projectDirection);
-    projectViewport.scrollBy({ left: direction * (projectCards[0].offsetWidth + 32), behavior: reducedMotion ? 'instant' : 'smooth' });
-  }));
   projectCards.forEach(card => card.addEventListener('focus', () => {
-    if (!compact.matches) card.scrollIntoView({ block: 'nearest', inline: 'nearest', behavior: 'instant' });
+    if (railSection.dataset.scrollRail !== 'true') return;
+    const travel = Math.max(1, projectTrack.scrollWidth - projectViewport.clientWidth);
+    const offset = card.offsetLeft - projectCards[0].offsetLeft;
+    const top = railSection.getBoundingClientRect().top + scrollY + clamp(offset / travel) * (railSection.offsetHeight - innerHeight);
+    scrollTo({ top, behavior: 'instant' });
   }));
 
   const bookingToggle = main.querySelector('#booking-toggle');
@@ -409,12 +429,14 @@ import { dictionary, projectCopy, contactCopy } from './home-copy.js';
     sessionStorage.setItem('rqke-booking-open', String(open));
     bookingToggle.setAttribute('aria-expanded', String(open));
     bookingPanel.hidden = !open;
-    if (open && !bookingPanel.querySelector('iframe')) {
-      const iframe = document.createElement('iframe');
-      iframe.src = booking.bookingEmbedUrl;
-      iframe.title = contactText.iframeTitle;
-      iframe.addEventListener('load', () => { bookingPanel.querySelector('.booking-loading').hidden = true; });
-      bookingPanel.querySelector('.booking-frame').append(iframe);
+    if (floatingMark) floatingMark.hidden = open;
+    if (open) {
+      mountCalBooking(bookingPanel.querySelector('.booking-frame'), {
+        calLink: booking.calLink,
+        language,
+        title: contactText.iframeTitle,
+        onLoad: () => { bookingPanel.querySelector('.booking-loading').hidden = true; }
+      });
     }
     if (focus) (open ? bookingPanel.querySelector('h3') : bookingToggle).focus();
     if (open && focus) track('booking_open');

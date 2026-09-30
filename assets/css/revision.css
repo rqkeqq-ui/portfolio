@@ -135,3 +135,45 @@ html.rqke-force-mobile .rqke-experience .projects-rail-heading h2 { width: 100% 
   .projects-rail-footer { grid-template-columns: 1fr auto; }
 }
 @media (prefers-reduced-motion: reduce) { *, *::before, *::after { scroll-behavior: auto !important; animation-duration: .01ms !important; transition-duration: .01ms !important; } }
+
+/* Keep the first mobile view focused on the identity and sculpture. */
+html.rqke-force-mobile .rk-hero-stage { padding-top: clamp(360px, 48svh, 460px); }
+html.rqke-force-mobile .rk-hero-sculpture { top: 88px !important; left: 64% !important; height: 290px !important; width: 250px !important; opacity: .78; }
+html.rqke-force-mobile .rk-hero-wordmark { top: 145px !important; left: 16px !important; }
+html.rqke-force-mobile .rk-hero-wordmark > span { transform: none; }
+
+.rk-journey-list { row-gap: clamp(150px, 13vw, 210px); }
+.rk-journey-card:nth-child(even) { margin-top: 170px; }
+.rk-journey-card > div:nth-child(2) { display: flex; align-items: center; justify-content: space-between; gap: 12px; }
+html.rqke-force-mobile .rk-journey-card > div:nth-child(2) { justify-content: flex-start; gap: 8px; }
+html.rqke-force-mobile .rk-journey-card > div:nth-child(2) > span { color: var(--rk-bronze-text); font: 700 13px/1 var(--sans); }
+html.rqke-force-mobile .rk-journey-card > div:nth-child(2) small { display: inline-flex; gap: 6px; align-items: baseline; }
+html.rqke-force-mobile .rk-journey-list { row-gap: 80px !important; }
+
+/* Desktop wheel scrolling drives the pinned project strip. */
+.rqke-experience .projects-rail-section[data-scroll-rail="true"] { height: var(--rail-height, 260svh) !important; }
+.rqke-experience .projects-rail-section[data-scroll-rail="true"] .projects-rail-sticky { position: sticky; top: 0; height: 100svh; min-height: 0; padding-block: 32px 20px; gap: 22px; grid-template-rows: auto minmax(0, 1fr) auto; }
+.rqke-experience .projects-rail-section[data-scroll-rail="true"] .projects-rail-heading h2 { font-size: clamp(2.1rem, 3vw, 3.3rem); }
+.rqke-experience .projects-rail-section[data-scroll-rail="true"] .projects-rail-heading > p:last-child { margin-top: 0; font-size: .95rem; }
+.rqke-experience .projects-rail-section[data-scroll-rail="true"] .project-rail-viewport { overflow: hidden; align-items: stretch; padding-block: 0; margin-inline: calc(var(--rk-rail) + var(--rk-gutter)) var(--rk-gutter); }
+.rqke-experience .projects-rail-section[data-scroll-rail="true"] .project-rail-track { height: 100%; padding-inline: 0; transform: translate3d(var(--rail-x), 0, 0) !important; }
+.rqke-experience .projects-rail-section[data-scroll-rail="true"] .project-rail-card, .rqke-experience .projects-rail-section[data-scroll-rail="true"] .project-rail-end { height: 100%; min-height: 0; }
+.rqke-experience .projects-rail-section[data-scroll-rail="true"] .project-rail-media { position: absolute; inset: 0; height: 100%; }
+.rqke-experience .projects-rail-section[data-scroll-rail="true"] .project-rail-shade { display: block; background: linear-gradient(180deg, rgba(9,9,9,.2), rgba(9,9,9,.85) 35%, #090909 100%); }
+.rqke-experience .projects-rail-section[data-scroll-rail="true"] .project-rail-copy { position: absolute; inset: auto 24px 76px 24px; padding: 0; }
+.rqke-experience .projects-rail-section[data-scroll-rail="true"] .project-rail-copy strong { font-size: clamp(1.8rem, 2.5vw, 2.8rem); }
+.rqke-experience .projects-rail-section[data-scroll-rail="true"] .project-rail-type { margin-bottom: 10px; }
+.rqke-experience .projects-rail-section[data-scroll-rail="true"] .project-rail-subtitle { margin-top: 12px; font-size: 1rem; line-height: 1.4; }
+.rqke-experience .projects-rail-section[data-scroll-rail="true"] .project-rail-description { margin-top: 10px; font-size: .95rem; line-height: 1.5; }
+.project-rail-progress { height: 2px; background: var(--rk-light-line); overflow: hidden; }
+.project-rail-progress > span { display: block; width: 100%; height: 100%; background: var(--rk-bronze-light); transform: scaleX(var(--rail-progress, 0)); transform-origin: left; }
+.projects-rail-footer { grid-template-columns: auto minmax(80px, 1fr) auto; }
+.rqke-experience .projects-rail-section:not([data-scroll-rail="true"]) .project-rail-viewport { overflow: visible; }
+.rqke-experience .projects-rail-section:not([data-scroll-rail="true"]) .project-rail-track { width: 100%; flex-wrap: wrap; }
+.rqke-experience .projects-rail-section:not([data-scroll-rail="true"]) .project-rail-card { width: min(100%, 520px); flex: 1 1 400px; }
+.rqke-experience .projects-rail-section:not([data-scroll-rail="true"]) .project-rail-end { width: 100%; height: auto; gap: 28px; min-height: 300px; }
+.projects-rail-section:not([data-scroll-rail="true"]) .project-rail-progress { display: none; }
+.projects-rail-section:not([data-scroll-rail="true"]) .projects-rail-footer { grid-template-columns: 1fr auto; }
+.booking-frame { min-height: 560px; background: #101010; border-radius: 8px; overflow: hidden; }
+.booking-panel .booking-frame iframe { height: 100%; min-height: 560px; background: #101010; }
+@media (max-width: 767px) { .booking-frame, .booking-panel .booking-frame iframe { min-height: 700px; } }

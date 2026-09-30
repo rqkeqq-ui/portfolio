@@ -106,13 +106,6 @@ import { RQKE_DATA } from './data.js';
       <div id="mobile-menu" class="mobile-menu" aria-hidden="true"><div class="mobile-menu-inner"><p class="eyebrow">NAVIGATION / 2026</p>${text.nav.map(([label, href], index) => `<a href="${internal(href, lang)}" tabindex="-1"><small>0${index + 1}</small>${label}</a>`).join('')}</div></div>`;
     body.prepend(header);
 
-    const footer = document.createElement('footer');
-    footer.className = 'site-footer';
-    footer.innerHTML = `
-      <div class="footer-top"><div><p class="brand footer-brand">rqke <i>/</i> SYSTEMS</p><p>${text.tagline}</p></div><nav aria-label="${text.footerNav}"><a href="${internal('projects/', lang)}">${text.projects}</a><a href="${internal('index.html#services', lang)}">${text.services}</a><a href="${internal('index.html#contact', lang)}">${text.contact}</a>${data.links.map(link => `<a href="${link.url}" target="_blank" rel="noreferrer">${link.label} ↗</a>`).join('')}</nav></div>
-      <div class="footer-bottom"><span>© ${new Date().getFullYear()} rqke / SYSTEMS</span><span>${text.made}</span><span>STATIC / 01</span></div>`;
-    body.append(footer);
-
     const languageButton = header.querySelector('.site-language');
     languageButton?.addEventListener('click', switchLanguage);
     const toggle = header.querySelector('.menu-toggle');
