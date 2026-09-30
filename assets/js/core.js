@@ -43,6 +43,8 @@ import { RQKE_DATA } from './data.js';
     const url = new URL(location.href);
     if (language() === 'ru') url.searchParams.set('lang', 'en');
     else url.searchParams.delete('lang');
+    const form = document.querySelector('.contact-form');
+    if (form) sessionStorage.setItem('rqke-brief-draft', JSON.stringify({ fields: Object.fromEntries(new FormData(form)), open: document.querySelector('.brief-details')?.open, prepared: form.hidden }));
     location.assign(`${url.pathname}${url.search}${url.hash}`);
   };
 
@@ -50,14 +52,14 @@ import { RQKE_DATA } from './data.js';
 
   const chromeCopy = {
     ru: {
-      nav: [['Работы', 'projects/'], ['Направления', 'index.html#services'], ['Подход', 'index.html#about'], ['Возможности', 'index.html#overview'], ['Контакты', 'index.html#contact']],
-      home: 'rqke / SYSTEMS — главная', navLabel: 'Основная навигация', cta: 'Обсудить проект', open: 'Открыть меню', close: 'Закрыть меню', switchLabel: 'Переключить язык на английский',
-      tagline: 'Разработчик цифровых решений', projects: 'Проекты', services: 'Направления', contact: 'Контакты', made: 'Спроектировано и разработано независимо', footerNav: 'Ссылки в подвале'
+      nav: [['Главная','index.html#home'],['Задачи','index.html#services'],['Работы','index.html#projects'],['Что входит','index.html#overview'],['Как работаю','index.html#about'],['Стоимость','index.html#collaboration'],['Вопросы','index.html#faq'],['Контакт','index.html#contact']],
+      home: 'rqke / SYSTEMS — главная', navLabel: 'Основная навигация', cta: 'Обсудить задачу', open: 'Открыть меню', close: 'Закрыть меню', switchLabel: 'Переключить язык на английский',
+      tagline: 'Независимая разработка для бизнеса', projects: 'Проекты', services: 'Задачи', contact: 'Контакты', made: 'Спроектировано и разработано независимо', footerNav: 'Ссылки в подвале'
     },
     en: {
-      nav: [['Work', 'projects/'], ['Services', 'index.html#services'], ['Approach', 'index.html#about'], ['Outcomes', 'index.html#overview'], ['Contact', 'index.html#contact']],
-      home: 'rqke / SYSTEMS — homepage', navLabel: 'Primary navigation', cta: 'Discuss a project', open: 'Open menu', close: 'Close menu', switchLabel: 'Switch language to Russian',
-      tagline: 'Independent Developer', projects: 'Projects', services: 'Services', contact: 'Contact', made: 'Designed and developed independently', footerNav: 'Footer links'
+      nav: [['Home','index.html#home'],['Needs','index.html#services'],['Work','index.html#projects'],['Included','index.html#overview'],['Process','index.html#about'],['Pricing','index.html#collaboration'],['Questions','index.html#faq'],['Contact','index.html#contact']],
+      home: 'rqke / SYSTEMS — homepage', navLabel: 'Primary navigation', cta: 'Discuss your needs', open: 'Open menu', close: 'Close menu', switchLabel: 'Switch language to Russian',
+      tagline: 'Independent development for businesses', projects: 'Projects', services: 'Services', contact: 'Contact', made: 'Designed and developed independently', footerNav: 'Footer links'
     }
   };
 

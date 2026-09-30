@@ -1,0 +1,137 @@
+/* Fit the expanded business copy into the existing paper, ink and bronze system. */
+.rk-hero-copy { width: min(43vw, 670px); }
+.rk-hero-copy h1 { max-width: none; font-size: clamp(2.8rem, 3.5vw, 4.25rem); line-height: 1; }
+.rk-hero-hint { margin: 14px 0 0; color: var(--rk-paper); font-size: .9rem; line-height: 1.55; }
+.rk-hero-stage { min-height: 850px; }
+.rk-hero-wordmark span { transform: translateY(3.8em); }
+.projects-rail-footer { grid-template-columns: 1fr auto 1fr; }
+.rqke-experience .projects-rail-sticky { grid-template-columns: minmax(0, 1fr); }
+.rqke-experience .projects-rail-heading, .rqke-experience .projects-rail-footer { width: 100%; min-width: 0; margin-inline: 0; }
+.rqke-experience .project-rail-card { opacity: 1; filter: none; transform: none; }
+.rqke-experience .project-rail-track[data-has-focus="true"] .project-rail-card:not([data-active="true"]) { opacity: 1; filter: none; transform: none; }
+.rqke-experience .projects-rail-heading h2 { max-width: none; font-size: clamp(2.6rem, 3.3vw, 3.8rem); }
+.rqke-experience .project-rail-card { height: 460px; min-height: 460px; }
+.project-rail-copy strong { font-size: clamp(2.5rem, 3vw, 3.8rem); line-height: 1; }
+.project-rail-description { margin-top: 12px; }
+.project-rail-shade { background: linear-gradient(to bottom, rgba(9,9,9,.1), rgba(9,9,9,.82) 40%, rgba(9,9,9,.98)); }
+.rk-service-grid h3 { margin-top: 32px; font-size: clamp(2rem, 2.8vw, 3.3rem); line-height: 1.07; }
+.rk-service-grid li { align-items: flex-start; font-size: .85rem; }
+.rk-service-grid li svg { flex-shrink: 0; margin-top: 4px; }
+.rk-services-note { max-width: 65ch; margin: 32px 0 0; color: var(--rk-marble); }
+.project-rail-subtitle { margin-top: 16px; font-size: 1.05rem; line-height: 1.5; color: var(--rk-paper); }
+.project-rail-type { line-height: 1.5; }
+.project-rail-end > span:last-of-type { font-size: .95rem; letter-spacing: 0; line-height: 1.6; text-transform: none; color: var(--rk-paper); }
+.project-rail-controls { display: flex; gap: 10px; }
+.project-rail-controls button { min-width: 44px; min-height: 44px; border: 1px solid var(--rk-light-line); color: var(--rk-paper); background: transparent; cursor: pointer; }
+.rk-collaboration { position: relative; background: var(--rk-paper); }
+#testimonial { position: absolute; top: 0; }
+.rk-cost { max-width: 850px; margin-left: auto; border-top: 1px solid var(--rk-line); padding-top: 32px; }
+.rk-cost h3 { font: 500 clamp(2rem, 3vw, 3rem)/1.1 var(--serif); }
+.rk-cost p { max-width: 70ch; color: #565550; line-height: 1.7; }
+.rk-cost a { margin-top: 16px; background: var(--rk-ink); color: var(--rk-paper); }
+.rk-footer { padding: 36px var(--rk-gutter) 36px calc(var(--rk-rail) + var(--rk-gutter)); display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 24px; background: var(--rk-ink); color: var(--rk-paper); font-size: .85rem; }
+.rk-footer p { margin: 0; }
+.rqke-experience .contact-section { min-height: 0; padding-right: var(--rk-gutter); padding-block: 90px; gap: 44px; overflow: visible; }
+.rqke-experience .contact-copy { padding: 32px 0; border: 0; justify-content: flex-start; }
+.rqke-experience .contact-copy .eyebrow { color: var(--rk-black); }
+.rqke-experience .contact-copy h2 { line-height: 1; }
+.contact-options { display: grid; gap: 24px; min-width: 0; }
+.contact-options article { padding: 30px; border: 1px solid rgba(9,9,9,.35); background: rgba(244,242,237,.15); }
+.contact-options h3 { font: 500 clamp(1.8rem, 2.4vw, 2.5rem)/1.1 var(--serif); }
+.contact-options p { line-height: 1.65; color: var(--rk-black); }
+.contact-options .button { width: fit-content; text-align: left; }
+.contact-options .button-dark { background: var(--rk-black); color: var(--rk-paper); }
+.contact-message { border: 1px solid var(--rk-black); }
+.brief-details, .booking-panel { grid-column: 1 / -1; min-width: 0; position: relative; z-index: 1; }
+.brief-details > summary, .brief-extra > summary { min-height: 52px; padding: 14px 0; cursor: pointer; border-block: 1px solid rgba(9,9,9,.35); }
+.brief-details > summary svg { width: 18px; vertical-align: middle; margin-left: 12px; }
+.rqke-experience .contact-form, .contact-brief { max-width: 900px; padding: 40px 0 0; margin-inline: auto; }
+.rqke-experience .contact-form[hidden], [hidden] { display: none !important; }
+.rqke-experience .contact-form label { font-size: .8rem; text-transform: none; letter-spacing: 0; }
+.rqke-experience .contact-form label small { font-size: .85rem; line-height: 1.6; font-weight: 500; }
+.rqke-experience .contact-form textarea, .rqke-experience .contact-form input { padding-inline: 10px; background: rgba(244,242,237,.2); }
+.rqke-experience .contact-form textarea:focus-visible, .rqke-experience .contact-form input:focus-visible { outline: 2px solid var(--rk-black); outline-offset: 2px; }
+.brief-extra { margin-bottom: 26px; }
+.brief-extra > label, .brief-extra > .field-row { margin-top: 22px; }
+.field-error, .form-error { color: #491309; }
+.contact-brief pre { overflow-wrap: anywhere; max-height: none; }
+.contact-edit, .contact-brief > div a, .contact-brief > div button { font-size: .85rem; }
+.booking-panel { border-top: 1px solid rgba(9,9,9,.35); padding-top: 30px; }
+.booking-panel h3 { font: 500 2rem/1.2 var(--serif); }
+.booking-panel iframe { display: block; width: 100%; height: 780px; border: 0; background: white; }
+.booking-external { display: inline-block; text-decoration: underline; padding-block: 10px; }
+.booking-close { min-height: 48px; padding: 10px 18px; background: transparent; border: 1px solid var(--rk-black); cursor: pointer; }
+.contact-section :focus-visible { outline-color: var(--rk-black); }
+.site-header { grid-template-columns: auto 1fr auto; gap: 24px; }
+.desktop-nav { justify-self: center; gap: 16px; }
+.case-demo-cover { padding-inline: 32px; max-width: 1544px; margin: 0 auto; }
+.case-demo-cover .case-cover { margin: 0; }
+.case-goals h3, .case-overview h3 { margin-top: 36px; font: 500 2rem/1.1 var(--serif); }
+@media (max-width: 1280px) {
+  .desktop-nav { display: none; }
+  .menu-toggle { display: grid; }
+}
+@media (max-width: 767px) {
+  .rk-hero-stage { height: auto !important; min-height: 0 !important; padding-top: 270px; padding-bottom: 12px; }
+  .rk-hero-copy { position: relative; left: auto; bottom: auto; margin: 0 12px; width: auto; }
+  .rk-service-grid h3 { font-size: 2.2rem; line-height: 1.08; }
+  .rk-footer { padding: 32px 20px; }
+  .rqke-experience .contact-section { padding: 64px 20px; gap: 28px; }
+  .rqke-experience .contact-copy { padding: 0; }
+  .contact-options article { padding: 24px; }
+  .rqke-experience .contact-form, .contact-brief { padding: 30px 0 0; }
+  .project-rail-controls { display: none; }
+  .case-demo-cover { padding-inline: 16px; }
+}
+html.rqke-force-mobile .rk-hero-stage { height: auto !important; min-height: 0 !important; padding-top: 190px; padding-bottom: 12px; }
+html.rqke-force-mobile .rk-hero-sculpture { top: 80px !important; height: 160px !important; width: 180px !important; opacity: .55; }
+html.rqke-force-mobile .rk-hero-copy { position: relative !important; left: auto !important; right: auto !important; bottom: auto !important; margin: 0 12px; width: auto !important; padding: 24px !important; }
+html.rqke-force-mobile .rk-hero-copy h1 { font-size: clamp(2.15rem, 7.8vw, 3.4rem) !important; line-height: 1.04; }
+html.rqke-force-mobile .rk-hero-lead { font-size: 1rem !important; }
+html.rqke-force-mobile .rk-hero-actions a { flex-basis: 100%; font-size: .8rem; padding: 10px 12px !important; }
+html.rqke-force-mobile .rk-hero-traits { display: grid !important; position: relative; inset: auto; width: auto; min-height: 0; margin: 20px 12px 12px; transform: none; }
+html.rqke-force-mobile .project-rail-viewport { overflow: visible !important; }
+html.rqke-force-mobile .project-rail-track { flex-direction: column; width: 100% !important; padding: 0 16px !important; transform: none !important; gap: 24px; }
+html.rqke-force-mobile .project-rail-card, html.rqke-force-mobile .project-rail-end { width: 100% !important; min-width: 0 !important; }
+html.rqke-force-mobile .project-rail-card { min-height: 620px; }
+html.rqke-force-mobile .project-rail-copy { right: 24px; bottom: 95px; }
+html.rqke-force-mobile .project-rail-copy strong { font-size: clamp(2rem, 8vw, 3.2rem); overflow-wrap: anywhere; }
+html.rqke-force-mobile .project-rail-type { font-size: .75rem; }
+html.rqke-force-mobile .project-rail-end { min-height: 350px !important; }
+html.rqke-force-mobile .rqke-experience .contact-section { padding: 64px 20px !important; gap: 28px; }
+html.rqke-force-mobile .rqke-experience .contact-copy { padding: 0 !important; }
+html.rqke-force-mobile .rqke-experience .contact-form, html.rqke-force-mobile .contact-brief { padding: 30px 0 0 !important; }
+html.rqke-force-mobile .rk-footer { padding: 32px 20px; }
+html.rqke-force-mobile .rk-service-grid h3 { font-size: clamp(2rem, 6vw, 2.6rem); line-height: 1.08; }
+html.rqke-force-mobile .project-rail-controls { display: none; }
+html.rqke-force-mobile .projects-rail-footer { grid-template-columns: 1fr auto; }
+html.rqke-force-mobile .project-rail-card { display: flex; flex-direction: column; height: auto !important; min-height: 0 !important; }
+html.rqke-force-mobile .project-rail-media { position: relative; inset: auto; height: 220px; flex-shrink: 0; transform: none !important; }
+html.rqke-force-mobile .project-rail-shade { display: none; }
+html.rqke-force-mobile .project-rail-copy { position: relative; inset: auto; padding: 24px 24px 80px; }
+.contact-form input, .contact-form textarea { scroll-margin-top: 100px; }
+.rqke-experience .projects-rail-section { height: auto !important; }
+.rqke-experience .projects-rail-sticky { position: relative; height: auto; min-height: 0; grid-template-rows: auto auto auto; }
+.rqke-experience .project-rail-viewport { overflow-x: auto; padding-block: 16px; }
+.rqke-experience .project-rail-track { transform: none !important; align-items: stretch; }
+.rqke-experience .project-rail-card { height: auto; min-height: 0; display: flex; flex-direction: column; }
+.rqke-experience .project-rail-media { position: relative; inset: auto; height: 220px; flex-shrink: 0; transform: none !important; }
+.rqke-experience .project-rail-copy { position: relative; inset: auto; padding: 26px 26px 90px; flex: 1 0 auto; }
+.rqke-experience .project-rail-shade { display: none; }
+.project-rail-tags > span { display: inline-flex !important; }
+html.rqke-force-mobile .rqke-experience .project-rail-track { width: 100% !important; flex-direction: column; gap: 24px !important; }
+html.rqke-force-mobile .rqke-experience .project-rail-card, html.rqke-force-mobile .rqke-experience .project-rail-end { width: 100% !important; flex: 0 0 auto !important; aspect-ratio: auto !important; }
+html.rqke-force-mobile .rqke-experience .project-rail-copy { flex-shrink: 0; }
+/* Long Russian headings must fit even while the web font is unavailable. */
+.rqke-experience h1, .rqke-experience h2, .rqke-experience h3, .case-title { overflow-wrap: anywhere; }
+html.rqke-force-mobile .rqke-experience h1, html.rqke-force-mobile .rqke-experience h2, html.rqke-force-mobile .rqke-experience h3 { overflow-wrap: anywhere; }
+html.rqke-force-mobile .rqke-experience .projects-rail-heading h2 { width: 100% !important; max-width: none !important; font-size: clamp(1.65rem, 7.3vw, 2.6rem) !important; }
+@media (max-height: 850px), (prefers-reduced-motion: reduce) {
+  .rqke-experience .projects-rail-section { height: auto !important; }
+  .rqke-experience .projects-rail-sticky { position: relative; height: auto; overflow: visible; }
+  .rqke-experience .project-rail-viewport { overflow-x: auto; padding-block: 20px; }
+  .rqke-experience .project-rail-track { transform: none; }
+  .project-rail-controls { display: none; }
+  .projects-rail-footer { grid-template-columns: 1fr auto; }
+}
+@media (prefers-reduced-motion: reduce) { *, *::before, *::after { scroll-behavior: auto !important; animation-duration: .01ms !important; transition-duration: .01ms !important; } }

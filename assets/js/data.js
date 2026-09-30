@@ -18,11 +18,11 @@
       "id": "beauty-booking",
       "slug": "beauty-booking",
       "title": "BeautyBook",
-      "subtitle": "Платформа поиска салонов, онлайн-записи и управления операциями",
-      "shortDescription": "Цифровой продукт для поиска салонов, записи клиентов и управления операциями.",
-      "fullDescription": "Платформа объединяет публичный каталог салонов, транзакционную запись к специалистам, личный кабинет клиента, рабочее пространство владельца и административный контур.",
+      "subtitle": "Онлайн-запись и управление расписанием салона",
+      "shortDescription": "Клиент выбирает услугу, специалиста и свободное время. Владелец управляет расписанием, сотрудниками и записями.",
+      "fullDescription": "Демонстрационный сервис для поиска салонов и онлайн-записи. Клиент выбирает услугу, специалиста и доступное время. В кабинете салона можно управлять сотрудниками, услугами и расписанием.",
       "category": "Web Application",
-      "status": "Personal Project",
+      "status": "Personal Project · Demo version",
       "featured": true,
       "year": "2026",
       "role": "Product Design & Development",
@@ -122,22 +122,35 @@
           "description": "Redis с резервным in-memory режимом"
         }
       ],
-      "result": "Реализован полный демонстрационный цикл сервиса: от поиска салона и записи клиента до управления расписанием владельцем и super-admin операций.",
+      "result": "Реализован сценарий от поиска салона и записи клиента до обработки записей владельцем. Проверка занятости времени предусмотрена в серверной логике.",
       "futureFeatures": [
         "Production-платежи",
         "Расширенная аналитика салона",
         "Постоянный production-hosting",
         "Push-уведомления"
       ],
-      "githubUrl": "https://github.com/rqkeqq-ui/beauty-booking"
+      "githubUrl": "https://github.com/rqkeqq-ui/beauty-booking",
+      "task": "Соединить выбор салона, запись клиента и управление расписанием в одном продукте. Важно, чтобы доступное время учитывало график специалиста и уже созданные записи.",
+      "limitations": "Это личный демонстрационный проект. Приём реальных платежей и постоянный production-хостинг не входят в текущую версию.",
+      "scenario": [
+        "Клиент находит салон и выбирает услугу.",
+        "Выбирает специалиста и доступное время с учётом расписания.",
+        "Создаёт запись и просматривает её в своём кабинете.",
+        "Владелец управляет записями, сотрудниками и расписанием."
+      ],
+      "tags": [
+        "Онлайн-запись",
+        "Расписание",
+        "Кабинеты"
+      ]
     },
     {
       "id": "library-system",
       "slug": "library-system",
       "title": "Library Management System",
-      "subtitle": "Веб-сервис для каталога, бронирований и библиотечных операций",
-      "shortDescription": "Цифровая система для каталога, бронирований, выдачи книг и работы администратора.",
-      "fullDescription": "Система для одной библиотеки: пользователь ищет и бронирует книги, следит за своими заявками, а администратор обрабатывает выдачу, возврат и продление.",
+      "subtitle": "Каталог и учёт выдачи книг",
+      "shortDescription": "Читатель находит и бронирует книгу. Сотрудник обрабатывает заявки, выдачу, возврат и продление в одной системе.",
+      "fullDescription": "Сервис для одной библиотеки. Читатель ищет книги, создаёт бронирование и следит за заявками. Сотрудник ведёт каталог и обрабатывает выдачу, возврат и продление.",
       "category": "Web Application",
       "status": "Personal Project",
       "featured": true,
@@ -227,7 +240,7 @@
           "description": "MySQL, подключение через PDO"
         }
       ],
-      "result": "Проект позволил пройти полный цикл классического веб-приложения: схема данных, авторизация, пользовательский интерфейс и административная панель.",
+      "result": "Реализованы поиск и бронирование книг, история заявок и административные операции с каталогом и выдачей.",
       "futureFeatures": [
         "Автоматические тесты",
         "CI",
@@ -235,15 +248,47 @@
         "Уведомления читателей"
       ],
       "liveUrl": "https://library-system-rqke.freehosting.dev",
-      "githubUrl": "https://github.com/rqkeqq-ui/library-system"
+      "githubUrl": "https://github.com/rqkeqq-ui/library-system",
+      "task": "Собрать каталог, бронирование и работу сотрудника с заявками в одной системе, разделив действия читателя и администратора.",
+      "limitations": "Это личный проект для одной библиотеки. Поддержка нескольких филиалов, уведомления и автоматические тесты обозначены как следующие этапы.",
+      "scenario": [
+        "Читатель находит книгу в каталоге.",
+        "Создаёт бронирование и следит за статусом заявки.",
+        "Сотрудник обрабатывает заявку и выдаёт книгу.",
+        "Возврат и продление учитываются в той же системе."
+      ],
+      "tags": [
+        "Каталог",
+        "Заявки",
+        "Учёт"
+      ]
     }
-  ]
+  ],
+  "booking": {
+    "bookingUrl": "https://calendar.google.com/calendar/appointments/schedules/AcZssZ1yDopAwemJlVCMC_5SaphPv4gY8gVfQIh14DquWUOq39gLGT5Ywbnf3RtBzxfCg_2z2r6bbPvP",
+    "bookingEmbedUrl": "https://calendar.google.com/calendar/appointments/schedules/AcZssZ1yDopAwemJlVCMC_5SaphPv4gY8gVfQIh14DquWUOq39gLGT5Ywbnf3RtBzxfCg_2z2r6bbPvP?gv=true",
+    "durationMinutes": 30,
+    "timeZone": "Asia/Barnaul",
+    "availability": {
+      "days": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6
+      ],
+      "start": "13:00",
+      "end": "20:00"
+    }
+  }
 };
   const english = {
   "beauty-booking": {
-    "subtitle": "A platform for salon discovery, online booking and operations management",
-    "shortDescription": "A digital product for salon discovery, customer booking and day-to-day operations.",
-    "fullDescription": "The platform connects a public salon catalogue, transactional specialist booking, a customer account, an owner workspace and an administrative layer.",
+    "subtitle": "Online booking and salon schedule management",
+    "shortDescription": "Customers choose a service, specialist and available time. Owners manage schedules, staff and bookings.",
+    "fullDescription": "A demo service for salon discovery and online booking. Customers choose a service, specialist and available time. Salon owners manage staff, services and schedules in their workspace.",
     "coverAlt": "BeautyBook platform homepage",
     "gallery": [
       {
@@ -315,18 +360,31 @@
         "description": "Redis with an in-memory fallback"
       }
     ],
-    "result": "The complete demonstration cycle is implemented: from salon discovery and customer booking to schedule management by the owner and super-admin operations.",
+    "result": "The journey from salon discovery and customer booking to owner booking management is implemented. Server-side logic checks occupied time.",
     "futureFeatures": [
       "Production payments",
       "Advanced salon analytics",
       "Persistent production hosting",
       "Push notifications"
+    ],
+    "task": "Connect salon selection, customer booking and schedule management in one product. Availability must account for specialist schedules and existing bookings.",
+    "limitations": "This is a personal demonstration project. Real payments and persistent production hosting are outside the current version.",
+    "scenario": [
+      "Find a salon and choose a service.",
+      "Choose a specialist and an available time based on their schedule.",
+      "Create a booking and view it in the customer account.",
+      "The owner manages bookings, staff and schedules."
+    ],
+    "tags": [
+      "Online booking",
+      "Schedules",
+      "Workspaces"
     ]
   },
   "library-system": {
-    "subtitle": "A web service for catalogue, reservations and library operations",
-    "shortDescription": "A digital system for the catalogue, reservations, lending and administrator workflow.",
-    "fullDescription": "A system for a single library: readers search and reserve books and track their requests, while administrators handle issue, return and renewal operations.",
+    "subtitle": "Book catalogue and lending management",
+    "shortDescription": "Readers find and reserve books. Staff handle requests, lending, returns and renewals in one system.",
+    "fullDescription": "A service for one library. Readers search for books, create reservations and track requests. Staff maintain the catalogue and handle lending, returns and renewals.",
     "coverAlt": "Library Management System banner",
     "gallery": [
       {
@@ -388,22 +446,36 @@
         "description": "MySQL through PDO"
       }
     ],
-    "result": "The project covers the complete cycle of a classic web application: data schema, authentication, reader interface and administration panel.",
+    "result": "Book search and reservations, request history, and administrative catalogue and lending operations are implemented.",
     "futureFeatures": [
       "Automated tests",
       "Continuous integration",
       "Multiple library branches",
       "Reader notifications"
+    ],
+    "task": "Bring the catalogue, reservations and staff request processing into one system, separating reader and administrator actions.",
+    "limitations": "A personal project for one library. Multiple branches, notifications and automated tests are planned next steps.",
+    "scenario": [
+      "Find a book in the catalogue.",
+      "Create a reservation and track its status.",
+      "Staff process the request and lend the book.",
+      "Returns and renewals are recorded in the same system."
+    ],
+    "tags": [
+      "Catalogue",
+      "Requests",
+      "Records"
     ]
   }
 };
   const categoryRu = {'Landing Page':'Лендинг','Business Website':'Бизнес-сайт','Web Application':'Веб-приложение','AI Automation':'AI-автоматизация','AI Agent':'AI-агент'};
-  const statusRu = {'Commercial Project':'Коммерческий проект','Personal Project':'Личный проект','Concept':'Концепт','In Development':'В разработке'};
+  const statusRu = {'Personal Project · Demo version':'Личный проект · Демонстрационная версия','Commercial Project':'Коммерческий проект','Personal Project':'Личный проект','Concept':'Концепт','In Development':'В разработке'};
   function localizeProject(project, language) {
     if (language !== 'en') return structuredClone(project);
     const text = english[project.slug];
     if (!text) return structuredClone(project);
     const next = structuredClone(project);
+    next.task = text.task; next.scenario = text.scenario; next.limitations = text.limitations; next.tags = text.tags;
     next.subtitle = text.subtitle; next.shortDescription = text.shortDescription; next.fullDescription = text.fullDescription;
     next.coverImage.alt = text.coverAlt;
     next.gallery = next.gallery.map((image, index) => ({...image, ...(text.gallery[index] || {})}));
