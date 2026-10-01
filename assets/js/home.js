@@ -18,7 +18,19 @@ import heroImageUrl from '../images/statues/rqke-hero-cutout.png';
       window.screen?.width,
     ].filter(value => Number.isFinite(value) && value > 0);
     const visualWidth = Math.min(...widths);
-    document.documentElement.classList.toggle('rqke-force-mobile', visualWidth <= 1100);
+    const mobile = visualWidth <= 1100;
+    document.documentElement.classList.toggle('rqke-force-mobile', mobile);
+    const hero = document.querySelector('.rk-hero-shell');
+    const traits = document.querySelector('.rk-hero-traits');
+    const heroCopy = hero?.querySelector('.rk-hero-copy');
+    if (!heroCopy || !traits) return;
+    if (mobile) hero.after(traits);
+    else heroCopy.after(traits);
+    const stage = hero.querySelector('.rk-hero-stage');
+    if (mobile && visualWidth <= 767 && innerHeight > visualWidth) {
+      const height = Math.min(innerHeight, document.documentElement.clientHeight, window.visualViewport?.height || innerHeight);
+      stage.style.setProperty('--hero-art-space', `${Math.max(148, Math.min(420, height - heroCopy.offsetHeight - 16))}px`);
+    } else stage.style.removeProperty('--hero-art-space');
   };
   syncForcedMobileLayout();
   window.visualViewport?.addEventListener('resize', syncForcedMobileLayout, { passive: true });
@@ -75,14 +87,14 @@ import heroImageUrl from '../images/statues/rqke-hero-cutout.png';
 
   const booking = data.booking;
   const bookingEnabled = Boolean(booking.bookingUrl && booking.calLink);
-  let bookingOpen = sessionStorage.getItem('rqke-booking-open') === 'true';
+  let bookingOpen = false;
   const track = name => document.dispatchEvent(new CustomEvent('rqke:analytics', { detail: { name } }));
   function renderContact() {
     return `<section id="contact" class="contact-section" aria-labelledby="contact-title">
       <div class="contact-copy"><p class="eyebrow">${contactText.eyebrow}</p><h2 id="contact-title">${contactText.title}</h2><p>${bookingEnabled ? (language === 'ru' ? 'Расскажите, что хотите запустить или изменить. Можно выбрать время разговора или начать с сообщения.' : 'Tell me what you want to launch or change. Choose a time for a call or start with a message.') : contactText.lead}</p></div>
-      <div class="contact-options"><article><h3>${contactText.callTitle}</h3><p>${contactText.callText}</p>${bookingEnabled ? `<button id="booking-toggle" class="button button-dark" type="button" aria-expanded="false" aria-controls="booking-panel">${contactText.choose}${icons.arrowUpRight}</button>` : `<p class="booking-pending">${contactText.callPending}</p><a class="button button-dark" href="${telegram}" target="_blank" rel="noopener noreferrer">${contactText.telegram}${icons.telegram}</a>`}</article>
+      <div class="contact-options"><article><h3>${contactText.callTitle}</h3><p>${contactText.callText}</p>${bookingEnabled ? `<button id="booking-toggle" class="button button-dark" type="button" aria-haspopup="dialog" aria-expanded="false" aria-controls="booking-panel">${contactText.choose}${icons.arrowUpRight}</button>` : `<p class="booking-pending">${contactText.callPending}</p><a class="button button-dark" href="${telegram}" target="_blank" rel="noopener noreferrer">${contactText.telegram}${icons.telegram}</a>`}</article>
       <article><h3>${contactText.messageTitle}</h3><p>${contactText.messageText}</p><a class="button contact-message" href="${telegram}" target="_blank" rel="noopener noreferrer">${contactText.telegram}${icons.telegram}</a></article></div>
-      ${bookingEnabled ? `<div id="booking-panel" class="booking-panel" hidden><h3 id="booking-heading" tabindex="-1">${contactText.bookingTitle}</h3><p>${contactText.bookingTimezone}</p><p class="booking-loading" role="status">${contactText.bookingOpening}</p><div class="booking-frame"></div><p>${contactText.bookingFallback}</p><a class="booking-external" href="${escape(booking.bookingUrl)}" target="_blank" rel="noopener noreferrer">${contactText.bookingExternal} ↗</a><p>${contactText.bookingAlternative} <a href="${telegram}" target="_blank" rel="noopener noreferrer">Telegram ↗</a></p><button type="button" class="booking-close">${contactText.bookingClose}</button></div>` : ''}
+      ${bookingEnabled ? `<dialog id="booking-panel" class="booking-modal" aria-labelledby="booking-heading"><div class="booking-modal-header"><h3 id="booking-heading" tabindex="-1">${contactText.bookingTitle}</h3><button type="button" class="booking-close" aria-label="${contactText.bookingClose}">${icons.close}</button></div><div class="booking-modal-body"><p class="booking-timezone">${contactText.bookingTimezone}</p><p class="booking-loading" role="status">${contactText.bookingOpening}</p><div class="booking-frame"></div><div class="booking-modal-fallback"><p>${contactText.bookingFallback}</p><a class="booking-external" href="${escape(booking.bookingUrl)}" target="_blank" rel="noopener noreferrer">${contactText.bookingExternal} ↗</a><p>${contactText.bookingAlternative} <a href="${telegram}" target="_blank" rel="noopener noreferrer">Telegram ↗</a></p></div></div></dialog>` : ''}
       <details class="brief-details"><summary>${contactText.help}${icons.arrowDown}</summary><form class="contact-form" novalidate>
       <div class="contact-form-heading"><h3>${contactText.formTitle}</h3><p>${contactText.formLead}</p></div>
       <label>${contactText.description} *<small id="description-hint">${contactText.descriptionHint}</small><textarea name="description" rows="5" required aria-describedby="description-hint description-error"></textarea><small id="description-error" class="field-error" hidden></small></label>
@@ -136,7 +148,8 @@ import heroImageUrl from '../images/statues/rqke-hero-cutout.png';
   }
 
   render();
-  main.querySelector('.rk-hero-copy').after(main.querySelector('.rk-hero-traits'));
+  syncForcedMobileLayout();
+  document.fonts?.ready.then(syncForcedMobileLayout);
 
   const intro = main.querySelector('.rk-intro');
   const reducedMotion = matchMedia('(prefers-reduced-motion: reduce)').matches;
@@ -180,15 +193,9 @@ import heroImageUrl from '../images/statues/rqke-hero-cutout.png';
   const clamp = value => Math.min(1, Math.max(0, value));
 
   function getJourneyPoint(anchor) {
-    let x = anchor.offsetLeft + anchor.offsetWidth / 2;
-    let y = anchor.offsetTop + anchor.offsetHeight / 2;
-    let parent = anchor.offsetParent;
-    while (parent && parent !== journeySection) {
-      x += parent.offsetLeft;
-      y += parent.offsetTop;
-      parent = parent.offsetParent;
-    }
-    return { x, y };
+    const rect = anchor.getBoundingClientRect();
+    const sectionRect = journeySection.getBoundingClientRect();
+    return { x: rect.left + rect.width / 2 - sectionRect.left, y: rect.top + rect.height / 2 - sectionRect.top };
   }
 
   function layoutJourneyPath() {
@@ -221,9 +228,8 @@ import heroImageUrl from '../images/statues/rqke-hero-cutout.png';
         const directionBias = index % 2 ? 1 : 0;
         const amplitude = 15 + directionBias * 5;
         const controlX = Math.max(8, borderX - amplitude);
-        const c1y = previous.y + dy * .33;
-        const c2y = current.y - dy * .33;
-        segment = `C ${controlX.toFixed(2)} ${c1y.toFixed(2)}, ${controlX.toFixed(2)} ${c2y.toFixed(2)}, ${current.x.toFixed(2)} ${current.y.toFixed(2)}`;
+        const midY = previous.y + dy / 2;
+        segment = `C ${previous.x.toFixed(2)} ${(previous.y + dy * .16).toFixed(2)}, ${controlX.toFixed(2)} ${(previous.y + dy * .25).toFixed(2)}, ${controlX.toFixed(2)} ${midY.toFixed(2)} C ${controlX.toFixed(2)} ${(current.y - dy * .25).toFixed(2)}, ${current.x.toFixed(2)} ${(current.y - dy * .16).toFixed(2)}, ${current.x.toFixed(2)} ${current.y.toFixed(2)}`;
       } else {
         const direction = dx === 0 ? (index % 2 ? 1 : -1) : Math.sign(dx);
         const horizontalBend = dx === 0
@@ -310,7 +316,7 @@ import heroImageUrl from '../images/statues/rqke-hero-cutout.png';
       if (active) {
         floatingMark?.setAttribute('data-scene', active);
         rail?.setAttribute('data-theme', ['projects', 'services'].includes(active) ? 'dark' : 'light');
-        main.querySelectorAll('.rk-rail-nav a').forEach(link => {
+        main.querySelectorAll('.rk-rail-nav a, .rk-mobile-menu nav a').forEach(link => {
           if (link.getAttribute('href') === '#' + active) link.setAttribute('aria-current', 'location');
           else link.removeAttribute('aria-current');
         });
@@ -423,30 +429,52 @@ import heroImageUrl from '../images/statues/rqke-hero-cutout.png';
 
   const bookingToggle = main.querySelector('#booking-toggle');
   const bookingPanel = main.querySelector('#booking-panel');
+  let bookingCloseTimer;
   function setBooking(open, focus = true) {
     if (!bookingEnabled || !bookingPanel) return;
-    bookingOpen = open;
-    sessionStorage.setItem('rqke-booking-open', String(open));
-    bookingToggle.setAttribute('aria-expanded', String(open));
-    bookingPanel.hidden = !open;
-    if (floatingMark) floatingMark.hidden = open;
+    clearTimeout(bookingCloseTimer);
     if (open) {
-      mountCalBooking(bookingPanel.querySelector('.booking-frame'), {
-        calLink: booking.calLink,
-        language,
-        title: contactText.iframeTitle,
-        onLoad: () => { bookingPanel.querySelector('.booking-loading').hidden = true; }
+      bookingOpen = true;
+      delete bookingPanel.dataset.closing;
+      bookingToggle.setAttribute('aria-expanded', 'true');
+      document.documentElement.classList.add('booking-open');
+      if (floatingMark) floatingMark.hidden = true;
+      if (!bookingPanel.open) bookingPanel.showModal();
+      requestAnimationFrame(() => {
+        if (!bookingPanel.open) return;
+        mountCalBooking(bookingPanel.querySelector('.booking-frame'), {
+          calLink: booking.calLink,
+          language,
+          title: contactText.iframeTitle,
+          onLoad: () => { bookingPanel.querySelector('.booking-loading').hidden = true; }
+        });
       });
+    } else if (bookingPanel.open) {
+      bookingPanel.dataset.closing = 'true';
+      bookingCloseTimer = setTimeout(() => bookingPanel.close(), reducedMotion ? 0 : 180);
     }
-    if (focus) (open ? bookingPanel.querySelector('h3') : bookingToggle).focus();
+    if (open && focus) bookingPanel.querySelector('h3').focus();
     if (open && focus) track('booking_open');
   }
   bookingToggle?.addEventListener('click', () => setBooking(!bookingOpen));
   main.querySelector('.booking-close')?.addEventListener('click', () => setBooking(false));
-  bookingPanel?.addEventListener('keydown', event => {
-    if (event.key === 'Escape') { event.preventDefault(); setBooking(false); }
+  bookingPanel?.addEventListener('cancel', event => {
+    event.preventDefault(); setBooking(false);
   });
-  if (bookingOpen && bookingEnabled) setBooking(true, false);
+  bookingPanel?.addEventListener('close', () => {
+    clearTimeout(bookingCloseTimer);
+    delete bookingPanel.dataset.closing;
+    bookingOpen = false;
+    bookingToggle.setAttribute('aria-expanded', 'false');
+    document.documentElement.classList.remove('booking-open');
+    if (floatingMark) floatingMark.hidden = false;
+    bookingToggle.focus({ preventScroll: true });
+  });
+  bookingPanel?.addEventListener('click', event => {
+    if (event.target !== bookingPanel) return;
+    const rect = bookingPanel.getBoundingClientRect();
+    if (event.clientX < rect.left || event.clientX > rect.right || event.clientY < rect.top || event.clientY > rect.bottom) setBooking(false);
+  });
   document.addEventListener('click', event => {
     const link = event.target.closest('a');
     if (link?.href.startsWith(telegram)) track('telegram_click');

@@ -31,7 +31,7 @@
 .rk-cost a { margin-top: 16px; background: var(--rk-ink); color: var(--rk-paper); }
 .rk-footer { padding: 36px var(--rk-gutter) 36px calc(var(--rk-rail) + var(--rk-gutter)); display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 24px; background: var(--rk-ink); color: var(--rk-paper); font-size: .85rem; }
 .rk-footer p { margin: 0; }
-.rqke-experience .contact-section { min-height: 0; padding-right: var(--rk-gutter); padding-block: 90px; gap: 44px; overflow: visible; }
+.rqke-experience .contact-section { min-height: 100svh; padding-right: var(--rk-gutter); padding-block: clamp(48px, 8svh, 90px); gap: 44px; align-content: center; overflow: visible; }
 .rqke-experience .contact-copy { padding: 32px 0; border: 0; justify-content: flex-start; }
 .rqke-experience .contact-copy .eyebrow { color: var(--rk-black); }
 .rqke-experience .contact-copy h2 { line-height: 1; }
@@ -136,11 +136,21 @@ html.rqke-force-mobile .rqke-experience .projects-rail-heading h2 { width: 100% 
 }
 @media (prefers-reduced-motion: reduce) { *, *::before, *::after { scroll-behavior: auto !important; animation-duration: .01ms !important; transition-duration: .01ms !important; } }
 
-/* Keep the first mobile view focused on the identity and sculpture. */
-html.rqke-force-mobile .rk-hero-stage { padding-top: clamp(360px, 48svh, 460px); }
-html.rqke-force-mobile .rk-hero-sculpture { top: 88px !important; left: 64% !important; height: 290px !important; width: 250px !important; opacity: .78; }
-html.rqke-force-mobile .rk-hero-wordmark { top: 145px !important; left: 16px !important; }
+/* Identity, complete introduction and both actions fit the initial phone view. */
+html.rqke-force-mobile .rk-hero-stage { --hero-art-space: clamp(160px, 26svh, 250px); min-height: 100svh !important; padding-top: var(--hero-art-space); }
+html.rqke-force-mobile .rk-hero-sculpture { top: 76px !important; left: 66% !important; height: calc(var(--hero-art-space) - 86px) !important; width: min(66vw, 260px) !important; opacity: .78; }
+html.rqke-force-mobile .rk-hero-wordmark { top: calc(76px + (var(--hero-art-space) - 86px) / 4) !important; left: 16px !important; font-size: clamp(66px, 20vw, 100px) !important; }
 html.rqke-force-mobile .rk-hero-wordmark > span { transform: none; }
+html.rqke-force-mobile .rk-hero-copy { padding: 18px !important; }
+html.rqke-force-mobile .rk-hero-kicker { margin-bottom: 10px; font-size: 9.5px; letter-spacing: .06em; }
+html.rqke-force-mobile .rk-hero-copy h1 { font-size: clamp(1.65rem, 7.3vw, 2.2rem) !important; line-height: 1.03; }
+html.rqke-force-mobile .rk-hero-lead { margin-top: 12px; font-size: .9rem !important; line-height: 1.45; }
+html.rqke-force-mobile .rk-hero-hint { margin-top: 10px; font-size: .82rem; line-height: 1.4; }
+html.rqke-force-mobile .rk-hero-actions { gap: 8px; margin-top: 12px; }
+html.rqke-force-mobile .rk-hero-actions a { flex: 1 1 100%; min-height: 44px; padding: 8px !important; font-size: .75rem; letter-spacing: 0; gap: 8px; }
+html.rqke-force-mobile .rk-hero-actions .rk-roll { white-space: nowrap; }
+html.rqke-force-mobile .rk-hero-actions svg { width: 14px; flex-shrink: 0; }
+html.rqke-force-mobile .rk-hero-shell + .rk-hero-traits { margin: 0 !important; padding: 32px 24px !important; width: 100% !important; max-width: none; border-inline: 0; background: var(--rk-ivory); }
 
 .rk-journey-list { row-gap: clamp(150px, 13vw, 210px); }
 .rk-journey-card:nth-child(even) { margin-top: 170px; }
@@ -149,6 +159,10 @@ html.rqke-force-mobile .rk-journey-card > div:nth-child(2) { justify-content: fl
 html.rqke-force-mobile .rk-journey-card > div:nth-child(2) > span { color: var(--rk-bronze-text); font: 700 13px/1 var(--sans); }
 html.rqke-force-mobile .rk-journey-card > div:nth-child(2) small { display: inline-flex; gap: 6px; align-items: baseline; }
 html.rqke-force-mobile .rk-journey-list { row-gap: 80px !important; }
+.rqke-experience .rk-journey-card[data-reveal] { transform: none !important; }
+html.rqke-force-mobile .rk-journey-path { display: block !important; }
+.rk-mobile-menu nav a[aria-current="location"] { background: var(--rk-bronze-action); color: var(--rk-paper); padding-inline: 12px; }
+.rk-mobile-menu nav a[aria-current="location"] small { color: var(--rk-paper); }
 
 /* Desktop wheel scrolling drives the pinned project strip. */
 .rqke-experience .projects-rail-section[data-scroll-rail="true"] { height: var(--rail-height, 260svh) !important; }
@@ -174,6 +188,33 @@ html.rqke-force-mobile .rk-journey-list { row-gap: 80px !important; }
 .rqke-experience .projects-rail-section:not([data-scroll-rail="true"]) .project-rail-end { width: 100%; height: auto; gap: 28px; min-height: 300px; }
 .projects-rail-section:not([data-scroll-rail="true"]) .project-rail-progress { display: none; }
 .projects-rail-section:not([data-scroll-rail="true"]) .projects-rail-footer { grid-template-columns: 1fr auto; }
+html { scrollbar-gutter: stable; }
+.booking-open { overflow: hidden; }
+.booking-modal { width: min(1120px, calc(100% - 48px)); max-width: none; max-height: calc(100dvh - 48px); margin: auto; padding: 0; border: 1px solid var(--rk-light-line); border-radius: 12px; background: #101010; color: var(--rk-paper); overflow: hidden; }
+.booking-modal[open] { display: flex; flex-direction: column; animation: booking-modal-in 220ms var(--rk-ease) both; }
+.booking-modal[data-closing="true"] { animation: booking-modal-out 180ms ease-in both; pointer-events: none; }
+.booking-modal::backdrop { background: rgba(9,9,9,.75); backdrop-filter: blur(4px); animation: booking-backdrop-in 220ms ease-out both; }
+.booking-modal[data-closing="true"]::backdrop { animation: booking-backdrop-out 180ms ease-in both; }
+@keyframes booking-modal-in { from { opacity: 0; transform: translateY(18px) scale(.97); } to { opacity: 1; transform: translateY(0) scale(1); } }
+@keyframes booking-modal-out { from { opacity: 1; transform: translateY(0) scale(1); } to { opacity: 0; transform: translateY(12px) scale(.98); } }
+@keyframes booking-backdrop-in { from { opacity: 0; } to { opacity: 1; } }
+@keyframes booking-backdrop-out { from { opacity: 1; } to { opacity: 0; } }
+.booking-modal-header { display: flex; align-items: center; justify-content: space-between; gap: 16px; padding: 18px 24px; border-bottom: 1px solid var(--rk-light-line); flex-shrink: 0; }
+.booking-modal-header h3 { margin: 0; font: 500 clamp(1.5rem, 2.5vw, 2rem)/1.1 var(--serif); }
+.booking-modal .booking-close { width: 44px; height: 44px; min-height: 44px; flex-shrink: 0; display: grid; place-items: center; padding: 10px; border-color: var(--rk-light-line); color: var(--rk-paper); }
+.booking-modal-body { padding: 0 16px 20px; min-height: 0; overflow-y: auto; overscroll-behavior: contain; }
+.booking-timezone, .booking-loading { margin: 14px 8px; font-size: .85rem; line-height: 1.5; color: var(--rk-marble); }
 .booking-frame { min-height: 560px; background: #101010; border-radius: 8px; overflow: hidden; }
-.booking-panel .booking-frame iframe { height: 100%; min-height: 560px; background: #101010; }
-@media (max-width: 767px) { .booking-frame, .booking-panel .booking-frame iframe { min-height: 700px; } }
+.booking-modal .booking-frame iframe { display: block; width: 100%; min-height: 560px; border: 0; background: #101010; }
+.booking-modal-fallback { padding: 12px 8px 0; font-size: .85rem; line-height: 1.5; }
+.booking-modal-fallback p { margin: 8px 0; color: var(--rk-marble); }
+.booking-modal-fallback a { color: var(--rk-paper); text-decoration: underline; text-underline-offset: 3px; }
+.booking-modal :focus-visible { outline: 2px solid var(--rk-bronze-light); outline-offset: 3px; }
+@media (max-width: 767px) {
+  .booking-modal { width: calc(100% - 16px); max-height: calc(100dvh - 16px); border-radius: 8px; }
+  .booking-modal-header { padding: 10px 12px; gap: 10px; }
+  .booking-modal-header h3 { font-size: 1.5rem; }
+  .booking-modal-body { padding-inline: 0; }
+  .booking-modal .booking-frame, .booking-modal .booking-frame iframe { min-height: 700px; }
+  .booking-timezone, .booking-loading, .booking-modal-fallback { margin-inline: 14px; }
+}
