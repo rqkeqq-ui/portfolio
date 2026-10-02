@@ -7,13 +7,13 @@ import previewFrames from '../previewFrames.json';
 // Effect, palette (background → highlight) and the address shown for each preview page.
 const LOOKS = {
   'beauty-booking': { effect: 'mesh', palette: ['#2a1421', '#d98aa0', '#f3c9a8'], host: 'beautybook.demo/', paths: ['', 'search', 'booking/forma-beauty', 'dashboard'] },
-  northcut: { effect: 'ink', palette: ['#0f0d0c', '#7a3e1d', '#d08a4f'], host: 'northcut.demo/', paths: ['', '#masters', '#booking'] },
+  northcut: { effect: 'ink', palette: ['#16100c', '#8a4620', '#e09a5a'], host: 'northcut.demo/', paths: ['', '#masters', '#booking'] },
   'weekly-table': { effect: 'lava', palette: ['#3b1d12', '#e2552d', '#f6c453'], host: 'weekly-table.demo/', paths: ['', '#menu', '#control'] },
   'verde-office': { effect: 'silk', palette: ['#0c2418', '#2f7a4f', '#b5dfa8'], host: 'verde-office.demo/', paths: ['', '#calc', 'kp-example'] },
-  'therma-home': { effect: 'lava', palette: ['#121418', '#c2410c', '#fbbf24'], host: 'therma-home.demo/', paths: ['', '#calc', '#solutions'] },
-  pawline: { effect: 'mesh', palette: ['#0b302a', '#25a58e', '#ffc9a3'], host: 'pawline.demo/', paths: ['', 'app', '#features'] },
+  'therma-home': { effect: 'magma', palette: ['#17110e', '#e0480f', '#ffc94a'], host: 'therma-home.demo/', paths: ['', '#calc', '#solutions'] },
+  pawline: { effect: 'caustics', palette: ['#06302c', '#1fa38c', '#ffd2ae'], host: 'pawline.demo/', paths: ['', 'app', '#features'] },
   'nord-module': { effect: 'contour', palette: ['#14181c', '#3c4853', '#cf7446'], host: 'nord-module.demo/', paths: ['', '#size', '#projects'] },
-  'lumen-event': { effect: 'aurora', palette: ['#09060f', '#f2b54a', '#8b5cf6'], host: 'lumen-event.demo/', paths: ['', '#constructor', '#portfolio'] },
+  'lumen-event': { effect: 'beams', palette: ['#0c0716', '#f5b84c', '#9b6bff'], host: 'lumen-event.demo/', paths: ['', '#constructor', '#portfolio'] },
   fixflow: { effect: 'waves', palette: ['#0b1828', '#2563b5', '#f5a623'], host: 'fixflow.demo/', paths: ['', 'track?order=4902', '#cabinet'] },
   'library-system': { effect: 'marble', palette: ['#120d26', '#5b3fd1', '#c9bcff'], host: 'library.demo/', paths: ['catalog', 'books/1984', 'my-books', 'admin'] }
 };
@@ -63,11 +63,26 @@ export function mountProjectCards(root, { asset }) {
     return { card, shader, reel };
   });
 
+  // Preload a card's frames, and its neighbours', as it nears the screen: in the horizontal slider the next
+  // card is clipped by the rail, so it would otherwise start loading only once swiped into view.
+  const prepareAround = card => {
+    const i = cards.findIndex(item => item.card === card);
+    for (const j of [i, i + 1, i - 1]) cards[j]?.reel.prepare();
+  };
+  const nearby = new IntersectionObserver(entries => {
+    for (const entry of entries) {
+      if (!entry.isIntersecting) continue;
+      prepareAround(entry.target);
+      nearby.unobserve(entry.target);
+    }
+  }, { rootMargin: '100% 100%' });
+  cards.forEach(entry => nearby.observe(entry.card));
+
   const activate = (entry, on) => {
     entry.card.classList.toggle('is-playing', on);
     entry.shader?.setEnergy(on ? 1 : 0);
     if (reducedMotion.matches) return;
-    if (on) entry.reel.play(); else entry.reel.pause();
+    if (on) { prepareAround(entry.card); entry.reel.play(); } else entry.reel.pause();
   };
 
   const autoplay = () => !hoverLayout.matches || document.documentElement.classList.contains('rqke-force-mobile');

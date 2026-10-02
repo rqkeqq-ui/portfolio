@@ -2,7 +2,7 @@
 // site (assets/images/previews); the reel scrolls it top to bottom, then "navigates" to the next page with
 // one of three transitions, like a visitor clicking through the site.
 const TRANSITIONS = ['fade', 'slide', 'wipe'];
-const HOLD = 700;          // pause at the top and bottom of a page, ms
+const HOLD = 500;          // pause at the top and bottom of a page, ms
 const TRANSITION = 900;    // page change, ms
 const SPEED = 0.16;        // share of the screen height scrolled per second
 
@@ -17,21 +17,30 @@ export function createReel(screen, frames, { onPage } = {}) {
   let playing = false;
   let raf = 0;
 
+  let ready = null;
+
+  // Creates the frame images and resolves once the first one is decoded. The poster (same picture) stays
+  // on screen until then, so a slow network never shows an empty screen.
   function ensureImages() {
-    if (images.length) return;
+    if (ready) return ready;
     images = frames.map((frame, i) => {
       const img = document.createElement('img');
       img.className = 'pc-frame';
       img.alt = '';
       img.decoding = 'async';
+      if (i > 0) img.loading = 'eager';
       img.width = frame.width;
       img.height = frame.height;
       img.src = frame.src;
-      img.style.opacity = i === 0 ? '1' : '0';
+      img.style.opacity = '0';
       screen.append(img);
       return img;
     });
-    screen.querySelector('.pc-poster')?.remove();
+    const first = images[0];
+    ready = (first.decode ? first.decode() : new Promise(done => { first.onload = done; }))
+      .catch(() => {})
+      .then(() => { if (index === 0) first.style.opacity = '1'; screen.querySelector('.pc-poster')?.remove(); });
+    return ready;
   }
 
   const travel = img => Math.max(0, img.getBoundingClientRect().height - screen.clientHeight);
@@ -96,7 +105,6 @@ export function createReel(screen, frames, { onPage } = {}) {
   return {
     play() {
       if (playing || !frames.length) return;
-      ensureImages();
       playing = true;
       const resume = () => {
         if (!playing) return;
@@ -104,9 +112,10 @@ export function createReel(screen, frames, { onPage } = {}) {
         if (phase === 'idle') { phase = 'scroll'; phaseStart = now; } else phaseStart = now - elapsed;
         raf = requestAnimationFrame(step);
       };
-      const first = images[index];
-      if (first.complete) resume(); else first.addEventListener('load', resume, { once: true });
+      ensureImages().then(resume);
     },
+    // Called when the card nears the viewport: fetch and decode ahead of time so playback starts at once.
+    prepare() { if (frames.length) ensureImages(); },
     pause() {
       if (!playing) return;
       playing = false;

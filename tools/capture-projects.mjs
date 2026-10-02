@@ -184,20 +184,34 @@ for (const [slug, spec] of Object.entries(projects)) {
       const top = await open(framesPage, url, anchor, action);
       // Stitched from viewport-sized tiles: 100vh sections keep their real height, and sections that
       // reveal themselves on entering the viewport (CSS or JS) get time to appear in each tile.
-      // Fixed and sticky elements (headers, CTA bars) are kept only on the first tile.
+      // Tiles overlap and are placed at the page's real scroll position, so seams line up exactly.
+      // Only a header pinned to the top survives, and only on the first tile; bottom CTA bars and
+      // sticky panels inside sections are put back into the flow.
+      await framesPage.addStyleTag({ content: 'html, body { scroll-behavior: auto !important; }' });
       const pageHeight = await framesPage.evaluate(() => document.documentElement.scrollHeight);
-      const frameHeight = Math.min(height, pageHeight - top);
+      const frameHeight = Math.round(Math.min(height, pageHeight - top));
       const tiles = [];
-      for (let y = 0; y < frameHeight; y += 800) {
-        const tileHeight = Math.min(800, frameHeight - y);
+      const VIEW = 800, STEP = 720;
+      for (let y = 0; y < frameHeight; y += STEP) {
         await framesPage.evaluate(v => scrollTo(0, v), top + y);
-        if (y > 0) await framesPage.evaluate(() => document.querySelectorAll('body *').forEach(el => {
-          const position = getComputedStyle(el).position;
-          if (position === 'fixed' || position === 'sticky') el.style.setProperty('visibility', 'hidden', 'important');
-        }));
+        await framesPage.evaluate(first => document.querySelectorAll('body *').forEach(el => {
+          const style = getComputedStyle(el);
+          if (style.position !== 'fixed' && style.position !== 'sticky') return;
+          const box = el.getBoundingClientRect();
+          const pinnedTop = box.top <= 80;
+          const headerLike = el.matches('header, nav') || (box.height < 140 && box.width >= innerWidth * 0.9);
+          // Sticky panels inside sections go back into the flow; headers and bottom bars are hidden.
+          if (style.position === 'sticky' && !headerLike) el.style.setProperty('position', 'relative', 'important');
+          else if (!first || !pinnedTop) el.style.setProperty('visibility', 'hidden', 'important');
+        }), y === 0);
         await framesPage.waitForTimeout(900);
-        const offset = top + y - await framesPage.evaluate(() => scrollY);
-        tiles.push({ input: await framesPage.screenshot({ clip: { x: 0, y: offset, width: PREVIEW_WIDTH, height: tileHeight } }), top: y, left: 0 });
+        const scrolled = Math.round(await framesPage.evaluate(() => scrollY) - top);
+        const from = Math.max(0, y - scrolled);
+        const to = Math.min(VIEW, frameHeight - scrolled);
+        if (to <= from) break;
+        const shot = await framesPage.screenshot({ clip: { x: 0, y: 0, width: PREVIEW_WIDTH, height: VIEW } });
+        tiles.push({ input: await sharp(shot).extract({ left: 0, top: from, width: PREVIEW_WIDTH, height: to - from }).toBuffer(), top: scrolled + from, left: 0 });
+        if (scrolled + VIEW >= frameHeight) break;
       }
       buffer = await sharp({ create: { width: PREVIEW_WIDTH, height: frameHeight, channels: 3, background: '#ffffff' } }).composite(tiles).png().toBuffer();
     }

@@ -4,7 +4,11 @@
 const VERTEX = 'attribute vec2 p; void main() { gl_Position = vec4(p, 0.0, 1.0); }';
 
 const HEADER = `
+#ifdef GL_FRAGMENT_PRECISION_HIGH
+precision highp float;
+#else
 precision mediump float;
+#endif
 uniform vec2 u_res;
 uniform float u_time;
 uniform float u_seed;
@@ -28,11 +32,13 @@ vec3 effect(vec2 uv, float aspect, float t);
 void main() {
   vec2 uv = gl_FragCoord.xy / u_res;
   float aspect = u_res.x / u_res.y;
-  float t = u_time + u_seed * 17.0;
+  float t = u_time + u_seed * 7.0;
   vec3 col = effect(uv, aspect, t);
-  col *= 1.0 + 0.08 * u_energy;
+  col *= 1.0 + 0.1 * u_energy;
+  float luma = dot(col, vec3(0.299, 0.587, 0.114));
+  col = mix(vec3(luma), col, 1.18);
   vec2 v = uv - 0.5;
-  col *= 1.0 - 0.35 * dot(v, v) * 2.0;
+  col *= 1.0 - 0.22 * dot(v, v) * 2.0;
   col += (hash(gl_FragCoord.xy + fract(u_time) * 91.0) - 0.5) * 0.035;
   gl_FragColor = vec4(col, 1.0);
 }
@@ -42,7 +48,7 @@ void main() {
 export const EFFECTS = {
   silk: `vec3 effect(vec2 uv, float aspect, float t) {
     vec2 p = (uv - 0.5) * vec2(aspect, 1.0) * 2.4;
-    float s = t * 0.18;
+    float s = t * 0.3;
     for (int i = 1; i < 6; i++) {
       float fi = float(i);
       p.x += 0.42 / fi * sin(fi * 1.6 * p.y + s * 1.3 + u_seed);
@@ -55,7 +61,7 @@ export const EFFECTS = {
   }`,
   lava: `vec3 effect(vec2 uv, float aspect, float t) {
     vec2 p = (uv - 0.5) * vec2(aspect, 1.0);
-    float s = t * 0.22, field = 0.0;
+    float s = t * 0.34, field = 0.0;
     for (int i = 0; i < 7; i++) {
       float fi = float(i);
       vec2 c = vec2(sin(s * (0.5 + fi * 0.13) + fi * 1.9) * 0.42 * aspect, cos(s * (0.37 + fi * 0.11) + fi * 2.3) * 0.46);
@@ -69,22 +75,9 @@ export const EFFECTS = {
     vec3 col = mix(base, mix(u_c2, u_c3, smoothstep(1.2, 3.2, field)), blob);
     return col + u_c3 * rim * 0.35;
   }`,
-  aurora: `vec3 effect(vec2 uv, float aspect, float t) {
-    float s = t * 0.08;
-    vec3 col = mix(u_c1, u_c1 * 1.6, uv.y);
-    for (int i = 0; i < 3; i++) {
-      float fi = float(i);
-      float n = fbm(vec2(uv.x * aspect * (1.2 + fi * 0.4) + s * (1.0 + fi * 0.3), s * 0.6 + fi * 3.1));
-      float y = 0.38 + fi * 0.16 + (n - 0.5) * 0.55;
-      float band = exp(-pow((uv.y - y) * (7.0 - fi * 1.4), 2.0));
-      float rays = 0.6 + 0.4 * noise(vec2(uv.x * aspect * 18.0 + s * 4.0, fi));
-      col += mix(u_c2, u_c3, fi / 2.0) * band * rays * (0.75 - fi * 0.12);
-    }
-    return col;
-  }`,
   marble: `vec3 effect(vec2 uv, float aspect, float t) {
     vec2 p = uv * vec2(aspect, 1.0) * 2.6;
-    float s = t * 0.06;
+    float s = t * 0.12;
     vec2 q = vec2(fbm(p + s), fbm(p + vec2(5.2, 1.3) - s));
     vec2 r = vec2(fbm(p + 3.6 * q + vec2(1.7, 9.2) + s * 1.4), fbm(p + 3.6 * q + vec2(8.3, 2.8) - s));
     float f = fbm(p + 3.8 * r);
@@ -92,41 +85,109 @@ export const EFFECTS = {
     col = mix(col, u_c3, clamp(length(q) * 0.9 - 0.25, 0.0, 1.0) * 0.7);
     return col + smoothstep(0.62, 0.9, f) * 0.12;
   }`,
+  // Layered swell: bands roll in from the top, each deeper one darker, with bright crests.
   waves: `vec3 effect(vec2 uv, float aspect, float t) {
-    float s = t * 0.35;
-    vec3 col = mix(u_c1, u_c1 * 1.4, uv.y);
+    float s = t * 0.55;
+    float x = uv.x * aspect;
+    vec3 col = mix(u_c2 * 0.9, u_c1 * 1.6, 1.0 - uv.y);
     for (int i = 0; i < 7; i++) {
       float fi = float(i);
-      float x = uv.x * aspect;
-      float y = 0.12 + fi * 0.115 + 0.05 * sin(x * (2.2 + fi * 0.45) + s * (0.5 + fi * 0.09) + fi * 1.7) + 0.025 * sin(x * 7.0 - s * 1.3 + fi);
-      vec3 layer = mix(u_c2, u_c3, smoothstep(2.0, 6.0, fi));
-      col = mix(col, layer * (0.55 + fi * 0.07), (1.0 - smoothstep(y - 0.004, y + 0.004, uv.y)) * 0.42);
-      col += layer * smoothstep(0.012, 0.0, abs(uv.y - y)) * 0.5;
+      float y = 0.9 - fi * 0.13 + 0.06 * sin(x * (2.0 + fi * 0.4) + s * (0.6 + fi * 0.1) + fi * 1.7) + 0.025 * sin(x * 6.5 - s * 1.4 + fi);
+      float depth = fi / 6.0;
+      vec3 fill = mix(u_c2 * 1.05, u_c1 * 1.15, depth);
+      col = mix(col, fill, 1.0 - smoothstep(y - 0.004, y + 0.004, uv.y));
+      vec3 crest = mix(u_c2 * 1.8 + 0.08, u_c3, step(0.5, mod(fi, 2.0)));
+      col += crest * smoothstep(0.014, 0.0, abs(uv.y - y)) * (0.75 - depth * 0.35);
     }
     return col;
   }`,
   contour: `vec3 effect(vec2 uv, float aspect, float t) {
     vec2 p = uv * vec2(aspect, 1.0) * 1.7;
-    float h = fbm(p + vec2(t * 0.025, -t * 0.018)) + 0.35 * fbm(p * 2.0 - t * 0.02);
+    float h = fbm(p + vec2(t * 0.06, -t * 0.045)) + 0.35 * fbm(p * 2.0 - t * 0.05);
     float lines = abs(fract(h * 11.0) - 0.5);
     float line = smoothstep(0.075, 0.02, lines);
-    float major = smoothstep(0.06, 0.015, abs(fract(h * 11.0 / 5.0) - 0.5));
+    float major = smoothstep(0.03, 0.008, abs(fract(h * 11.0 / 5.0) - 0.5));
     vec3 col = mix(u_c1, u_c2, smoothstep(0.25, 0.95, h));
     col = mix(col, u_c2 * 1.35, line * 0.55);
-    return mix(col, u_c3, major * 0.85);
+    col = mix(col, u_c3, major * 0.9);
+    return col + u_c3 * smoothstep(0.78, 0.98, h) * 0.25;
   }`,
   ink: `vec3 effect(vec2 uv, float aspect, float t) {
     vec2 p = (uv - 0.5) * vec2(aspect, 1.0) * 2.0;
-    float s = t * 0.07;
+    float s = t * 0.14;
     vec2 w = vec2(fbm(p * 1.4 + s), fbm(p * 1.4 - s + 4.0));
     float f = fbm(p * 1.8 + w * 2.2 + vec2(0.0, -s * 2.0));
     vec3 col = mix(u_c1, u_c2, smoothstep(0.35, 0.78, f));
     col = mix(col, u_c3, smoothstep(0.62, 0.92, f));
     return col + smoothstep(0.88, 1.0, f) * 0.15;
   }`,
+  // Molten crust: drifting Voronoi plates with glowing, pulsing seams.
+  magma: `vec3 effect(vec2 uv, float aspect, float t) {
+    vec2 p = uv * vec2(aspect, 1.0) * 3.4 + vec2(0.0, -t * 0.16);
+    p += 0.4 * vec2(fbm(p * 0.7 + t * 0.2), fbm(p * 0.7 - t * 0.17 + 3.0));
+    vec2 i = floor(p), f = fract(p);
+    float f1 = 8.0, f2 = 8.0;
+    for (int y = -1; y <= 1; y++) {
+      for (int x = -1; x <= 1; x++) {
+        vec2 g = vec2(float(x), float(y));
+        vec2 o = vec2(hash(i + g), hash(i + g + 17.3));
+        o = 0.5 + 0.42 * sin(t * 0.9 + 6.2831 * o);
+        float d = length(g + o - f);
+        if (d < f1) { f2 = f1; f1 = d; } else if (d < f2) { f2 = d; }
+      }
+    }
+    float glow = exp(-(f2 - f1) * 8.0);
+    float heat = fbm(p * 0.5 + vec2(t * 0.25, -t * 0.35));
+    float pulse = 0.6 + 0.4 * sin(t * 1.8 + heat * 7.0);
+    vec3 crust = u_c1 * (1.0 + f1 * 0.9) + u_c2 * 0.06 * heat;
+    vec3 col = mix(crust, mix(u_c2, u_c3, glow * pulse), smoothstep(0.05, 0.9, glow * (0.55 + heat)));
+    return col + u_c3 * pow(glow, 7.0) * 0.7 * pulse;
+  }`,
+  // Sunlight through water: two warped grids whose crossings brighten into a caustic net.
+  caustics: `vec3 effect(vec2 uv, float aspect, float t) {
+    vec2 p = uv * vec2(aspect, 1.0) * 4.2;
+    float s = t * 0.55, light = 0.0;
+    for (int k = 0; k < 2; k++) {
+      float fk = float(k);
+      vec2 q = p * (1.0 + fk * 0.6) + fk * 3.7;
+      for (int n = 1; n < 5; n++) {
+        float fn = float(n);
+        q += 0.55 / fn * vec2(sin(q.y * 1.4 + s * (0.7 + 0.25 * fn) + fk), cos(q.x * 1.3 - s * (0.6 + 0.2 * fn)));
+      }
+      float net = 1.0 - min(abs(sin(q.x)), abs(sin(q.y)));
+      light += pow(net, 7.0 + fk * 3.0) * (0.9 - fk * 0.35);
+    }
+    vec3 water = mix(u_c1, u_c2, 0.25 + 0.55 * uv.y + 0.12 * sin(p.x * 0.6 + s));
+    return water + mix(u_c2 * 1.5, u_c3, 0.55) * clamp(light, 0.0, 1.5) * 0.8;
+  }`,
+  // Stage lights: swinging spotlight beams from below, a little haze and floating bokeh.
+  beams: `vec3 effect(vec2 uv, float aspect, float t) {
+    vec2 p = (uv - vec2(0.5, -0.1)) * vec2(aspect, 1.0);
+    float s = t * 0.6;
+    float haze = fbm(uv * vec2(aspect, 1.0) * 3.0 + vec2(s * 0.15, -s * 0.1));
+    vec3 col = u_c1 * (1.0 + uv.y * 0.8) + mix(u_c3, u_c2, uv.x) * haze * 0.1;
+    for (int i = 0; i < 4; i++) {
+      float fi = float(i);
+      vec2 d = p - vec2((fi - 1.5) * 0.34 * aspect, 0.0);
+      float aim = 0.6 * sin(s * (0.55 + fi * 0.15) + fi * 1.9);
+      float beam = exp(-pow((atan(d.x, d.y) - aim) * 5.0, 2.0));
+      float fall = smoothstep(1.5, 0.05, length(d));
+      vec3 c = mix(u_c2, u_c3, mod(fi, 2.0));
+      col += c * beam * fall * (0.45 + 0.55 * haze);
+    }
+    vec2 q = uv * vec2(aspect, 1.0);
+    for (int i = 0; i < 7; i++) {
+      float fi = float(i);
+      vec2 b = vec2(fract(hash(vec2(fi, 1.0)) + s * 0.025 * (1.0 + fi * 0.3)) * aspect, 0.15 + 0.75 * hash(vec2(fi, 5.0)) + 0.04 * sin(s * 0.7 + fi));
+      float r = 0.035 + 0.04 * hash(vec2(fi, 9.0));
+      float twinkle = 0.55 + 0.45 * sin(s * 1.6 + fi * 2.1);
+      col += mix(u_c2, u_c3, hash(vec2(fi, 7.0))) * smoothstep(r, r * 0.55, length(q - b)) * 0.28 * twinkle;
+    }
+    return col;
+  }`,
   mesh: `vec3 effect(vec2 uv, float aspect, float t) {
     vec2 p = uv * vec2(aspect, 1.0);
-    float s = t * 0.16;
+    float s = t * 0.3;
     vec2 a = vec2(aspect * (0.3 + 0.22 * sin(s * 0.9)), 0.32 + 0.2 * cos(s * 0.7));
     vec2 b = vec2(aspect * (0.72 + 0.18 * cos(s * 0.8 + 1.0)), 0.7 + 0.18 * sin(s * 0.6));
     vec2 c = vec2(aspect * (0.5 + 0.3 * sin(s * 0.5 + 2.0)), 0.5 + 0.3 * cos(s * 0.45 + 3.0));
@@ -194,7 +255,7 @@ class ShaderField {
     for (const stale of this.items) {
       if (!stale.target.isConnected) { this.items.delete(stale); this.observer.unobserve(stale.target); }
     }
-    const item = { target, effect, palette: palette.map(hexToRgb), seed, visible: false, energy: 0, goal: 0, phase: 0, last: 0, ctx: target.getContext('2d', { alpha: false }) };
+    const item = { target, effect, palette: palette.map(hexToRgb), seed, slot: this.items.size, visible: false, energy: 0, goal: 0, phase: 0, last: 0, ctx: target.getContext('2d', { alpha: false }) };
     this.items.add(item);
     this.observer.observe(target);
     return {
@@ -213,13 +274,17 @@ class ShaderField {
     const still = reducedMotion.matches;
     if (now - this.last >= 33 || still) {
       this.last = now;
+      this.tick = (this.tick || 0) + 1;
       for (const item of visible) {
+        // Cards that are not playing repaint every other tick: copying out of WebGL is the costly part on phones.
+        const idle = item.goal === 0 && item.energy < 0.02;
+        if (idle && !still && (this.tick + item.slot) % 2) continue;
         // Phase is integrated, not time × speed: changing the speed then only bends the curve
         // instead of jumping the whole animation forward (that jump read as flicker on phones).
         const dt = Math.min(0.1, (now - (item.last || now)) / 1000);
         item.last = now;
         item.energy += (item.goal - item.energy) * 0.08;
-        item.phase += still ? 0 : dt * (0.55 + 0.45 * item.energy);
+        item.phase += still ? 0 : dt * (1.0 + 0.8 * item.energy);
         this.draw(item, still ? 12 : item.phase);
       }
     }
