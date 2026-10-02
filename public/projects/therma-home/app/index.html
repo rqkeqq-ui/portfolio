@@ -1,0 +1,837 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>THERMA HOME — тепловые насосы и умное отопление для частного дома</title>
+<meta name="description" content="Инженерный расчёт теплового насоса за 3 минуты: конфигурация системы, диапазон стоимости и разбор цены по составляющим. Проект, монтаж и сервис под ключ.">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none'%3E%3Crect width='24' height='24' rx='5' fill='%231C1F23'/%3E%3Cpath d='M5 11.5 12 5.5l7 6' stroke='%23FAF9F7' stroke-width='1.6' stroke-linecap='round'/%3E%3Cpath d='M9 16.6c1.2-1.7 3.8-1.7 5 0M9 13.1c1.2-1.7 3.8-1.7 5 0' stroke='%23F2760C' stroke-width='1.7' stroke-linecap='round'/%3E%3C/svg%3E">
+<link rel="stylesheet" href="./assets/fonts/fonts.css">
+  <link rel="stylesheet" href="assets/css/style.css?v=7">
+</head>
+<body>
+
+<!-- ══ HEADER ══ -->
+<header class="header" id="header">
+  <div class="container header__inner">
+    <a class="logo" href="#top">
+      <span class="logo__mark" aria-hidden="true">
+        <svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M3 11.5 12 4l9 7.5" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/><path d="M5.5 10.2V20h13v-9.8" stroke="currentColor" stroke-width="1.6"/><path d="M9 16.5c1.2-1.6 3.8-1.6 5 0" stroke="var(--amber)" stroke-width="1.6" stroke-linecap="round"/><path d="M9 13c1.2-1.6 3.8-1.6 5 0" stroke="var(--amber)" stroke-width="1.6" stroke-linecap="round"/></svg>
+      </span>
+      <span class="logo__text">
+        <strong>THERMA HOME</strong>
+        <small>инженерные системы отопления</small>
+      </span>
+    </a>
+    <nav class="nav" aria-label="Разделы страницы">
+      <a href="#calc">Расчёт</a>
+      <a href="#solutions">Решения</a>
+      <a href="#cases">Кейсы</a>
+      <a href="#process">Как мы работаем</a>
+      <a href="#faq">Вопросы</a>
+      <a class="nav__cta" href="#calc">Рассчитать систему</a>
+    </nav>
+    <div class="header__actions">
+      <a class="header__phone" href="tel:+74951234567">+7 495 123-45-67</a>
+      <a class="btn btn--primary btn--sm" href="#calc">Рассчитать систему</a>
+      <button class="header__burger" type="button" aria-label="Меню" aria-expanded="false" id="burger">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </div>
+</header>
+
+<main id="top">
+
+<!-- ══ 1. HERO ══ -->
+<section class="hero section--dark">
+  <div class="container hero__inner">
+    <div class="hero__content">
+      <p class="eyebrow">Демо-концепт · тепловые насосы</p>
+      <h1 class="hero__title">
+        Узнайте, какой тепловой насос нужен вашему дому — <em>и из чего складывается цена</em>
+      </h1>
+      <p class="hero__lead">
+        Инженерный расчёт за 3 минуты: предварительная конфигурация системы, диапазон стоимости
+        и разбор цены по составляющим. Без звонка менеджера.
+      </p>
+
+      <form class="hero__form" id="heroForm" novalidate>
+        <label class="hero__field">
+          <span class="hero__field-label">Площадь дома</span>
+          <input type="number" id="heroArea" min="40" max="900" step="5" placeholder="160" inputmode="numeric" autocomplete="off">
+          <span class="hero__unit">м²</span>
+        </label>
+        <button class="btn btn--primary btn--lg" type="submit">
+          Начать расчёт
+          <svg viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M2 8h11M9 4l4 4-4 4" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </button>
+      </form>
+      <p class="hero__hint">7 шагов · бесплатно · результат сразу на экране</p>
+
+      <ul class="trust">
+        <li><strong>127</strong> систем смонтировано</li>
+        <li><strong>−60 %</strong> средний счёт за отопление</li>
+        <li><strong>5 лет</strong> гарантия на систему</li>
+      </ul>
+      <p class="hero__demo">Статистика, кейсы, цены, компания и контакты вымышлены. Калькулятор даёт инженерный ориентир, формы ничего не отправляют.</p>
+    </div>
+
+    <figure class="hero__visual" aria-label="Схема системы отопления на тепловом насосе">
+      <svg class="scheme" viewBox="0 0 420 340" role="img"><defs><radialGradient id="heroGlow" cx="50%" cy="85%" r="70%"><stop offset="0" stop-color="#F2760C" stop-opacity=".28"/><stop offset="1" stop-color="#F2760C" stop-opacity="0"/></radialGradient></defs><title>Схема: наружный блок, гидромодуль, буфер, бойлер, тёплый пол на первом этаже и радиаторы на втором</title><path class="s-ground" d="M0 300H420"/><path class="s-ground s-ground--hatch" d="M118 305H382"/><path class="s-line" d="M118 120L250 102L382 120"/><path class="s-insul-line" d="M126 117L250 105L374 117"/><path class="s-line" d="M124 120V300H376V120Z"/><path class="s-slab" d="M124 210H376"/><rect x="126" y="122" width="248" height="176" fill="url(#heroGlow)"/><rect class="s-window" x="146" y="142" width="30" height="30" rx="2"/><rect class="s-window" x="326" y="142" width="30" height="30" rx="2"/><rect class="s-radiator" x="152" y="196" width="14" height="6" rx="1"/><rect class="s-radiator" x="330" y="196" width="14" height="6" rx="1"/><path class="s-pipe-warm" d="M232 262V204H337"/><path class="s-pipe-warm" d="M232 204H159"/><path class="s-heat" d="M138 290L150 285L162 295L174 285L186 295L198 285L210 295L222 285L234 295L246 285L258 295L270 285L282 295L294 285L306 295L318 285L330 295L342 285L354 295L364 285"/><rect class="s-box s-box--cold" x="14" y="236" width="70" height="46" rx="3"/><circle class="s-fan-ring" cx="37" cy="259" r="15.64"/><path class="s-fan" d="M37 244.28V273.72M22.28 259H51.72"/><text class="s-label" x="49" y="296">наружный блок</text><text class="s-cap" x="49" y="308">воздух · −28 °C</text><path class="s-pipe-cold" d="M84 262H140"/><rect class="s-box" x="140" y="236" width="62" height="40" rx="4"/><text class="s-label" x="171" y="254">гидромодуль</text><text class="s-cap" x="171" y="267">12 кВт</text><path class="s-pipe-warm" d="M202 256H216"/><rect class="s-box" x="216" y="228" width="32" height="48" rx="4"/><text class="s-label" x="232" y="248">буфер</text><text class="s-cap" x="232" y="261">200 л</text><path class="s-pipe-warm" d="M248 252H262"/><rect class="s-box s-box--warm" x="262" y="220" width="36" height="56" rx="4"/><text class="s-label" x="280" y="242">ГВС</text><text class="s-cap" x="280" y="255">300 л</text><circle class="s-node" cx="232" cy="262" r="3"/><path class="s-leader" d="M364 290H404V318"/><text class="s-cap" x="414" y="330" text-anchor="end">тёплый пол · 35 °C</text><path class="s-leader" d="M344 199H404V172"/><text class="s-cap" x="414" y="164" text-anchor="end">радиаторы · 45 °C</text><path class="s-leader" d="M248 106V86"/><text class="s-cap" x="248" y="80">кровля 200 мм</text></svg>
+      <figcaption>Типовая схема: воздух — вода, 12 кВт, тёплый пол и бойлер 300 л</figcaption>
+    </figure>
+  </div>
+</section>
+
+<!-- ══ 2. ПОЧЕМУ НЕ ПО ПЛОЩАДИ ══ -->
+<section class="section" id="why">
+  <div class="container">
+    <header class="section__head">
+      <p class="eyebrow">Главный вопрос</p>
+      <h2>Два дома по 150 м² — разница в цене системы 900 тыс ₽. Почему?</h2>
+      <p class="section__lead">
+        Мощность насоса определяют теплопотери, а не площадь. Один и тот же метраж требует
+        10 кВт в утеплённом доме и 20 кВт каскадом — в неутеплённом.
+      </p>
+    </header>
+
+    <div class="compare">
+      <article class="compare__card">
+        <header>
+          <span class="badge badge--good">Дом А</span>
+          <h3>150 м², Подмосковье</h3>
+        </header>
+        <dl class="specs">
+          <div><dt>Стены</dt><dd>газобетон 400 мм</dd></div>
+          <div><dt>Окна</dt><dd>энергосберегающие</dd></div>
+          <div><dt>Кровля</dt><dd>утеплена 250 мм</dd></div>
+          <div><dt>Контуры</dt><dd>тёплый пол, 35 °C</dd></div>
+          <div><dt>Теплопотери</dt><dd class="num">52 Вт/м² → 7,8 кВт</dd></div>
+        </dl>
+        <footer>
+          <p class="compare__solution">Воздух — вода, 10 кВт, один блок. Доводчик 6 кВт на пики.</p>
+          <p class="compare__price num">1,3 млн ₽</p>
+        </footer>
+      </article>
+
+      <div class="compare__vs" aria-hidden="true"><span>против</span></div>
+
+      <article class="compare__card compare__card--warn">
+        <header>
+          <span class="badge badge--warn">Дом Б</span>
+          <h3>150 м², Казань</h3>
+        </header>
+        <dl class="specs">
+          <div><dt>Стены</dt><dd>кирпич 380 мм, без утепления</dd></div>
+          <div><dt>Окна</dt><dd>старые стеклопакеты</dd></div>
+          <div><dt>Кровля</dt><dd>не утеплена</dd></div>
+          <div><dt>Контуры</dt><dd>радиаторы, 55 °C</dd></div>
+          <div><dt>Теплопотери</dt><dd class="num">104 Вт/м² → 16,9 кВт</dd></div>
+        </dl>
+        <footer>
+          <p class="compare__solution">Каскад 2 × 10 кВт + пиковый доводчик 6 кВт.</p>
+          <p class="compare__price num">2,2 млн ₽</p>
+        </footer>
+      </article>
+    </div>
+
+    <div class="callout">
+      <p>
+        <strong>Поэтому мы начинаем не с прайса, а с расчёта.</strong>
+        Семь вопросов о доме — и вы увидите свою конфигурацию, диапазон цены и её разбор
+        по составляющим.
+      </p>
+      <a class="btn btn--primary" href="#calc">Рассчитать мой дом</a>
+    </div>
+  </div>
+</section>
+
+<!-- ══ 3–4. КАЛЬКУЛЯТОР И РЕЗУЛЬТАТ ══ -->
+<section class="section section--dark calc-section" id="calc">
+  <div class="container">
+    <header class="section__head section__head--center">
+      <p class="eyebrow">Инженерный расчёт</p>
+      <h2>Подберём систему для вашего дома</h2>
+      <p class="section__lead">
+        Один вопрос на шаге. Если чего-то не знаете — так и отвечайте: мы примем допущение
+        и честно покажем его в результате.
+      </p>
+    </header>
+
+    <div class="calc" id="calcRoot">
+      <div class="calc__progress" id="calcProgress"></div>
+      <div class="calc__grid">
+        <div class="calc__main" id="calcMain"></div>
+        <aside class="calc__live" id="calcLive" aria-live="polite"></aside>
+      </div>
+      <div class="calc__nav" id="calcNav"></div>
+    </div>
+
+    <div class="result" id="calcResult" hidden></div>
+  </div>
+</section>
+
+<!-- ══ 5. РАЗБОР ЦЕНЫ ══ -->
+<section class="section" id="price">
+  <div class="container">
+    <header class="section__head">
+      <p class="eyebrow">Прозрачность</p>
+      <h2>Из чего складывается система под ключ</h2>
+      <p class="section__lead">
+        Мы показываем структуру цены до сделки. Нажмите на составляющую, чтобы увидеть,
+        за что вы платите и на чём нельзя экономить.
+      </p>
+    </header>
+
+    <div class="stack" id="priceStack" role="list">
+      <button class="stack__seg" style="--w:50%" data-key="pump" role="listitem" aria-expanded="false">
+        <span class="stack__name">Тепловой насос</span><span class="stack__pct num">45–55 %</span>
+      </button>
+      <button class="stack__seg" style="--w:13%" data-key="tanks" role="listitem" aria-expanded="false">
+        <span class="stack__name">Ёмкости и ГВС</span><span class="stack__pct num">10–15 %</span>
+      </button>
+      <button class="stack__seg" style="--w:13%" data-key="hydraulics" role="listitem" aria-expanded="false">
+        <span class="stack__name">Обвязка и автоматика</span><span class="stack__pct num">10–15 %</span>
+      </button>
+      <button class="stack__seg" style="--w:18%" data-key="install" role="listitem" aria-expanded="false">
+        <span class="stack__name">Монтаж и ПНР</span><span class="stack__pct num">15–20 %</span>
+      </button>
+      <button class="stack__seg" style="--w:6%" data-key="project" role="listitem" aria-expanded="false">
+        <span class="stack__name">Проект</span><span class="stack__pct num">5 %</span>
+      </button>
+    </div>
+
+    <div class="stack__details" id="priceDetails">
+      <article data-key="pump">
+        <h3>Тепловой насос — половина бюджета</h3>
+        <p>
+          Инверторный компрессор, теплообменник и плата управления. Разброс цен между брендами
+          на одну и ту же мощность — до 40 %.
+        </p>
+        <p class="note">
+          <strong>Нельзя экономить</strong> на диапазоне модуляции. Насос без инвертора в межсезонье
+          работает тактами: короткий цикл убивает компрессор за 4–5 сезонов.
+        </p>
+      </article>
+      <article data-key="tanks">
+        <h3>Бойлер ГВС и буферная ёмкость</h3>
+        <p>
+          Бойлер послойного нагрева с большой площадью змеевика: обычный бойлер от котла
+          насос не прогреет, ему нужна низкая температура подачи.
+        </p>
+        <p class="note">
+          <strong>Нельзя экономить</strong> на буфере. Без него насос тактует при закрытых
+          контурах тёплого пола.
+        </p>
+      </article>
+      <article data-key="hydraulics">
+        <h3>Обвязка котельной и автоматика</h3>
+        <p>
+          Насосные группы, смесительные узлы, коллекторы, погодозависимый контроллер
+          и датчики. Здесь же — интеграция с умным домом.
+        </p>
+        <p class="note">
+          <strong>Нельзя экономить</strong> на погодозависимом управлении: именно оно даёт
+          заявленный SCOP. Без него насос теряет до 25 % эффективности.
+        </p>
+      </article>
+      <article data-key="install">
+        <h3>Монтаж и пусконаладка</h3>
+        <p>
+          Установка блоков, трассы, заправка контура, гидравлическая балансировка,
+          настройка кривых отопления по фактической погоде.
+        </p>
+        <p class="note">
+          <strong>Нельзя экономить</strong> на пусконаладке. Правильно настроенная кривая
+          отопления — это 15–20 % годового счёта.
+        </p>
+      </article>
+      <article data-key="project">
+        <h3>Проект и документация</h3>
+        <p>
+          Теплотехнический расчёт по помещениям, схема котельной, спецификация,
+          акты пусконаладки и паспорт системы.
+        </p>
+        <p class="note">
+          <strong>Нельзя экономить</strong> на расчёте по помещениям: именно он показывает,
+          хватит ли контуров в самой холодной комнате.
+        </p>
+      </article>
+    </div>
+
+    <p class="price__range">
+      Система под ключ для дома 100–250 м²: <strong class="num">от 0,9 до 3,2 млн ₽</strong>.
+      <a href="#calc">Узнать свой диапазон →</a>
+    </p>
+  </div>
+</section>
+
+<!-- ══ 6. ТИПОВЫЕ РЕШЕНИЯ ══ -->
+<section class="section section--tint" id="solutions">
+  <div class="container">
+    <header class="section__head">
+      <p class="eyebrow">Типовые инженерные решения</p>
+      <h2>Найдите дом, похожий на ваш</h2>
+      <p class="section__lead">
+        Четыре конфигурации, которые закрывают 9 из 10 наших объектов. Диапазоны реальные —
+        по смонтированным системам за последние два сезона.
+      </p>
+    </header>
+
+    <div class="cards cards--4">
+      <article class="solution">
+        <header>
+          <h3>Компакт</h3>
+          <p class="solution__for">80–120 м², хорошее утепление</p>
+        </header>
+        <svg class="scheme scheme--mini scheme--flow" viewBox="0 0 160 98" role="img" aria-label="Моноблок воздух — вода и тёплый пол"><path class="s-ground" d="M0 86H160"/><path class="s-line" d="M50 46L104 28L158 46"/><path class="s-insul-line" d="M58 43L104 31L150 43"/><path class="s-line" d="M56 46V86H152V46Z"/><rect class="s-glow" x="57" y="47" width="94" height="38"/><rect class="s-box s-box--cold" x="6" y="58" width="38" height="24" rx="3"/><circle class="s-fan-ring" cx="18" cy="70" r="8.16"/><path class="s-fan" d="M18 62.32V77.68M10.32 70H25.68"/><text class="s-cap" x="25" y="91">6–8 кВт</text><path class="s-pipe-cold" d="M44 70H66"/><rect class="s-box" x="66" y="60" width="16" height="22" rx="4"/><path class="s-pipe-warm" d="M82 72H92"/><rect class="s-box s-box--warm" x="92" y="58" width="14" height="24" rx="4"/><path class="s-heat" d="M110 80L118 77L126 83L134 77L142 83L148 77"/><text class="s-cap" x="128" y="72">пол 35°</text></svg>
+        <ul class="solution__list">
+          <li>Воздух — вода, 6–8 кВт, моноблок</li>
+          <li>Бойлер ГВС 200 л, буфер 100 л</li>
+          <li>Тёплый пол, одна зона</li>
+          <li>Хватает выделенных 15 кВт</li>
+        </ul>
+        <footer>
+          <p class="solution__price num">0,9 — 1,3 млн ₽</p>
+          <button class="btn btn--ghost btn--sm" data-preset="compact">Проверить на моём доме</button>
+        </footer>
+      </article>
+
+      <article class="solution solution--featured">
+        <span class="solution__tag">Чаще всего выбирают</span>
+        <header>
+          <h3>Стандарт</h3>
+          <p class="solution__for">120–200 м², дом 2010-х</p>
+        </header>
+        <svg class="scheme scheme--mini scheme--flow" viewBox="0 0 160 98" role="img" aria-label="Сплит-система, буфер, бойлер, тёплый пол и радиаторы"><path class="s-ground" d="M0 86H160"/><path class="s-line" d="M50 30L104 12L158 30"/><path class="s-insul-line" d="M58 27L104 15L150 27"/><path class="s-line" d="M56 30V86H152V30Z"/><path class="s-slab" d="M56 58H152"/><rect class="s-glow" x="57" y="31" width="94" height="54"/><rect class="s-box s-box--cold" x="6" y="60" width="38" height="22" rx="3"/><circle class="s-fan-ring" cx="17" cy="71" r="7.48"/><path class="s-fan" d="M17 63.96V78.03999999999999M9.96 71H24.04"/><text class="s-cap" x="25" y="91">12 кВт</text><path class="s-pipe-cold" d="M44 71H62"/><rect class="s-box" x="62" y="62" width="14" height="20" rx="4"/><path class="s-pipe-warm" d="M76 72H84"/><rect class="s-box s-box--warm" x="84" y="58" width="16" height="24" rx="4"/><path class="s-pipe-warm" d="M70 62V50H128"/><path class="s-heat" d="M104 81L112 78L120 84L128 78L136 84L144 78L148 84"/><rect class="s-radiator" x="108" y="50" width="14" height="6" rx="1"/><rect class="s-radiator" x="130" y="50" width="14" height="6" rx="1"/></svg>
+        <ul class="solution__list">
+          <li>Воздух — вода, 10–14 кВт, инвертор</li>
+          <li>Бойлер ГВС 400 л, буфер 200 л</li>
+          <li>Тёплый пол + радиаторы на втором этаже</li>
+          <li>Три фазы, погодозависимое управление</li>
+        </ul>
+        <footer>
+          <p class="solution__price num">1,2 — 1,7 млн ₽</p>
+          <button class="btn btn--primary btn--sm" data-preset="standard">Проверить на моём доме</button>
+        </footer>
+      </article>
+
+      <article class="solution">
+        <header>
+          <h3>Максимум</h3>
+          <p class="solution__for">200–350 м², высокие требования</p>
+        </header>
+        <svg class="scheme scheme--mini scheme--flow" viewBox="0 0 160 98" role="img" aria-label="Грунтовый контур и каскад из двух насосов"><path class="s-ground" d="M0 66H160"/><path class="s-line" d="M50 14L104 -4L158 14"/><path class="s-insul-line" d="M58 11L104 -1L150 11"/><path class="s-line" d="M56 14V66H152V14Z"/><path class="s-slab" d="M56 40H152"/><rect class="s-glow" x="57" y="15" width="94" height="50"/><path class="s-earth" d="M0 66H160V96H0Z"/><path class="s-pipe-cold" d="M12 66V92M17 92V66"/><path class="s-line s-line--thin" d="M12 92H17"/><path class="s-pipe-cold" d="M24 66V92M29 92V66"/><path class="s-line s-line--thin" d="M24 92H29"/><path class="s-pipe-cold" d="M36 66V92M41 92V66"/><path class="s-line s-line--thin" d="M36 92H41"/><path class="s-pipe-cold" d="M14 62H66"/><rect class="s-box" x="66" y="44" width="13" height="20" rx="4"/><rect class="s-box" x="81" y="44" width="13" height="20" rx="4"/><text class="s-cap" x="88" y="40">2 × 12</text><path class="s-pipe-warm" d="M94 54H104"/><rect class="s-box s-box--warm" x="104" y="42" width="16" height="22" rx="4"/><path class="s-heat" d="M122 61L130 58L138 64L146 58L148 64"/><rect class="s-radiator" x="110" y="32" width="14" height="6" rx="1"/><rect class="s-radiator" x="132" y="32" width="14" height="6" rx="1"/><text class="s-cap" x="26" y="82">зонды</text></svg>
+        <ul class="solution__list">
+          <li>Каскад 2 × 12 кВт или грунт — вода</li>
+          <li>Бойлер 400–500 л, буфер 300 л</li>
+          <li>Мультизонная схема, 4–6 контуров</li>
+          <li>Интеграция с умным домом и мониторинг</li>
+        </ul>
+        <footer>
+          <p class="solution__price num">1,9 — 3,2 млн ₽</p>
+          <button class="btn btn--ghost btn--sm" data-preset="max">Проверить на моём доме</button>
+        </footer>
+      </article>
+
+      <article class="solution">
+        <header>
+          <h3>Гибрид</h3>
+          <p class="solution__for">Дом с рабочим котлом</p>
+        </header>
+        <svg class="scheme scheme--mini scheme--flow" viewBox="0 0 160 98" role="img" aria-label="Тепловой насос и существующий котёл"><path class="s-ground" d="M0 86H160"/><path class="s-line" d="M50 30L104 12L158 30"/><path class="s-insul-line" d="M58 27L104 15L150 27"/><path class="s-line" d="M56 30V86H152V30Z"/><path class="s-slab" d="M56 58H152"/><rect class="s-glow" x="57" y="31" width="94" height="54"/><rect class="s-box s-box--cold" x="6" y="60" width="38" height="22" rx="3"/><circle class="s-fan-ring" cx="17" cy="71" r="7.48"/><path class="s-fan" d="M17 63.96V78.03999999999999M9.96 71H24.04"/><text class="s-cap" x="25" y="91">10 кВт</text><path class="s-pipe-cold" d="M44 71H64"/><rect class="s-box" x="64" y="62" width="14" height="20" rx="4"/><rect class="s-box s-box--old" x="122" y="60" width="16" height="22" rx="2"/><path class="s-chimney" d="M130 30V14"/><path class="s-smoke" d="M130 12c-3 -3 3 -5 0 -8"/><path class="s-pipe-warm" d="M78 70H122"/><rect class="s-radiator" x="70" y="50" width="14" height="6" rx="1"/><rect class="s-radiator" x="96" y="50" width="14" height="6" rx="1"/><rect class="s-radiator" x="122" y="50" width="14" height="6" rx="1"/><text class="s-cap" x="130" y="94">котёл</text></svg>
+        <ul class="solution__list">
+          <li>Насос 10–14 кВт + существующий котёл</li>
+          <li>Бивалентная точка −7 °C</li>
+          <li>Насос закрывает 85 % сезона, котёл — пики</li>
+          <li>Насос на 25 % меньше, чем без котла</li>
+        </ul>
+        <footer>
+          <p class="solution__price num">1,2 — 1,8 млн ₽</p>
+          <button class="btn btn--ghost btn--sm" data-preset="hybrid">Проверить на моём доме</button>
+        </footer>
+      </article>
+    </div>
+  </div>
+</section>
+
+<!-- ══ 7. КЕЙСЫ ══ -->
+<section class="section" id="cases">
+  <div class="container">
+    <header class="section__head">
+      <p class="eyebrow">Кейсы домов</p>
+      <h2>Реальные объекты и цифры прошлой зимы</h2>
+      <p class="section__lead">
+        Не отзывы, а инженерные истории: что было, что поставили, почему именно это
+        и сколько получилось по факту.
+      </p>
+    </header>
+
+    <div class="filters" id="caseFilters" role="group" aria-label="Фильтр кейсов по площади">
+      <button class="chip is-active" data-filter="all">Все</button>
+      <button class="chip" data-filter="s">до 150 м²</button>
+      <button class="chip" data-filter="m">150–250 м²</button>
+      <button class="chip" data-filter="l">от 250 м²</button>
+    </div>
+
+    <div class="cards cards--3" id="caseList">
+      <article class="case" data-size="s">
+        <div class="case__photo case__photo--1" role="img" aria-label="Каркасный дом 132 м² в Дмитровском районе">
+          <svg class="case__drawing" viewBox="0 0 320 200" aria-hidden="true" preserveAspectRatio="xMidYMid slice"><defs><pattern id="hatch1" width="5" height="5" patternUnits="userSpaceOnUse" patternTransform="rotate(45)"><path d="M0 0V5" stroke="rgba(242,118,12,.55)" stroke-width="1.2"/></pattern></defs><path class="d-thin" d="M0 152H320"/><path class="d-line" d="M64 92 160 46 256 92"/><rect x="76" y="92" width="168" height="60" fill="url(#hatch1)" opacity=".28"/><rect class="d-wall" x="82" y="92" width="156" height="60"/><rect class="d-thin" x="98" y="106" width="24" height="22"/><rect class="d-thin" x="198" y="106" width="24" height="22"/><rect class="d-thin" x="146" y="112" width="20" height="40"/><path class="d-warm" d="M88 146H232"/><path class="d-warm" d="M88 141H232"/><rect class="d-unit" x="26" y="122" width="34" height="28" rx="3"/><circle class="d-line" cx="43" cy="136" r="8"/><path class="d-cold" d="M60 140H82"/><path class="d-pipe" d="M82 136H96"/><text class="d-text" x="14" y="22">КАРКАС 200 мм</text><text class="d-text" x="14" y="34">ТЁПЛЫЙ ПОЛ 35 °C</text></svg>
+          <span class="case__badge num">132 м²</span>
+        </div>
+        <div class="case__body">
+          <h3>Каркасный дом, Дмитровский район</h3>
+          <dl class="specs specs--compact">
+            <div><dt>Было</dt><dd>электрокотёл 12 кВт, 18 400 ₽/мес</dd></div>
+            <div><dt>Утепление</dt><dd>каркас 200 мм, энергоокна</dd></div>
+            <div><dt>Поставили</dt><dd>воздух — вода 8 кВт, ГВС 200 л</dd></div>
+          </dl>
+          <p class="case__why">
+            <strong>Почему так:</strong> теплопотери всего 6,4 кВт, весь дом на тёплом полу.
+            Взяли моноблок без доводчика — при −28 °C насос закрывает нагрузку сам.
+          </p>
+          <ul class="case__facts">
+            <li><span>Стоимость проекта</span><strong class="num">1 180 000 ₽</strong></li>
+            <li><span>Счёт зимой стал</span><strong class="num">5 900 ₽/мес</strong></li>
+            <li><span>Минимум прошлой зимы</span><strong class="num">−31 °C, +22 в доме</strong></li>
+          </ul>
+          <blockquote>«Считал окупаемость на 6 лет, вышло на 4,5».</blockquote>
+        </div>
+      </article>
+
+      <article class="case" data-size="m">
+        <div class="case__photo case__photo--2" role="img" aria-label="Газобетонный дом 210 м² в Калужской области">
+          <svg class="case__drawing" viewBox="0 0 320 200" aria-hidden="true" preserveAspectRatio="xMidYMid slice"><defs><pattern id="hatch2" width="5" height="5" patternUnits="userSpaceOnUse" patternTransform="rotate(45)"><path d="M0 0V5" stroke="rgba(242,118,12,.55)" stroke-width="1.2"/></pattern></defs><path class="d-thin" d="M0 156H320"/><path class="d-line" d="M92 66 168 26 244 66"/><rect x="98" y="66" width="140" height="90" fill="url(#hatch2)" opacity=".28"/><rect class="d-wall" x="104" y="66" width="128" height="90"/><path class="d-line" d="M104 111H232"/><rect class="d-thin" x="118" y="78" width="20" height="20"/><rect class="d-thin" x="198" y="78" width="20" height="20"/><rect class="d-thin" x="118" y="122" width="20" height="20"/><rect class="d-tank" x="122" y="100" width="14" height="8" rx="1"/><rect class="d-tank" x="200" y="100" width="14" height="8" rx="1"/><path class="d-warm" d="M110 151H226"/><rect class="d-tank" x="196" y="122" width="20" height="30" rx="3"/><rect class="d-unit" x="44" y="124" width="40" height="30" rx="3"/><circle class="d-line" cx="64" cy="139" r="9"/><path class="d-cold" d="M84 144H104"/><path class="d-pipe" d="M150 140H196"/><path class="d-pipe" d="M150 140V104H200"/><text class="d-text" x="14" y="22">ГАЗОБЕТОН 375 + 50</text><text class="d-text" x="14" y="34">2 ЗОНЫ · 35/48 °C</text></svg>
+          <span class="case__badge num">210 м²</span>
+        </div>
+        <div class="case__body">
+          <h3>Газобетон, Калужская область</h3>
+          <dl class="specs specs--compact">
+            <div><dt>Было</dt><dd>дизельный котёл, 31 000 ₽/мес</dd></div>
+            <div><dt>Утепление</dt><dd>газобетон 375 мм + 50 мм фасад</dd></div>
+            <div><dt>Поставили</dt><dd>воздух — вода 14 кВт, ГВС 400 л</dd></div>
+          </dl>
+          <p class="case__why">
+            <strong>Почему так:</strong> два этажа с радиаторами на втором. Сделали две
+            температурные зоны — 35 °C на пол, 48 °C на радиаторы через смесительный узел.
+          </p>
+          <ul class="case__facts">
+            <li><span>Стоимость проекта</span><strong class="num">1 740 000 ₽</strong></li>
+            <li><span>Счёт зимой стал</span><strong class="num">9 200 ₽/мес</strong></li>
+            <li><span>Дизель больше не покупают</span><strong class="num">−22 000 ₽/мес</strong></li>
+          </ul>
+          <blockquote>«Главное — перестал ездить за соляркой в мороз».</blockquote>
+        </div>
+      </article>
+
+      <article class="case" data-size="l">
+        <div class="case__photo case__photo--3" role="img" aria-label="Кирпичный дом 340 м² в Новой Москве">
+          <svg class="case__drawing" viewBox="0 0 320 200" aria-hidden="true" preserveAspectRatio="xMidYMid slice"><defs><pattern id="hatch3" width="5" height="5" patternUnits="userSpaceOnUse" patternTransform="rotate(45)"><path d="M0 0V5" stroke="rgba(242,118,12,.55)" stroke-width="1.2"/></pattern></defs><path class="d-line" d="M0 130H320"/><path class="d-line" d="M70 56 150 22 230 56"/><rect x="76" y="56" width="148" height="74" fill="url(#hatch3)" opacity=".28"/><rect class="d-wall" x="82" y="56" width="136" height="74"/><path class="d-line" d="M82 93H218"/><rect class="d-thin" x="96" y="66" width="18" height="18"/><rect class="d-thin" x="186" y="66" width="18" height="18"/><rect class="d-thin" x="96" y="102" width="18" height="18"/><path class="d-warm" d="M88 125H212"/><path class="d-warm" d="M88 88H212"/><rect class="d-tank" x="176" y="100" width="16" height="24" rx="2"/><rect class="d-unit" x="150" y="104" width="20" height="20" rx="2"/><path class="d-pipe" d="M170 112H176"/><path class="d-cold" d="M160 124V136H252V190"/><path class="d-cold" d="M160 136H272V190"/><path class="d-cold" d="M252 136V136"/><path class="d-thin" d="M246 140V196M258 140V196M266 140V196M278 140V196"/><text class="d-text" x="14" y="22">КИРПИЧ + 150 мм</text><text class="d-text" x="14" y="34">ГРУНТ · 6 × 90 м</text></svg>
+          <span class="case__badge num">340 м²</span>
+        </div>
+        <div class="case__body">
+          <h3>Кирпичный дом, Новая Москва</h3>
+          <dl class="specs specs--compact">
+            <div><dt>Было</dt><dd>стройка, газ обещали «через пять лет»</dd></div>
+            <div><dt>Утепление</dt><dd>кирпич + 150 мм минвата</dd></div>
+            <div><dt>Поставили</dt><dd>грунт — вода 20 кВт, 6 зондов по 90 м</dd></div>
+          </dl>
+          <p class="case__why">
+            <strong>Почему так:</strong> подключение к магистрали оценили в 2,1 млн ₽.
+            Участок 22 сотки позволил бурение — грунтовый контур даёт SCOP 4,6 без доводчика.
+          </p>
+          <ul class="case__facts">
+            <li><span>Стоимость проекта</span><strong class="num">3 050 000 ₽</strong></li>
+            <li><span>Счёт зимой</span><strong class="num">11 800 ₽/мес</strong></li>
+            <li><span>Дешевле подключения газа на</span><strong class="num">1,2 млн ₽ сразу</strong></li>
+          </ul>
+          <blockquote>«Газ до нас так и не довели. Не жалею ни дня».</blockquote>
+        </div>
+      </article>
+    </div>
+  </div>
+</section>
+
+<!-- ══ 8. КАК МЫ РАБОТАЕМ ══ -->
+<section class="section section--dark" id="process">
+  <div class="container">
+    <header class="section__head">
+      <p class="eyebrow">Процесс</p>
+      <h2>Шесть шагов от расчёта до первой зимы</h2>
+      <p class="section__lead">
+        После заявки с вами разговаривает инженер, а не отдел продаж. Первые два шага
+        не стоят ничего и ни к чему не обязывают.
+      </p>
+    </header>
+
+    <ol class="timeline">
+      <li>
+        <span class="timeline__num num">01</span>
+        <h3>Расчёт на сайте</h3>
+        <p>Вы уже знаете конфигурацию и диапазон цены.</p>
+        <span class="timeline__meta">3 минуты · бесплатно</span>
+      </li>
+      <li>
+        <span class="timeline__num num">02</span>
+        <h3>Разговор с инженером</h3>
+        <p>Уточняем вводные, обсуждаем варианты и ограничения участка.</p>
+        <span class="timeline__meta">30 минут · бесплатно</span>
+      </li>
+      <li>
+        <span class="timeline__num num">03</span>
+        <h3>Теплотехнический аудит</h3>
+        <p>Выезд, замеры, тепловизор, проверка электрики и места под блоки.</p>
+        <span class="timeline__meta">18 000 ₽ · зачтём в договор</span>
+      </li>
+      <li>
+        <span class="timeline__num num">04</span>
+        <h3>Проект и точная смета</h3>
+        <p>Расчёт по помещениям, схема котельной, фиксированная цена.</p>
+        <span class="timeline__meta">7–10 дней</span>
+      </li>
+      <li>
+        <span class="timeline__num num">05</span>
+        <h3>Монтаж</h3>
+        <p>Своя бригада, ежедневные фотоотчёты, без субподряда.</p>
+        <span class="timeline__meta">5–10 дней</span>
+      </li>
+      <li>
+        <span class="timeline__num num">06</span>
+        <h3>Пусконаладка и сервис</h3>
+        <p>Настройка кривых отопления, удалённый мониторинг, сервис раз в год.</p>
+        <span class="timeline__meta">гарантия 5 лет</span>
+      </li>
+    </ol>
+
+    <div class="stage-pick">
+      <p class="stage-pick__q">На каком вы этапе?</p>
+      <div class="stage-pick__btns">
+        <button class="btn btn--ghost" data-stage="design">Проектирую дом</button>
+        <button class="btn btn--ghost" data-stage="building">Строю</button>
+        <button class="btn btn--ghost" data-stage="ready">Живу и хочу заменить отопление</button>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══ 9. ЭКСПЕРТИЗА ══ -->
+<section class="section" id="team">
+  <div class="container">
+    <div class="expert">
+      <div class="expert__photo" role="img" aria-label="Портрет главного инженера">
+        <span class="expert__initials">АК</span>
+      </div>
+      <div class="expert__body">
+        <p class="eyebrow">Кто считает вашу систему</p>
+        <h2>Андрей Ковалёв, главный инженер</h2>
+        <p>
+          14 лет в низкотемпературном отоплении, 127 смонтированных систем на тепловых насосах,
+          из них 34 — в домах без магистрального газа. Ведёт расчёт лично: считает теплопотери
+          по помещениям, а не по «средним 100 ватт на метр».
+        </p>
+        <ul class="expert__creds">
+          <li>Сертифицированный партнёр четырёх производителей оборудования</li>
+          <li>Допуск СРО на проектирование инженерных систем</li>
+          <li>Член ассоциации АВОК</li>
+        </ul>
+        <div class="brands" aria-label="Производители оборудования">
+          <span>Bosch</span><span>Vaillant</span><span>NIBE</span><span>Mitsubishi</span><span>Danfoss</span>
+        </div>
+        <p class="note">
+          <strong>Почему мы не ставим самое дешёвое.</strong> Мы работаем с оборудованием,
+          у которого в России есть склад запчастей и сервис. Насос без сервиса — это не экономия,
+          а риск остаться без отопления в январе.
+        </p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══ 10. ЭКОНОМИКА ══ -->
+<section class="section section--tint" id="economy">
+  <div class="container">
+    <header class="section__head">
+      <p class="eyebrow">Экономика</p>
+      <h2>Стоимость владения за 10 лет</h2>
+      <p class="section__lead">
+        Оборудование плюс топливо. Расчёт по той же модели, что и калькулятор:
+        реальные теплопотери, климат региона, тарифы.
+      </p>
+    </header>
+
+    <div class="econ">
+      <div class="econ__controls">
+        <label class="field">
+          <span class="field__label">Площадь дома <output class="num" id="econAreaOut">180</output> м²</span>
+          <input type="range" id="econArea" min="80" max="400" step="10" value="180" aria-label="Площадь дома в квадратных метрах">
+        </label>
+        <label class="field">
+          <span class="field__label">Регион</span>
+          <select id="econRegion" aria-label="Регион дома"></select>
+        </label>
+        <label class="field">
+          <span class="field__label">Утепление</span>
+          <select id="econQuality" aria-label="Качество утепления">
+            <option value="good">Хорошее — газобетон 400 мм</option>
+            <option value="mid" selected>Среднее — дом 2000-х</option>
+            <option value="poor">Слабое — без утепления</option>
+          </select>
+        </label>
+      </div>
+      <div class="econ__chart" id="econChart"></div>
+    </div>
+    <p class="econ__note" id="econNote"></p>
+  </div>
+</section>
+
+<!-- ══ 11. FAQ ══ -->
+<section class="section" id="faq">
+  <div class="container container--narrow">
+    <header class="section__head">
+      <p class="eyebrow">Вопросы</p>
+      <h2>О чём спрашивают перед решением</h2>
+    </header>
+
+    <div class="faq" id="faqList">
+      <details>
+        <summary>Работает ли насос при −30 °C?</summary>
+        <div>
+          <p>
+            Работает, но с падением COP: при −25 °C воздушный насос выдаёт около 2,1 вместо 4,2
+            в межсезонье. Поэтому для регионов с расчётной температурой ниже −25 °C мы ставим
+            бивалентную схему: до −7 °C работает только насос, ниже подключается пиковый
+            доводчик — электрический или ваш существующий котёл.
+          </p>
+          <p>
+            По факту доводчик работает 60–120 часов за сезон, это 3–5 % годового потребления.
+            На объекте в Дмитровском районе прошлой зимой при −31 °C дом держал +22 °C.
+          </p>
+        </div>
+      </details>
+      <details>
+        <summary>Хватит ли выделенных 15 кВт?</summary>
+        <div>
+          <p>
+            Обычно да. Насос 12 кВт тепловой мощности потребляет из сети 3,5–4 кВт —
+            это меньше, чем электрический чайник и духовка вместе. Проблема возникает
+            только с пиковым доводчиком: он добавляет 6–9 кВт.
+          </p>
+          <p>
+            Калькулятор проверяет это автоматически: если мощности не хватает, мы честно
+            скажем и предложим гибридную схему или увеличение ввода.
+          </p>
+        </div>
+      </details>
+      <details>
+        <summary>Шумит ли наружный блок?</summary>
+        <div>
+          <p>
+            Инверторный моноблок даёт 48–54 дБ на расстоянии метра — это уровень
+            бытового холодильника с чуть более низкой частотой. На расстоянии 5 метров
+            (норма установки под окном спальни) — 36–40 дБ, тише разговора.
+          </p>
+          <p>
+            В ночном режиме блок ограничивает обороты вентилятора: минус 4–6 дБ ценой
+            10 % мощности. Мы всегда рассчитываем размещение с учётом окон спальни
+            и границы участка соседа.
+          </p>
+        </div>
+      </details>
+      <details>
+        <summary>Что будет при отключении электричества?</summary>
+        <div>
+          <p>
+            Насос остановится, как и любой котёл с автоматикой. Инерция тёплого пола
+            в утеплённом доме — 8–14 часов до падения на 2 °C, буфер добавляет ещё 2–3 часа.
+          </p>
+          <p>
+            Для районов с частыми отключениями мы ставим генератор с автозапуском
+            или ИБП на циркуляционные насосы. Это отдельная позиция, 90–250 тыс ₽,
+            и мы всегда проговариваем её на аудите.
+          </p>
+        </div>
+      </details>
+      <details>
+        <summary>Можно ли подключить к существующим радиаторам?</summary>
+        <div>
+          <p>
+            Да, но с проверкой. Насос эффективен при подаче до 50 °C, а старые системы
+            рассчитаны на 70–80 °C. На аудите мы считаем теплоотдачу ваших радиаторов
+            при 48 °C: если её не хватает, есть три пути — добавить секции, заменить
+            часть радиаторов на более крупные или оставить бивалентную схему.
+          </p>
+          <p>
+            В 6 из 10 домов радиаторы оказываются с запасом: их обычно ставят «на глазок»
+            с двукратным избытком.
+          </p>
+        </div>
+      </details>
+      <details>
+        <summary>Почему у вас дороже, чем насос с маркетплейса?</summary>
+        <div>
+          <p>
+            Потому что насос — это примерно половина стоимости работающей системы.
+            Остальное — буфер, бойлер послойного нагрева, насосные группы, погодозависимая
+            автоматика, гидравлическая балансировка и пусконаладка.
+          </p>
+          <p>
+            Мы видели десятки самостоятельных установок: оборудование куплено правильно,
+            а система тактует, потому что нет буфера и кривая отопления стоит по умолчанию.
+            Это минус 30 % эффективности — вся экономия на монтаже уходит в счёт за первый сезон.
+          </p>
+        </div>
+      </details>
+      <details>
+        <summary>Какое обслуживание нужно и сколько стоит?</summary>
+        <div>
+          <p>
+            Раз в год: проверка давления контура, чистка теплообменника наружного блока,
+            анализ логов контроллера, корректировка кривой отопления по прошедшему сезону.
+            12 000–18 000 ₽ в зависимости от схемы.
+          </p>
+          <p>
+            Первый год сервиса входит в стоимость. Удалённый мониторинг мы включаем всем:
+            видим отклонения раньше, чем вы почувствуете холод.
+          </p>
+        </div>
+      </details>
+      <details>
+        <summary>Даёте ли рассрочку?</summary>
+        <div>
+          <p>
+            Работаем по трёхэтапной оплате: 40 % на оборудование, 40 % на старте монтажа,
+            20 % после пусконаладки и подписания акта. Есть банковская рассрочка
+            на 6–24 месяца от партнёрских банков.
+          </p>
+        </div>
+      </details>
+      <details>
+        <summary>Сколько ждать от заявки до тепла в доме?</summary>
+        <div>
+          <p>
+            В сезон — 4–6 недель: неделя на аудит и проект, 2–3 недели на поставку
+            оборудования, 5–10 дней монтаж. Летом быстрее.
+          </p>
+          <p>
+            Если вы строите дом, начинать разговор нужно на этапе, когда ещё не залита
+            стяжка: шаг укладки трубы тёплого пола зависит от расчёта, и переделать
+            его потом невозможно.
+          </p>
+        </div>
+      </details>
+    </div>
+  </div>
+</section>
+
+<!-- ══ 12. ФИНАЛЬНЫЙ CTA ══ -->
+<section class="section section--dark" id="contact">
+  <div class="container">
+    <div class="final">
+      <article class="final__card final__card--accent">
+        <h2>Рассчитать мою систему</h2>
+        <p>
+          Семь вопросов о доме — и вы получите конфигурацию, диапазон цены,
+          её разбор по составляющим и PDF-расчёт.
+        </p>
+        <ul class="final__list">
+          <li>3 минуты, без звонка</li>
+          <li>Результат сразу на экране</li>
+          <li>PDF можно показать супругу или подрядчику</li>
+        </ul>
+        <a class="btn btn--primary btn--lg" href="#calc">Начать расчёт</a>
+      </article>
+
+      <article class="final__card">
+        <h2>Задать вопрос инженеру</h2>
+        <p>Если удобнее разговором — оставьте контакт. <strong>Позвонит инженер, а не отдел продаж.</strong></p>
+        <form class="form" id="askForm" novalidate>
+          <label class="field">
+            <span class="field__label">Как к вам обращаться</span>
+            <input type="text" name="name" autocomplete="name" placeholder="Андрей" required>
+          </label>
+          <label class="field">
+            <span class="field__label">Телефон</span>
+            <input type="tel" name="phone" autocomplete="tel" placeholder="+7 900 000-00-00" required>
+          </label>
+          <label class="field">
+            <span class="field__label">Удобное время</span>
+            <select name="time">
+              <option>В любое время</option>
+              <option>Утром, 9:00–12:00</option>
+              <option>Днём, 12:00–17:00</option>
+              <option>Вечером, 17:00–21:00</option>
+            </select>
+          </label>
+          <label class="field">
+            <span class="field__label">Опишите ситуацию — необязательно</span>
+            <textarea name="comment" rows="3" placeholder="Дом 190 м², есть дизельный котёл, хочу понять окупаемость"></textarea>
+          </label>
+          <label class="check">
+            <input type="checkbox" name="consent" required>
+            <span>Согласен на обработку персональных данных</span>
+          </label>
+          <button class="btn btn--primary" type="submit">Жду звонка инженера</button>
+          <p class="form__status" id="askStatus" role="status"></p>
+        </form>
+      </article>
+    </div>
+  </div>
+</section>
+
+</main>
+
+<!-- ══ FOOTER ══ -->
+<footer class="footer">
+  <div class="container footer__inner">
+    <div class="footer__col">
+      <a class="logo" href="#top">
+        <span class="logo__text"><strong>THERMA HOME</strong><small>инженерные системы отопления</small></span>
+      </a>
+      <p class="footer__addr">
+        Москва, Дербеневская набережная, 7с9<br>
+        Шоурум с работающей котельной — по записи
+      </p>
+      <p class="footer__legal">
+        ООО «Терма Хоум» · ИНН 7700000000<br>
+        ОГРН 1000000000000
+      </p>
+    </div>
+    <div class="footer__col">
+      <h3>Зона монтажа</h3>
+      <ul>
+        <li>Москва и область</li>
+        <li>Санкт-Петербург и Ленобласть</li>
+        <li>Тверь, Ярославль, Калуга, Тула</li>
+        <li>Рязань, Нижний Новгород, Казань</li>
+        <li>Другие регионы — удалённый проект</li>
+      </ul>
+    </div>
+    <div class="footer__col">
+      <h3>Разделы</h3>
+      <ul>
+        <li><a href="#calc">Расчёт системы</a></li>
+        <li><a href="#price">Разбор цены</a></li>
+        <li><a href="#solutions">Типовые решения</a></li>
+        <li><a href="#cases">Кейсы домов</a></li>
+        <li><a href="#faq">Вопросы и ответы</a></li>
+      </ul>
+    </div>
+    <div class="footer__col">
+      <h3>Связь</h3>
+      <ul>
+        <li><a href="tel:+74951234567">+7 495 123-45-67</a></li>
+        <li><a href="mailto:hello@thermahome.ru">hello@thermahome.ru</a></li>
+        <li><a href="#contact">Вопрос инженеру</a></li>
+      </ul>
+      <p class="footer__legal"><a href="privacy.html">Политика обработки персональных данных</a></p>
+    </div>
+  </div>
+</footer>
+
+<script src="assets/js/calc-engine.js?v=7"></script>
+<script src="assets/js/calculator.js?v=7"></script>
+<script src="assets/js/app.js?v=7"></script>
+</body>
+</html>

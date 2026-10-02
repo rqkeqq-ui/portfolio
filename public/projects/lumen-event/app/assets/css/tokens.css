@@ -1,0 +1,94 @@
+/* ============================================================
+   LUMEN EVENT — дизайн-токены и система атмосфер.
+   Атмосфера переключается атрибутом data-mood на <html>:
+   меняются --accent / --accent-2 / --deep, и весь сайт перекрашивается.
+   ============================================================ */
+
+:root {
+  /* Фон — почти чёрный с тёплым подтоном: свет читается только на тёмном */
+  --bg:            #0E0C0A;
+  --bg-2:          #14110E;
+  --bg-3:          #1B1713;
+  --surface:       rgba(255, 255, 255, .035);
+  --surface-2:     rgba(255, 255, 255, .06);
+  --line:          rgba(255, 255, 255, .09);
+  --line-strong:   rgba(255, 255, 255, .16);
+
+  --text:          #F5F0E8;
+  --text-2:        #A8A096;
+  --text-3:        #6E675E;
+
+  /* Акцент по умолчанию — тёплая классика. Перекрывается темами ниже. */
+  --accent:        #FFB84D;
+  --accent-2:      #FFD9A0;
+  --accent-3:      #B87333;
+  --deep:          #3A2413;
+
+  --accent-soft:   color-mix(in srgb, var(--accent) 14%, transparent);
+  --accent-line:   color-mix(in srgb, var(--accent) 38%, transparent);
+  --on-accent:     #17120C;
+
+  /* Свечение — фирменный приём: интерфейс ведёт себя как свет */
+  --glow-sm: 0 0 12px color-mix(in srgb, var(--accent) 35%, transparent);
+  --glow-md: 0 0 28px color-mix(in srgb, var(--accent) 30%, transparent);
+  --glow-lg: 0 0 64px color-mix(in srgb, var(--accent) 26%, transparent);
+
+  --font-display: "Playfair Display", "Times New Roman", Georgia, serif;
+  --font-ui: "Inter", -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+
+  --r-sm: 8px;
+  --r-md: 14px;
+  --r-lg: 22px;
+  --r-xl: 32px;
+
+  --wrap: 1240px;
+  --gutter: clamp(20px, 5vw, 56px);
+  --sec-y: clamp(72px, 10vw, 148px);
+
+  --t-fast: 160ms;
+  --t: 280ms;
+  --t-slow: 520ms;
+  --ease: cubic-bezier(.22, .61, .36, 1);
+}
+
+/* ---------- Атмосферы ---------- */
+
+[data-mood="classic"] {
+  --accent: #FFB84D; --accent-2: #FFD9A0; --accent-3: #B87333; --deep: #3A2413;
+  --on-accent: #17120C;
+}
+[data-mood="garden"] {
+  --accent: #C6E86B; --accent-2: #F2E7A6; --accent-3: #6FA85C; --deep: #14210F;
+  --on-accent: #101A0A;
+}
+[data-mood="neon"] {
+  --accent: #FF4FD8; --accent-2: #4FF0FF; --accent-3: #7A2BFF; --deep: #12061F;
+  --on-accent: #12061F;
+}
+[data-mood="minimal"] {
+  --accent: #EAF2FF; --accent-2: #A8C4FF; --accent-3: #5C7290; --deep: #0B1017;
+  --on-accent: #0B1017;
+}
+[data-mood="drama"] {
+  --accent: #FF7A3D; --accent-2: #FFC48A; --accent-3: #8E2F1C; --deep: #1A0A06;
+  --on-accent: #1A0A06;
+}
+[data-mood="club"] {
+  --accent: #8A5CFF; --accent-2: #3DF5FF; --accent-3: #FF2E9A; --deep: #080614;
+  --on-accent: #F2EEFF;
+}
+
+/* Неон и клуб — холоднее и глубже основной фон */
+[data-mood="neon"],  [data-mood="club"] {
+  --bg: #0A0710; --bg-2: #100B18; --bg-3: #171021;
+}
+[data-mood="minimal"] {
+  --bg: #0A0C0F; --bg-2: #0F1216; --bg-3: #15191F;
+}
+[data-mood="garden"] {
+  --bg: #0B0E09; --bg-2: #10140D; --bg-3: #171C12;
+}
+
+/* Смена атмосферы — плавная, как диммирование света */
+html { transition: --accent var(--t-slow) var(--ease); }
+body { transition: background-color var(--t-slow) var(--ease); }

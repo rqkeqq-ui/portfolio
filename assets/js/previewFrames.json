@@ -1,0 +1,182 @@
+{
+  "northcut": [
+    {
+      "src": "/images/previews/northcut-1.webp",
+      "width": 720,
+      "height": 1688
+    },
+    {
+      "src": "/images/previews/northcut-2.webp",
+      "width": 720,
+      "height": 1350
+    },
+    {
+      "src": "/images/previews/northcut-3.webp",
+      "width": 720,
+      "height": 844
+    }
+  ],
+  "weekly-table": [
+    {
+      "src": "/images/previews/weekly-table-1.webp",
+      "width": 720,
+      "height": 1463
+    },
+    {
+      "src": "/images/previews/weekly-table-2.webp",
+      "width": 720,
+      "height": 1238
+    },
+    {
+      "src": "/images/previews/weekly-table-3.webp",
+      "width": 720,
+      "height": 1125
+    }
+  ],
+  "verde-office": [
+    {
+      "src": "/images/previews/verde-office-1.webp",
+      "width": 720,
+      "height": 1463
+    },
+    {
+      "src": "/images/previews/verde-office-2.webp",
+      "width": 720,
+      "height": 1125
+    },
+    {
+      "src": "/images/previews/verde-office-3.webp",
+      "width": 720,
+      "height": 1125
+    }
+  ],
+  "therma-home": [
+    {
+      "src": "/images/previews/therma-home-1.webp",
+      "width": 720,
+      "height": 1350
+    },
+    {
+      "src": "/images/previews/therma-home-2.webp",
+      "width": 720,
+      "height": 731
+    },
+    {
+      "src": "/images/previews/therma-home-3.webp",
+      "width": 720,
+      "height": 1350
+    }
+  ],
+  "pawline": [
+    {
+      "src": "/images/previews/pawline-1.webp",
+      "width": 720,
+      "height": 1463
+    },
+    {
+      "src": "/images/previews/pawline-2.webp",
+      "width": 720,
+      "height": 930
+    },
+    {
+      "src": "/images/previews/pawline-3.webp",
+      "width": 720,
+      "height": 1125
+    }
+  ],
+  "nord-module": [
+    {
+      "src": "/images/previews/nord-module-1.webp",
+      "width": 720,
+      "height": 1463
+    },
+    {
+      "src": "/images/previews/nord-module-2.webp",
+      "width": 720,
+      "height": 1125
+    },
+    {
+      "src": "/images/previews/nord-module-3.webp",
+      "width": 720,
+      "height": 1238
+    }
+  ],
+  "lumen-event": [
+    {
+      "src": "/images/previews/lumen-event-1.webp",
+      "width": 720,
+      "height": 1463
+    },
+    {
+      "src": "/images/previews/lumen-event-2.webp",
+      "width": 720,
+      "height": 1238
+    },
+    {
+      "src": "/images/previews/lumen-event-3.webp",
+      "width": 720,
+      "height": 1125
+    }
+  ],
+  "fixflow": [
+    {
+      "src": "/images/previews/fixflow-1.webp",
+      "width": 720,
+      "height": 1463
+    },
+    {
+      "src": "/images/previews/fixflow-2.webp",
+      "width": 720,
+      "height": 844
+    },
+    {
+      "src": "/images/previews/fixflow-3.webp",
+      "width": 720,
+      "height": 1125
+    }
+  ],
+  "beauty-booking": [
+    {
+      "src": "/images/previews/beauty-booking-1.webp",
+      "width": 720,
+      "height": 1463
+    },
+    {
+      "src": "/images/previews/beauty-booking-2.webp",
+      "width": 720,
+      "height": 1069
+    },
+    {
+      "src": "/images/previews/beauty-booking-3.webp",
+      "width": 720,
+      "height": 774
+    },
+    {
+      "src": "/images/previews/beauty-booking-4.webp",
+      "width": 720,
+      "height": 926
+    }
+  ],
+  "library-system": [
+    {
+      "src": "/images/previews/library-system-1.webp",
+      "width": 720,
+      "height": 1055
+    },
+    {
+      "src": "/images/previews/library-system-2.webp",
+      "width": 720,
+      "height": 807
+    },
+    {
+      "src": "/images/previews/library-system-3.webp",
+      "width": 720,
+      "height": 807
+    },
+    {
+      "src": "/images/previews/library-system-4.webp",
+      "width": 720,
+      "height": 1055
+    }
+  ]
+}

@@ -1,0 +1,119 @@
+/* ============================================================
+   LUMEN EVENT — сброс, типографика, каркас.
+   ============================================================ */
+
+*, *::before, *::after { box-sizing: border-box; }
+
+html { scroll-behavior: smooth; scroll-padding-top: 118px; -webkit-text-size-adjust: 100%; }
+
+body {
+  margin: 0;
+  background: var(--bg);
+  color: var(--text);
+  font-family: var(--font-ui);
+  font-size: 16px;
+  line-height: 1.6;
+  font-weight: 300;
+  -webkit-font-smoothing: antialiased;
+  overflow-x: hidden;
+}
+
+body.is-locked { overflow: hidden; }
+
+img, svg, video { max-width: 100%; display: block; }
+button, input, select, textarea { font: inherit; color: inherit; }
+button { cursor: pointer; background: none; border: 0; padding: 0; }
+a { color: inherit; text-decoration: none; }
+ul, ol { margin: 0; padding: 0; list-style: none; }
+h1, h2, h3, h4, p, figure, blockquote { margin: 0; }
+
+::selection { background: var(--accent); color: var(--on-accent); }
+
+:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: 3px;
+  border-radius: 4px;
+}
+
+/* ---------- Каркас ---------- */
+
+.wrap {
+  width: 100%;
+  max-width: var(--wrap);
+  margin-inline: auto;
+  padding-inline: var(--gutter);
+}
+
+main > section { position: relative; padding-block: var(--sec-y); }
+
+/* Тонкая световая линия-разделитель между секциями */
+main > section + section::before {
+  content: "";
+  position: absolute; inset-inline: 0; top: 0; height: 1px;
+  background: linear-gradient(90deg,
+    transparent, var(--line), var(--accent-line) 50%, var(--line), transparent);
+  opacity: .55;
+}
+
+/* ---------- Типографика ---------- */
+
+.h2 {
+  font-family: var(--font-display);
+  font-weight: 500;
+  font-size: clamp(30px, 4.6vw, 54px);
+  line-height: 1.08;
+  letter-spacing: -.015em;
+}
+
+.h2 em { font-style: italic; color: var(--accent-2); }
+
+.eyebrow {
+  font-size: 12px;
+  font-weight: 500;
+  letter-spacing: .18em;
+  text-transform: uppercase;
+  color: var(--accent);
+  margin-bottom: 18px;
+}
+
+.lead {
+  font-size: clamp(15px, 1.35vw, 18px);
+  line-height: 1.65;
+  color: var(--text-2);
+  max-width: 62ch;
+}
+
+.sec-head { max-width: 760px; margin-bottom: clamp(36px, 5vw, 64px); }
+.sec-head .lead { margin-top: 18px; }
+.sec-head--left { max-width: 420px; margin-bottom: 0; }
+
+/* ---------- Появление секций: «включение света» ----------
+   Начальное «погашенное» состояние вешаем только при живом JS:
+   если скрипт не выполнился, контент остаётся видимым. */
+
+.js .reveal {
+  opacity: 0;
+  transform: translateY(22px);
+  filter: brightness(.35) saturate(.6);
+  transition:
+    opacity var(--t-slow) var(--ease),
+    transform var(--t-slow) var(--ease),
+    filter 700ms var(--ease);
+  transition-delay: var(--d, 0ms);
+}
+
+.js .reveal.is-lit {
+  opacity: 1;
+  transform: none;
+  filter: none;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+  .js .reveal { opacity: 1; transform: none; filter: none; transition: none; }
+  *, *::before, *::after {
+    animation-duration: .001ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: .001ms !important;
+  }
+}

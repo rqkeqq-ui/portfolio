@@ -1,0 +1,763 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Verde Office — озеленение офисов по подписке</title>
+<meta name="description" content="Проектируем, устанавливаем и обслуживаем растения в вашем офисе по договору. Фиксированный платёж в месяц, график визитов фитотехника и гарантированная замена растений по SLA.">
+<link rel="canonical" href="https://verde.example/">
+<meta name="theme-color" content="#1E4D3B">
+
+<link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
+<link rel="apple-touch-icon" href="assets/icon-512.png">
+<link rel="manifest" href="site.webmanifest">
+
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Verde Office">
+<meta property="og:locale" content="ru_RU">
+<meta property="og:url" content="https://verde.example/">
+<meta property="og:title" content="Озеленение офиса по подписке — Verde Office">
+<meta property="og:description" content="Растения наши, забота тоже наша. Фиксированный платёж в месяц, график визитов фитотехника и замена растений по SLA.">
+<meta property="og:image" content="https://verde.example/assets/og.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="Verde Office — озеленение офиса по подписке">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Озеленение офиса по подписке — Verde Office">
+<meta name="twitter:description" content="Растения наши, забота тоже наша. Фиксированный платёж, график визитов и замена растений по SLA.">
+<meta name="twitter:image" content="https://verde.example/assets/og.png">
+
+<link rel="stylesheet" href="./assets/fonts/fonts.css">
+  <link rel="stylesheet" href="css/styles.css">
+<script>document.documentElement.classList.add('js')</script>
+</head>
+<body>
+
+<!-- ══════════════ 00 · HEADER ══════════════ -->
+<header class="hdr" id="hdr">
+  <div class="wrap hdr__in">
+    <a href="index.html" class="logo" aria-label="Verde Office — на главную">
+      <svg width="22" height="22" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 22c0-6 3-11 9-13-1 8-4 12-9 13Z" fill="currentColor"/><path d="M12 22C7 21 4 17 3 9c6 2 9 7 9 13Z" fill="currentColor" opacity=".55"/></svg>
+      <span>VERDE<b>OFFICE</b></span>
+    </a>
+    <nav class="hdr__nav" aria-label="Основная навигация">
+      <a href="#how">Как работает</a>
+      <a href="#calc">Калькулятор</a>
+      <a href="#tariffs">Тарифы</a>
+      <a href="#sla">SLA</a>
+      <a href="#network">Для сетей</a>
+      <a href="#faq">FAQ</a>
+    </nav>
+    <div class="hdr__act">
+      <a href="tel:+74951234567" class="hdr__tel">+7 495 123-45-67</a>
+      <a href="#calc" class="btn btn--sm" id="hdrCta">Рассчитать озеленение</a>
+    </div>
+    <button class="burger" id="burger" aria-label="Меню" aria-expanded="false"><span></span><span></span><span></span></button>
+  </div>
+</header>
+
+<!-- ══════════════ 01 · HERO ══════════════ -->
+<section class="hero">
+  <div class="wrap hero__in">
+    <div class="hero__txt">
+      <p class="eyebrow"><i class="dot"></i>B2B-озеленение по договору подписки</p>
+      <h1>Озеленение офиса<br>по подписке</h1>
+      <p class="hero__claim">Растения — наши, забота — тоже наша</p>
+      <p class="lead">Проектируем, устанавливаем и обслуживаем растения в вашем офисе. Фиксированный платёж в месяц, график визитов фитотехника и гарантированная замена — без единой обязанности со стороны вашей команды.</p>
+      <div class="hero__cta">
+        <a href="#calc" class="btn btn--lg">Рассчитать за 2 минуты</a>
+        <a href="kp-example.html" class="btn btn--ghost btn--lg">Посмотреть пример КП</a>
+      </div>
+      <ul class="chips">
+        <li>Договор + SLA</li>
+        <li>Замена растений бесплатно</li>
+        <li>Визиты 2–4 раза в месяц</li>
+        <li>Работаем с сетями филиалов</li>
+      </ul>
+    </div>
+    <div class="hero__art" aria-hidden="true">
+      <img class="scene scene--hero scene--photo" src="assets/img/hero.webp" alt="" width="1600" height="1000" fetchpriority="high" decoding="async">
+      <div class="hero__badge">
+        <span class="hero__badge-k">Ежемесячно</span>
+        <strong>24 300 ₽</strong>
+        <span class="hero__badge-s">офис 200 м², 38 растений, аренда</span>
+      </div>
+    </div>
+  </div>
+  <div class="marquee" aria-label="Нам доверяют">
+    <div class="marquee__track">
+      <span>ALTERA GROUP</span><span>Ланит-Терра</span><span>NOVA BANK</span><span>Технопарк Сфера</span><span>Юрбюро Крайнов и партнёры</span><span>DIGITAL FACTORY</span><span>Клиника Медея</span><span>SIGMA RETAIL</span>
+      <span>ALTERA GROUP</span><span>Ланит-Терра</span><span>NOVA BANK</span><span>Технопарк Сфера</span><span>Юрбюро Крайнов и партнёры</span><span>DIGITAL FACTORY</span><span>Клиника Медея</span><span>SIGMA RETAIL</span>
+    </div>
+  </div>
+</section>
+
+<!-- ══════════════ 02 · БОЛЬ → РЕШЕНИЕ ══════════════ -->
+<section class="sec" id="pain">
+  <div class="wrap">
+    <header class="sec__head reveal">
+      <p class="eyebrow"><i class="dot"></i>Проблема</p>
+      <h2>Кто у вас в офисе отвечает за растения?</h2>
+      <p class="sec__sub">Если ответ «ну, Марина из бухгалтерии иногда поливает» — через полгода в офисе будет три сухих горшка и неловкость.</p>
+    </header>
+    <div class="cols2 reveal">
+      <article class="card card--bad">
+        <h3><span class="tag tag--bad">Как обычно</span></h3>
+        <ul class="list list--x">
+          <li>Растения купили к открытию офиса — через полгода половина погибла.</li>
+          <li>Поливает «кто-нибудь», то есть никто. В отпуске поливает вообще никто.</li>
+          <li>Админотдел не может объяснить бухгалтерии, на что списывать горшки и грунт.</li>
+          <li>В переговорке пыльный фикус, на ресепшене — пустой угол и стремянка.</li>
+          <li>Заменить растение = снова искать поставщика, снова счёт, снова договор.</li>
+        </ul>
+      </article>
+      <article class="card card--good">
+        <h3><span class="tag tag--good">С Verde Office</span></h3>
+        <ul class="list list--v">
+          <li>За каждым растением закреплён фитотехник и график визитов в календаре.</li>
+          <li>Полив, подкормка, гигиена листьев и обработка — по регламенту, а не по настроению.</li>
+          <li>Погибло или потеряло вид — меняем за свой счёт в рамках SLA.</li>
+          <li>Один договор, один ежемесячный акт, ЭДО. Одна строка в бюджете.</li>
+          <li>Дизайн-проект под ваш интерьер, освещение и планировку.</li>
+        </ul>
+      </article>
+    </div>
+    <p class="pain__out reveal">Вопрос «а кто польёт?» просто исчезает из офиса. <a href="#calc" class="lnk">Посчитать, сколько это стоит →</a></p>
+  </div>
+</section>
+
+<!-- ══════════════ 03 · КАК ЭТО РАБОТАЕТ ══════════════ -->
+<section class="sec sec--alt" id="how">
+  <div class="wrap">
+    <header class="sec__head reveal">
+      <p class="eyebrow"><i class="dot"></i>Процесс</p>
+      <h2>От заявки до зелёного офиса — 7 дней</h2>
+    </header>
+    <ol class="steps reveal">
+      <li class="step">
+        <span class="step__n">01</span>
+        <span class="step__day">День 0</span>
+        <h3>Бриф и план офиса</h3>
+        <p>Заполняете калькулятор, прикладываете план или фото офиса. Если плана нет — выезжаем на бесплатный замер.</p>
+      </li>
+      <li class="step">
+        <span class="step__n">02</span>
+        <span class="step__day">2–3 дня</span>
+        <h3>Проект и КП</h3>
+        <p>Фитодизайнер делает схему расстановки с учётом освещения и подбирает ассортимент. Присылаем смету и договор.</p>
+      </li>
+      <li class="step">
+        <span class="step__n">03</span>
+        <span class="step__day">5–7 день</span>
+        <h3>Установка</h3>
+        <p>Привозим и расставляем за один день, чаще всего в нерабочее время. Офис не останавливается, уборка — наша.</p>
+      </li>
+      <li class="step">
+        <span class="step__n">04</span>
+        <span class="step__day">Ежемесячно</span>
+        <h3>Сервис по расписанию</h3>
+        <p>Визиты фитотехника, полив, подкормка, замены и отчёт админотделу. Вы не делаете ничего.</p>
+      </li>
+    </ol>
+  </div>
+</section>
+
+<!-- ══════════════ 04 · ДО / ПОСЛЕ ══════════════ -->
+<section class="sec" id="compare">
+  <div class="wrap">
+    <header class="sec__head reveal">
+      <p class="eyebrow"><i class="dot"></i>Результат</p>
+      <h2>Один и тот же офис. Разница — в подписке</h2>
+      <p class="sec__sub">Потяните ползунок, чтобы увидеть, как меняется помещение после проекта озеленения.</p>
+    </header>
+
+    <div class="cmp reveal">
+      <div class="cmp__tabs" role="tablist" aria-label="Кейсы озеленения">
+        <button role="tab" class="cmp__tab is-on" data-case="0" aria-selected="true">Open space, 200 м²</button>
+        <button role="tab" class="cmp__tab" data-case="1" aria-selected="false">Ресепшн и переговорные</button>
+        <button role="tab" class="cmp__tab" data-case="2" aria-selected="false">Зона отдыха</button>
+      </div>
+
+      <div class="cmp__stage">
+        <div class="cmp__layer cmp__layer--before" id="cmpBefore">
+          <!-- BEFORE 0 -->
+          <img class="scene scene--photo" data-case="0" src="assets/img/before-0.webp" alt="" width="1600" height="1000" loading="lazy" decoding="async">
+          <!-- BEFORE 1 -->
+          <img class="scene scene--photo" data-case="1" src="assets/img/before-1.webp" alt="" width="1600" height="1000" loading="lazy" decoding="async" hidden>
+          <!-- BEFORE 2 -->
+          <img class="scene scene--photo" data-case="2" src="assets/img/before-2.webp" alt="" width="1600" height="1000" loading="lazy" decoding="async" hidden>
+        </div>
+
+        <div class="cmp__layer cmp__layer--after" id="cmpAfter">
+          <!-- AFTER 0 -->
+          <img class="scene scene--photo" data-case="0" src="assets/img/after-0.webp" alt="" width="1600" height="1000" loading="lazy" decoding="async">
+          <!-- AFTER 1 -->
+          <img class="scene scene--photo" data-case="1" src="assets/img/after-1.webp" alt="" width="1600" height="1000" loading="lazy" decoding="async" hidden>
+          <!-- AFTER 2 -->
+          <img class="scene scene--photo" data-case="2" src="assets/img/after-2.webp" alt="" width="1600" height="1000" loading="lazy" decoding="async" hidden>
+        </div>
+        <div class="cmp__handle" id="cmpHandle" aria-hidden="true"><span></span></div>
+        <input type="range" min="0" max="100" value="50" class="cmp__range" id="cmpRange" aria-label="Сравнение до и после">
+        <span class="cmp__lbl cmp__lbl--l">Было</span>
+        <span class="cmp__lbl cmp__lbl--r">Стало</span>
+      </div>
+
+      <dl class="cmp__facts" id="cmpFacts"></dl>
+    </div>
+  </div>
+</section>
+
+<!-- ══════════════ 05 · КАЛЬКУЛЯТОР ══════════════ -->
+<section class="sec sec--calc" id="calc">
+  <div class="wrap">
+    <header class="sec__head sec__head--light reveal">
+      <p class="eyebrow eyebrow--light"><i class="dot"></i>Калькулятор озеленения</p>
+      <h2>Соберите смету под свой офис</h2>
+      <p class="sec__sub">Ничего не нужно отправлять и никаких контактов. Двигайте параметры — смета пересчитывается сразу.</p>
+    </header>
+
+    <div class="calc">
+      <form class="calc__form" id="calcForm" novalidate>
+
+        <fieldset class="fld">
+          <legend>1. Площадь офиса</legend>
+          <div class="fld__row">
+            <input type="range" id="area" min="30" max="2000" step="10" value="200" class="rng" aria-label="Площадь офиса, м²">
+            <label class="num"><input type="number" id="areaN" min="30" max="2000" step="10" value="200" aria-label="Площадь офиса в квадратных метрах"><span>м²</span></label>
+          </div>
+        </fieldset>
+
+        <fieldset class="fld">
+          <legend>2. Освещение</legend>
+          <div class="opts opts--3">
+            <label class="opt"><input type="radio" name="light" value="bright"><span class="opt__b">
+              <svg viewBox="0 0 24 24" class="opt__i" aria-hidden="true"><circle cx="12" cy="12" r="4.5" fill="currentColor"/><g stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><path d="M12 2v3M12 19v3M2 12h3M19 12h3M4.9 4.9l2.1 2.1M17 17l2.1 2.1M19.1 4.9L17 7M7 17l-2.1 2.1"/></g></svg>
+              <b>Панорамные окна</b><i>много естественного света, доступны светолюбивые крупномеры</i></span></label>
+            <label class="opt"><input type="radio" name="light" value="normal" checked><span class="opt__b">
+              <svg viewBox="0 0 24 24" class="opt__i" aria-hidden="true"><rect x="4" y="3" width="16" height="18" rx="2" fill="none" stroke="currentColor" stroke-width="1.8"/><path d="M12 3v18M4 12h16" stroke="currentColor" stroke-width="1.8"/></svg>
+              <b>Обычные окна</b><i>стандартный офис, подойдёт большинство растений</i></span></label>
+            <label class="opt"><input type="radio" name="light" value="low"><span class="opt__b">
+              <svg viewBox="0 0 24 24" class="opt__i" aria-hidden="true"><path d="M20 14.5A8.5 8.5 0 0 1 9.5 4a8.5 8.5 0 1 0 10.5 10.5Z" fill="currentColor"/></svg>
+              <b>Мало света</b><i>теневыносливый ассортимент + фитолампы в смете</i></span></label>
+          </div>
+        </fieldset>
+
+        <fieldset class="fld">
+          <legend>3. Сотрудников в офисе</legend>
+          <div class="fld__row">
+            <input type="range" id="staff" min="5" max="500" step="5" value="60" class="rng" aria-label="Число сотрудников в офисе">
+            <label class="num"><input type="number" id="staffN" min="5" max="500" step="5" value="60" aria-label="Число сотрудников в офисе"><span>чел.</span></label>
+          </div>
+        </fieldset>
+
+        <fieldset class="fld">
+          <legend>4. Какие зоны озеленяем</legend>
+          <div class="zones">
+            <label class="zone"><input type="checkbox" name="zone" value="open" checked><span>Open space</span></label>
+            <label class="zone"><input type="checkbox" name="zone" value="reception" checked><span>Ресепшн</span></label>
+            <label class="zone"><input type="checkbox" name="zone" value="meeting" checked><span>Переговорные</span></label>
+            <label class="zone"><input type="checkbox" name="zone" value="lounge"><span>Кухня / лаунж</span></label>
+            <label class="zone"><input type="checkbox" name="zone" value="cabinets"><span>Кабинеты</span></label>
+          </div>
+          <div class="sub" id="meetWrap">
+            <label class="num num--inline">Переговорных <input type="number" id="meetN" min="1" max="30" value="3"> шт.</label>
+            <label class="chk"><input type="checkbox" id="wall"><span>Фитостена на ресепшене</span></label>
+          </div>
+        </fieldset>
+
+        <fieldset class="fld">
+          <legend>5. Формат владения</legend>
+          <div class="seg" role="radiogroup" aria-label="Формат владения">
+            <button type="button" class="seg__b is-on" data-mode="rent" role="radio" aria-checked="true">Аренда растений</button>
+            <button type="button" class="seg__b" data-mode="buy" role="radio" aria-checked="false">Покупка растений</button>
+          </div>
+          <p class="hint" id="modeHint">Растения остаются нашими: нулевые вложения на старте, замена всегда включена, один платёж в месяц.</p>
+        </fieldset>
+
+        <fieldset class="fld fld--net">
+          <label class="chk chk--big"><input type="checkbox" id="net"><span>У нас сеть филиалов</span></label>
+          <div class="sub" id="netWrap" hidden>
+            <label class="num num--inline">Локаций <input type="number" id="netN" min="2" max="200" value="4"> шт.</label>
+            <p class="hint">Расчёт умножается на число локаций, скидка применяется автоматически: 3–5 филиалов −5%, 6–10 −10%, 11+ −15%.</p>
+          </div>
+        </fieldset>
+      </form>
+
+      <aside class="calc__out" id="calcOut">
+        <div class="out__card">
+          <p class="out__k">Рекомендуем для вашего офиса</p>
+          <p class="out__plants"><strong id="oTotal">38</strong> растений</p>
+          <ul class="out__mix">
+            <li><span class="mix__i mix__i--l"></span><b id="oFloor">10</b> напольных крупномеров</li>
+            <li><span class="mix__i mix__i--m"></span><b id="oMid">17</b> средних в кашпо</li>
+            <li><span class="mix__i mix__i--s"></span><b id="oSmall">11</b> настольных и ампельных</li>
+            <li id="oWallLi" hidden><span class="mix__i mix__i--w"></span><b id="oWall">0</b> м² фитостены</li>
+            <li id="oLampLi" hidden><span class="mix__i mix__i--f"></span><b id="oLamp">0</b> фитоламп</li>
+          </ul>
+
+          <div class="out__pkg">
+            <span class="out__k">Подходящий пакет</span>
+            <strong id="oPkg">Green Office</strong>
+            <span id="oVisits">3 визита фитотехника в месяц</span>
+          </div>
+
+          <div class="out__price">
+            <span class="out__k" id="oPriceK">Ежемесячный платёж</span>
+            <p class="out__big"><span id="oPrice">24 300</span> <em>₽/мес</em></p>
+            <ul class="out__break" id="oBreak"></ul>
+          </div>
+
+          <div class="out__extra" id="oCapex" hidden>
+            <span class="out__k">Разовая закупка растений и кашпо</span>
+            <strong id="oCapexV">0 ₽</strong>
+          </div>
+
+          <div class="out__ready">
+            <div class="bar"><span id="oBar" style="width:70%"></span></div>
+            <p id="oReady">Смета готова на 70% — приложите план офиса, чтобы получить точный проект расстановки.</p>
+          </div>
+
+          <a href="#brief" class="btn btn--lg btn--full" id="toBrief">Собрать коммерческое предложение</a>
+          <p class="out__note">Без звонков и без обязательств. PDF придёт на почту.</p>
+        </div>
+      </aside>
+    </div>
+  </div>
+</section>
+
+<!-- ══════════════ 06 · ТАРИФЫ ══════════════ -->
+<section class="sec" id="tariffs">
+  <div class="wrap">
+    <header class="sec__head reveal">
+      <p class="eyebrow"><i class="dot"></i>Пакеты обслуживания</p>
+      <h2>Три пакета. Все — по одному договору</h2>
+    </header>
+
+    <div class="seg seg--center reveal" role="radiogroup" aria-label="Формат владения">
+      <button type="button" class="seg__b is-on" data-mode="rent" role="radio" aria-checked="true">Аренда</button>
+      <button type="button" class="seg__b" data-mode="buy" role="radio" aria-checked="false">Покупка</button>
+    </div>
+
+    <div class="plans reveal">
+      <article class="plan" data-pkg="start">
+        <h3>Green Start</h3>
+        <p class="plan__for">Офисы до 50 м², стартапы и небольшие команды</p>
+        <p class="plan__price"><span class="plan__from">от</span><strong data-price="start">390</strong><em data-price-note>₽ за растение / мес</em></p>
+        <ul class="list list--v">
+          <li>2 визита фитотехника в месяц</li>
+          <li>Замена до 10% парка растений в год</li>
+          <li>Полив, подкормка, гигиена листьев</li>
+          <li>Поддержка в общем чате</li>
+        </ul>
+        <ul class="list list--dash">
+          <li>Сезонная ротация</li>
+          <li>Фитостены</li>
+        </ul>
+        <a href="#calc" class="btn btn--ghost btn--full" data-pick="start">Рассчитать под мой офис</a>
+      </article>
+
+      <article class="plan plan--hit" data-pkg="office">
+        <span class="plan__badge">Выбор офисов 50–150 человек</span>
+        <h3>Green Office</h3>
+        <p class="plan__for">Офисы 50–400 м² с ресепшеном и переговорными</p>
+        <p class="plan__price"><span class="plan__from">от</span><strong data-price="office">490</strong><em data-price-note>₽ за растение / мес</em></p>
+        <ul class="list list--v">
+          <li>3 визита фитотехника в месяц</li>
+          <li>Замена до 20% парка растений в год</li>
+          <li>Сезонная ротация 1 раз в год</li>
+          <li>Фитостены — опционально</li>
+          <li>Отчёт о состоянии ежеквартально</li>
+          <li>Выделенный аккаунт-менеджер</li>
+        </ul>
+        <a href="#calc" class="btn btn--full" data-pick="office">Рассчитать под мой офис</a>
+      </article>
+
+      <article class="plan" data-pkg="premium">
+        <h3>Green Premium</h3>
+        <p class="plan__for">Флагманские офисы от 400 м², штаб-квартиры</p>
+        <p class="plan__price"><span class="plan__from">от</span><strong data-price="premium">690</strong><em data-price-note>₽ за растение / мес</em></p>
+        <ul class="list list--v">
+          <li>4 визита + дежурные выезды</li>
+          <li>Замена без лимита в рамках SLA</li>
+          <li>Сезонная ротация 2 раза в год</li>
+          <li>Обслуживание фитостен включено</li>
+          <li>Ежемесячный фотоотчёт по зонам</li>
+          <li>Реакция на заявку за 24 часа</li>
+        </ul>
+        <a href="#calc" class="btn btn--ghost btn--full" data-pick="premium">Рассчитать под мой офис</a>
+      </article>
+    </div>
+
+    <div class="vs reveal">
+      <h3>Аренда или покупка — что выгоднее</h3>
+      <div class="cols2">
+        <div class="vs__col">
+          <h4>Аренда растений</h4>
+          <ul class="list list--v">
+            <li>Ноль вложений на старте, всё в OPEX</li>
+            <li>Замена растений всегда за наш счёт</li>
+            <li>Можно менять состав и объём каждый месяц</li>
+            <li>При переезде перевозим за свой счёт</li>
+          </ul>
+          <p class="vs__note">Подходит, если офис арендованный или команда быстро растёт.</p>
+        </div>
+        <div class="vs__col">
+          <h4>Покупка растений</h4>
+          <ul class="list list--v">
+            <li>Растения на вашем балансе как основные средства</li>
+            <li>Ежемесячно платите только за сервис</li>
+            <li>Дешевле на горизонте от 3 лет</li>
+            <li>Замена — в пределах лимита пакета</li>
+          </ul>
+          <p class="vs__note">Подходит, если офис в собственности и горизонт планирования длинный.</p>
+        </div>
+      </div>
+      <div class="vs__calc" id="vsCalc">
+        <p class="vs__calc-k" id="vsKey">Расходы за 36 месяцев</p>
+        <div class="vs__bars">
+          <div class="vs__bar"><span class="vs__bar-l">Аренда</span><div class="vs__bar-t"><i id="vsRentBar" style="width:100%"></i></div><b id="vsRentSum">—</b></div>
+          <div class="vs__bar"><span class="vs__bar-l">Покупка</span><div class="vs__bar-t"><i id="vsBuyBar" class="alt" style="width:68%"></i></div><b id="vsBuySum">—</b></div>
+        </div>
+        <p class="vs__calc-n" id="vsNote">Цифры пересчитываются по параметрам вашего калькулятора.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══════════════ 07 · СЕРВИС И ЗАМЕНЫ ══════════════ -->
+<section class="sec sec--alt" id="service">
+  <div class="wrap">
+    <header class="sec__head reveal">
+      <p class="eyebrow"><i class="dot"></i>Что входит в подписку</p>
+      <h2>Месяц из жизни вашего офиса</h2>
+      <p class="sec__sub">График визитов фиксируется в договоре приложением №3 и попадает в календарь администратора.</p>
+    </header>
+
+    <ol class="tl reveal">
+      <li class="tl__i"><span class="tl__w">Неделя 1</span><h3>Плановый визит</h3><p>Полив по влагомеру, диагностика состояния, подкормка по сезонному графику.</p></li>
+      <li class="tl__i"><span class="tl__w">Неделя 2</span><h3>Плановый визит</h3><p>Полив, гигиена листьев, профилактическая обработка от вредителей, подрезка.</p></li>
+      <li class="tl__i"><span class="tl__w">Неделя 3</span><h3>Плановый визит</h3><p>Полив, ротация растений между зонами, досадка и замена по результатам диагностики.</p></li>
+      <li class="tl__i tl__i--rep"><span class="tl__w">Неделя 4</span><h3>Отчёт админотделу</h3><p>Состояние парка растений, список замен на следующий месяц, акт и счёт через ЭДО.</p></li>
+    </ol>
+
+    <div class="swap reveal">
+      <div class="swap__ic" aria-hidden="true">
+        <svg viewBox="0 0 24 24"><path d="M4 12a8 8 0 0 1 13.7-5.6M20 12a8 8 0 0 1-13.7 5.6" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"/><path d="M18 3v4h-4M6 21v-4h4" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      </div>
+      <div>
+        <h3>Как работает замена растения</h3>
+        <p>Растение потеряло вид, заболело или погибло — фитотехник фиксирует это на очередном визите, либо вы пишете одну строку в чат поддержки. Замена приезжает следующим визитом, максимум через 7 рабочих дней, бесплатно в рамках лимита пакета.</p>
+        <p class="swap__hl">Причина не имеет значения. Даже если растение залили кофе, переставили на батарею или увезли на корпоратив — мы просто меняем его.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══════════════ 08 · SLA ══════════════ -->
+<section class="sec sec--dark" id="sla">
+  <div class="wrap">
+    <header class="sec__head sec__head--light reveal">
+      <p class="eyebrow eyebrow--light"><i class="dot"></i>Приложение №2 к договору</p>
+      <h2>SLA — обязательства в цифрах, а не в обещаниях</h2>
+      <p class="sec__sub">Каждый пункт подкреплён компенсацией. Это тот документ, который закупки читают первым.</p>
+    </header>
+
+    <div class="sla reveal">
+      <div class="sla__i"><b>4</b><span class="sla__u">рабочих часа</span><p>Реакция на заявку в чате поддержки</p></div>
+      <div class="sla__i"><b>7</b><span class="sla__u">рабочих дней</span><p>Максимальный срок замены растения</p></div>
+      <div class="sla__i"><b>5%</b><span class="sla__u">от платежа</span><p>Компенсация за каждый пропущенный визит</p></div>
+      <div class="sla__i"><b>1%</b><span class="sla__u">сметы в день</span><p>Штраф за срыв срока установки по нашей вине</p></div>
+      <div class="sla__i"><b>48</b><span class="sla__u">часов</span><p>Внеплановый выезд, для Premium — 24 часа</p></div>
+      <div class="sla__i"><b>24/7</b><span class="sla__u">канал связи</span><p>Выделенный чат и личный кабинет с историей визитов</p></div>
+    </div>
+
+    <div class="sla__doc reveal">
+      <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M14 3H7a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V8Z" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"/><path d="M14 3v5h5" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"/></svg>
+      <span>Полный текст SLA — приложение №2 к договору</span>
+      <a href="sla.html" class="lnk lnk--light">Открыть документ →</a>
+    </div>
+  </div>
+</section>
+
+<!-- ══════════════ 09 · ДЛЯ СЕТЕЙ ══════════════ -->
+<section class="sec sec--net" id="network">
+  <div class="wrap net">
+    <div class="net__txt reveal">
+      <p class="eyebrow"><i class="dot"></i>Сценарий для сетей</p>
+      <h2>Один договор — зелёные офисы во всех городах</h2>
+      <p class="sec__sub">Если у вас 4 филиала, у вас, скорее всего, 4 разных подрядчика, 4 пакета документов и ноль контроля качества на расстоянии.</p>
+      <ul class="list list--v list--lg">
+        <li><b>Единый стандарт озеленения</b> — одинаковый ассортимент, регламент и уровень сервиса в каждом городе</li>
+        <li><b>Один договор и консолидированный акт</b> вместо пакета документов из каждого филиала</li>
+        <li><b>Дашборд по локациям</b> — состояние парка растений, история визитов и замен, фотоотчёты</li>
+        <li><b>Центральный аккаунт-менеджер</b> — одна точка входа для головного офиса</li>
+        <li><b>Прогрессивная скидка</b> — 3–5 филиалов −5%, 6–10 −10%, от 11 −15%</li>
+      </ul>
+      <div class="net__cta">
+        <a href="#calc" class="btn" id="netCalcBtn">Рассчитать сеть филиалов</a>
+        <a href="#brief" class="btn btn--ghost">Обсудить пилот в одном филиале</a>
+      </div>
+    </div>
+    <div class="net__map reveal" aria-hidden="true">
+      <svg viewBox="0 0 420 380">
+        <rect width="420" height="380" rx="16" fill="#F2F1EA"/>
+        <path d="M40 190c30-50 90-70 150-60s90 50 130 40 60-20 60-20v170H40Z" fill="#E4E7DE"/>
+        <g class="pins">
+          <g><circle cx="110" cy="150" r="8" fill="#1E4D3B"/><circle cx="110" cy="150" r="18" fill="none" stroke="#1E4D3B" stroke-opacity=".3" stroke-width="2"/><text x="110" y="132" text-anchor="middle" font-family="Onest,sans-serif" font-size="13" fill="#3F6D57">Москва</text></g>
+          <g><circle cx="196" cy="220" r="7" fill="#4E9C78"/><text x="196" y="248" text-anchor="middle" font-family="Onest,sans-serif" font-size="13" fill="#3F6D57">Казань</text></g>
+          <g><circle cx="286" cy="168" r="7" fill="#4E9C78"/><text x="286" y="150" text-anchor="middle" font-family="Onest,sans-serif" font-size="13" fill="#3F6D57">Екатеринбург</text></g>
+          <g><circle cx="348" cy="248" r="7" fill="#4E9C78"/><text x="348" y="276" text-anchor="middle" font-family="Onest,sans-serif" font-size="13" fill="#3F6D57">Новосибирск</text></g>
+        </g>
+        <path d="M110 150 196 220M110 150 286 168M286 168 348 248" stroke="#4E9C78" stroke-width="1.5" stroke-dasharray="5 5" fill="none"/>
+      </svg>
+    </div>
+  </div>
+</section>
+
+<!-- ══════════════ 10 · ПЛАН ОФИСА ══════════════ -->
+<section class="sec" id="plan">
+  <div class="wrap plan2">
+    <div class="plan2__txt reveal">
+      <p class="eyebrow"><i class="dot"></i>Точность сметы</p>
+      <h2>Есть план офиса? Сделаем проект вместо оценки</h2>
+      <p class="sec__sub">По плану фитодизайнер разметит расстановку растений с учётом окон, проходов и мебели. Смета из оценочной становится проектной.</p>
+      <label class="drop" id="drop">
+        <input type="file" id="planFile" accept=".pdf,.png,.jpg,.jpeg,.dwg" hidden>
+        <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 16V4m0 0L8 8m4-4 4 4" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/><path d="M4 16v2a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2v-2" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></svg>
+        <b id="dropTitle">Перетащите план офиса или выберите файл</b>
+        <span id="dropHint">PDF, PNG, JPG или DWG, до 25 МБ</span>
+      </label>
+      <p class="hint hint--lock">План используется только для проекта расстановки. NDA подписываем по запросу до передачи файлов.</p>
+      <p class="plan2__alt">Плана нет? Достаточно нескольких фото офиса — или <a href="#brief" class="lnk">вызовите бесплатный замер</a>, приедем в удобное время.</p>
+    </div>
+    <div class="plan2__art reveal" aria-hidden="true">
+      <svg viewBox="0 0 440 340">
+        <rect width="440" height="340" rx="12" fill="#FFFFFF" stroke="#E2E6E0"/>
+        <g stroke="#C9D0C8" stroke-width="2" fill="none">
+          <rect x="30" y="30" width="380" height="280"/>
+          <path d="M30 170h150M180 30v140M180 230h230M300 230v80"/>
+        </g>
+        <g fill="#EDF1EA"><rect x="36" y="36" width="138" height="128"/><rect x="188" y="36" width="216" height="128"/><rect x="36" y="176" width="138" height="128"/></g>
+        <g stroke="#C9D0C8" stroke-width="6" stroke-linecap="round"><path d="M60 30h60M240 30h90M410 100v70"/></g>
+        <g fill="#2F6B52"><circle cx="52" cy="52" r="9"/><circle cx="158" cy="148" r="9"/><circle cx="204" cy="52" r="9"/><circle cx="388" cy="148" r="9"/><circle cx="52" cy="288" r="9"/><circle cx="158" cy="192" r="9"/><circle cx="330" cy="252" r="9"/><circle cx="388" cy="292" r="9"/></g>
+        <g fill="#4E9C78" opacity=".45"><circle cx="52" cy="52" r="18"/><circle cx="204" cy="52" r="18"/><circle cx="388" cy="148" r="18"/><circle cx="330" cy="252" r="18"/></g>
+        <text x="105" y="105" text-anchor="middle" font-family="Onest,sans-serif" font-size="13" fill="#8D948C">переговорная</text>
+        <text x="296" y="105" text-anchor="middle" font-family="Onest,sans-serif" font-size="13" fill="#8D948C">open space</text>
+        <text x="105" y="248" text-anchor="middle" font-family="Onest,sans-serif" font-size="13" fill="#8D948C">ресепшн</text>
+        <text x="356" y="290" text-anchor="middle" font-family="Onest,sans-serif" font-size="13" fill="#8D948C">лаунж</text>
+      </svg>
+    </div>
+  </div>
+</section>
+
+<!-- ══════════════ 11 · АВТОСБОРКА КП ══════════════ -->
+<section class="sec sec--alt" id="kp">
+  <div class="wrap">
+    <header class="sec__head reveal">
+      <p class="eyebrow"><i class="dot"></i>Коммерческий бриф</p>
+      <h2>КП собирается само, пока вы читаете эту страницу</h2>
+      <p class="sec__sub">Всё, что вы указали в калькуляторе, уже сохранено. В форме останется ввести только компанию и почту.</p>
+    </header>
+
+    <div class="kp reveal">
+      <ol class="kp__steps">
+        <li><span>1</span><b>Данные калькулятора</b><i>площадь, освещение, зоны, формат владения, число филиалов</i></li>
+        <li><span>2</span><b>План офиса</b><i>если приложили — добавляем схему расстановки</i></li>
+        <li><span>3</span><b>Контакты</b><i>компания и почта, куда прислать документ</i></li>
+      </ol>
+      <p class="kp__eq">= готовый PDF за 15 минут в рабочее время</p>
+
+      <div class="kp__doc">
+        <div class="kp__page">
+          <div class="kp__logo">VERDE OFFICE</div>
+          <div class="kp__h1">Коммерческое предложение</div>
+          <div class="kp__meta">ООО «Альтера Групп» · офис 200 м² · Москва</div>
+          <div class="kp__lines"><i style="width:88%"></i><i style="width:74%"></i><i style="width:80%"></i></div>
+          <div class="kp__tbl"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></div>
+          <div class="kp__sum">Итого: 24 300 ₽ / мес</div>
+        </div>
+        <div class="kp__page kp__page--2">
+          <div class="kp__h2">Схема расстановки</div>
+          <div class="kp__mini"></div>
+          <div class="kp__lines"><i style="width:62%"></i><i style="width:78%"></i></div>
+        </div>
+        <div class="kp__page kp__page--3">
+          <div class="kp__h2">График визитов и SLA</div>
+          <div class="kp__rows"><i></i><i></i><i></i><i></i><i></i></div>
+        </div>
+      </div>
+
+      <p class="kp__out">Это не заявка «мы вам перезвоним». Это документ, который можно сразу переслать руководителю на согласование — со сметой по зонам, схемой расстановки, графиком визитов, SLA и проектом договора.<br>
+      <a href="kp-example.html" class="lnk">Посмотреть настоящий пример КП →</a></p>
+    </div>
+  </div>
+</section>
+
+<!-- ══════════════ 12 · КЕЙСЫ ══════════════ -->
+<section class="sec" id="cases">
+  <div class="wrap">
+    <header class="sec__head reveal">
+      <p class="eyebrow"><i class="dot"></i>Клиенты</p>
+      <h2>Офисы, которые уже не думают про полив</h2>
+    </header>
+
+    <div class="cases reveal">
+      <article class="case">
+        <div class="case__top">IT-компания · 200 м²</div>
+        <h3>Открытый офис на 60 человек</h3>
+        <dl class="case__d"><div><dt>Растений</dt><dd>38</dd></div><div><dt>Пакет</dt><dd>Green Office</dd></div><div><dt>С нами</dt><dd>2 года 4 мес.</dd></div></dl>
+        <blockquote>«Раньше я закупала горшки и грунт по три раза в год и вечно спорила с бухгалтерией. Сейчас у меня одна строка расходов и ноль вопросов от коллег».<cite>Офис-менеджер</cite></blockquote>
+      </article>
+      <article class="case">
+        <div class="case__top">Юридическая фирма · 180 м²</div>
+        <h3>Ресепшн, переговорные и кабинеты</h3>
+        <dl class="case__d"><div><dt>Растений</dt><dd>26 + фитостена</dd></div><div><dt>Пакет</dt><dd>Green Premium</dd></div><div><dt>С нами</dt><dd>1 год 8 мес.</dd></div></dl>
+        <blockquote>«Клиенты стали фотографировать нашу переговорную. Для юрфирмы это неожиданный, но приятный эффект».<cite>Управляющий партнёр</cite></blockquote>
+      </article>
+      <article class="case">
+        <div class="case__top">Сеть контакт-центров · 6 городов</div>
+        <h3>Единый стандарт в шести филиалах</h3>
+        <dl class="case__d"><div><dt>Растений</dt><dd>214</dd></div><div><dt>Пакет</dt><dd>Green Office ×6</dd></div><div><dt>С нами</dt><dd>3 года</dd></div></dl>
+        <blockquote>«Главное — я вижу состояние растений в Ростове, не выезжая из Москвы, и получаю один акт вместо шести».<cite>Руководитель АХО</cite></blockquote>
+      </article>
+    </div>
+
+    <div class="stats reveal">
+      <div class="stat"><b>127</b><span>офисов на обслуживании</span></div>
+      <div class="stat"><b>9 400+</b><span>растений в нашем парке</span></div>
+      <div class="stat"><b>94%</b><span>клиентов продлевают договор на второй год</span></div>
+      <div class="stat"><b>4,3</b><span>года — средний срок сотрудничества</span></div>
+    </div>
+  </div>
+</section>
+
+<!-- ══════════════ 13 · ДОКУМЕНТЫ ══════════════ -->
+<section class="sec sec--alt" id="docs">
+  <div class="wrap">
+    <header class="sec__head reveal">
+      <p class="eyebrow"><i class="dot"></i>Для бухгалтерии и закупок</p>
+      <h2>Документы, которые не придётся выпрашивать</h2>
+    </header>
+    <div class="docs reveal">
+      <div class="doc"><h3>Договор с приложениями</h3><p>Спецификация растений, SLA, график визитов и регламент замен. Рамочный договор на 12 месяцев с автопролонгацией.</p></div>
+      <div class="doc"><h3>Закрывающие документы</h3><p>Ежемесячный акт и счёт-фактура. ЭДО через Диадок или СБИС, при необходимости — обмен оригиналами.</p></div>
+      <div class="doc"><h3>Оплата и условия</h3><p>Безналичный расчёт, работа с юрлицами и ИП, НДС. Постоплата для сетей от 3 филиалов.</p></div>
+      <div class="doc"><h3>Приёмка</h3><p>Акт установки с фотофиксацией по зонам, паспорт парка растений с картой расстановки.</p></div>
+      <div class="docs__dl">
+        <a href="contract.html" class="doc__file"><span>Шаблон договора</span><i>открыть · печать в PDF</i></a>
+        <a href="sla.html" class="doc__file"><span>SLA, приложение №2</span><i>открыть · печать в PDF</i></a>
+        <a href="kp-example.html" class="doc__file"><span>Пример КП</span><i>открыть · печать в PDF</i></a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══════════════ 14 · FAQ ══════════════ -->
+<section class="sec" id="faq">
+  <div class="wrap wrap--nar">
+    <header class="sec__head reveal">
+      <p class="eyebrow"><i class="dot"></i>Частые вопросы</p>
+      <h2>Что обычно спрашивает административный отдел</h2>
+    </header>
+    <div class="faq reveal">
+      <details><summary>Что будет, если растение погибнет по нашей вине?</summary><p>Ничего. Мы меняем растение в рамках лимита пакета независимо от причины — залили, пересушили, переставили под кондиционер или уронили. Единственное исключение — умышленное уничтожение, но за 6 лет мы с таким не сталкивались.</p></details>
+      <details><summary>Можно начать с одной переговорной или ресепшена?</summary><p>Да. Минимальный договор — от 8 растений, это примерно одна переговорная или зона ресепшена. Многие клиенты начинают с одной зоны, а через 2–3 месяца расширяют на весь этаж.</p></details>
+      <details><summary>Кто пускает фитотехника в офис и как быть с пропусками?</summary><p>За вашим офисом закреплён постоянный фитотехник — вы один раз оформляете ему пропуск. Дату и время визита согласовываем в чате за сутки, чаще всего это утро до начала рабочего дня.</p></details>
+      <details><summary>Что происходит при переезде офиса?</summary><p>При аренде мы перевозим растения за свой счёт и заново собираем схему расстановки под новое помещение. При покупке — перевозка по отдельной смете, проект расстановки бесплатно.</p></details>
+      <details><summary>Аренда: чьи растения при расторжении договора?</summary><p>Наши. Мы забираем их в течение 10 рабочих дней после окончания договора, помещение приводим в исходный вид. Кашпо и системы автополива тоже наши, отдельной платы за демонтаж нет.</p></details>
+      <details><summary>Есть ли гипоаллергенные подборки?</summary><p>Да. Мы формируем ассортимент без цветущих и пыльцевых растений, с плотным глянцевым листом, который не накапливает пыль. Отдельно указываем это в спецификации к договору.</p></details>
+      <details><summary>Как быстро после подписания появятся растения?</summary><p>5–7 рабочих дней для стандартного проекта. Если нужны редкие крупномеры под конкретный интерьер — до 3 недель, срок фиксируем в договоре со штрафом за просрочку.</p></details>
+      <details><summary>Обслуживаете ли уже купленные нами растения?</summary><p>Да, это отдельная услуга. Фитотехник проводит аудит, составляет заключение по каждому растению и предлагает план восстановления. Дальше они обслуживаются по обычному пакету.</p></details>
+      <details><summary>Что входит в цену, а что оплачивается отдельно?</summary><p>В ежемесячный платёж входят визиты, полив, подкормка, обработка, гигиена, замены в рамках лимита и отчётность. Отдельно оплачиваются фитостены сверх пакета, системы автополива, дизайнерские кашпо и сезонный декор.</p></details>
+      <details><summary>Работаете ли вы в нашем городе?</summary><p>Москва, Санкт-Петербург, Казань, Екатеринбург, Новосибирск, Нижний Новгород и Ростов-на-Дону — своими бригадами. В остальных городах работаем для сетевых клиентов от 3 локаций по единому стандарту.</p></details>
+    </div>
+  </div>
+</section>
+
+<!-- ══════════════ 15 · БРИФ ══════════════ -->
+<section class="sec sec--brief" id="brief">
+  <div class="wrap">
+    <header class="sec__head sec__head--light reveal">
+      <p class="eyebrow eyebrow--light"><i class="dot"></i>Финальный шаг</p>
+      <h2>Соберите коммерческое предложение</h2>
+      <p class="sec__sub">Расчёт уже готов. Демо-сервер сохранит бриф и даст ссылку на печатное КП, но письмо не отправит.</p>
+    </header>
+
+    <div class="brief">
+      <form class="brief__form" id="briefForm" novalidate>
+        <div class="ff"><label for="bCompany">Компания <b>*</b></label><input type="text" id="bCompany" name="company" required autocomplete="organization" placeholder="ООО «Альтера Групп»"></div>
+        <div class="ff ff--half"><label for="bCity">Город <b>*</b></label><input type="text" id="bCity" name="city" required placeholder="Москва"></div>
+        <div class="ff ff--half"><label for="bName">Имя <b>*</b></label><input type="text" id="bName" name="name" required autocomplete="name" placeholder="Анна"></div>
+        <div class="ff ff--half"><label for="bRole">Ваша роль</label>
+          <select id="bRole" name="role">
+            <option>Офис-менеджер / АХО</option><option>Закупки / финансы</option><option>HR / внутренние коммуникации</option><option>Руководитель компании</option><option>Другое</option>
+          </select>
+        </div>
+        <div class="ff ff--half"><label for="bMail">Рабочая почта для реквизитов КП <b>*</b></label><input type="email" id="bMail" name="email" required autocomplete="email" placeholder="a.petrova@company.ru"></div>
+        <div class="ff ff--half"><label for="bTel">Телефон <i>по желанию</i></label><input type="tel" id="bTel" name="phone" autocomplete="tel" placeholder="+7 900 000-00-00"></div>
+        <div class="ff"><label for="bMsg">Комментарий <i>по желанию</i></label><textarea id="bMsg" name="comment" rows="3" placeholder="Например: нужен гипоаллергенный ассортимент, в офисе есть кот"></textarea></div>
+        <label class="chk chk--agree"><input type="checkbox" id="bAgree" required><span>Согласен на <a href="privacy.html" target="_blank" rel="noopener">обработку данных</a> демо-сервером для формирования КП</span></label>
+        <button type="submit" class="btn btn--lg btn--full" id="briefSubmit">Собрать демо-КП</button>
+        <p class="brief__note">Письмо и звонок не выполняются. Не используйте реальные персональные данные на публичном демо-стенде.</p>
+      </form>
+
+      <aside class="brief__sum">
+        <h3>Ваш расчёт</h3>
+        <dl id="briefSum"></dl>
+        <div class="brief__file" id="briefFile" hidden><b>План офиса</b><span id="briefFileName">—</span></div>
+        <a href="#calc" class="lnk lnk--light">Изменить параметры расчёта →</a>
+      </aside>
+    </div>
+
+    <div class="done" id="done" hidden>
+      <div class="done__ic" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="m5 13 4.5 4.5L19 7" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+      <h3>Бриф собран, КП готово</h3>
+      <p id="doneTxt"></p>
+      <a href="kp-example.html" class="btn btn--lg" id="doneKp" target="_blank" rel="noopener" hidden>Открыть коммерческое предложение</a>
+      <p class="done__n" id="doneNote"></p>
+    </div>
+  </div>
+</section>
+
+<!-- ══════════════ 16 · FOOTER ══════════════ -->
+<footer class="ftr">
+  <div class="wrap ftr__in">
+    <div class="ftr__brand">
+      <a href="index.html" class="logo logo--light">
+        <svg width="22" height="22" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 22c0-6 3-11 9-13-1 8-4 12-9 13Z" fill="currentColor"/><path d="M12 22C7 21 4 17 3 9c6 2 9 7 9 13Z" fill="currentColor" opacity=".55"/></svg>
+        <span>VERDE<b>OFFICE</b></span>
+      </a>
+      <p>Озеленение офисов по подписке с 2019 года. Проектируем, устанавливаем, обслуживаем.</p>
+    </div>
+    <div class="ftr__col"><h4>Сервис</h4><a href="#how">Как это работает</a><a href="#calc">Калькулятор</a><a href="#tariffs">Тарифы</a><a href="#sla">SLA</a><a href="#network">Для сетей филиалов</a></div>
+    <div class="ftr__col"><h4>Документы</h4><a href="contract.html">Договор-оферта</a><a href="sla.html">SLA, приложение №2</a><a href="kp-example.html">Пример КП</a><a href="privacy.html">Политика по ПДн</a></div>
+    <div class="ftr__col"><h4>Контакты</h4><a href="tel:+74951234567">+7 495 123-45-67</a><a href="mailto:office@verde.example">office@verde.example</a><a href="#brief">Оставить заявку</a><p class="ftr__adr">Москва, ул. Садовническая, 82с2<br>Пн–Пт 9:00–19:00</p></div>
+  </div>
+  <div class="wrap ftr__bot">
+    <p>Москва · Санкт-Петербург · Казань · Екатеринбург · Новосибирск · Нижний Новгород · Ростов-на-Дону</p>
+    <p>© 2026 Verde Office · <a href="privacy.html">Политика обработки персональных данных</a> · <a href="contract.html">Договор-оферта</a></p>
+    <p class="ftr__demo">Демонстрационный проект. Все цены, кейсы и реквизиты вымышлены.</p>
+  </div>
+</footer>
+
+<!-- Мобильная плашка со сметой -->
+<div class="mbar" id="mbar" hidden>
+  <div class="mbar__l"><span>Ваш расчёт</span><b><span id="mPrice">24 300</span> ₽/мес</b></div>
+  <a href="#brief" class="btn btn--sm">Получить КП</a>
+</div>
+
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"Service","name":"Озеленение офисов по подписке Verde Office","serviceType":"Озеленение и обслуживание растений в офисе","provider":{"@type":"Organization","name":"Verde Office","areaServed":["Москва","Санкт-Петербург","Казань","Екатеринбург","Новосибирск","Нижний Новгород","Ростов-на-Дону"]},"offers":{"@type":"AggregateOffer","priceCurrency":"RUB","lowPrice":"390","highPrice":"690","offerCount":"3"}}
+</script>
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[
+{"@type":"Question","name":"Что будет, если растение погибнет по нашей вине?","acceptedAnswer":{"@type":"Answer","text":"Мы меняем растение в рамках лимита пакета независимо от причины."}},
+{"@type":"Question","name":"Можно начать с одной переговорной?","acceptedAnswer":{"@type":"Answer","text":"Да, минимальный договор — от 8 растений, это примерно одна переговорная."}},
+{"@type":"Question","name":"Как быстро после подписания появятся растения?","acceptedAnswer":{"@type":"Answer","text":"5–7 рабочих дней для стандартного проекта, до 3 недель для редких крупномеров."}},
+{"@type":"Question","name":"Аренда: чьи растения при расторжении договора?","acceptedAnswer":{"@type":"Answer","text":"Растения остаются нашими, мы забираем их в течение 10 рабочих дней без платы за демонтаж."}}]}
+</script>
+
+<script src="js/pricing.js"></script>
+<script src="js/main.js"></script>
+</body>
+</html>

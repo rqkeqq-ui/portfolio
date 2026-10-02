@@ -64,9 +64,6 @@
 .contact-section :focus-visible { outline-color: var(--rk-black); }
 .site-header { grid-template-columns: auto 1fr auto; gap: 24px; }
 .desktop-nav { justify-self: center; gap: 16px; }
-.case-demo-cover { padding-inline: 32px; max-width: 1544px; margin: 0 auto; }
-.case-demo-cover .case-cover { margin: 0; }
-.case-goals h3, .case-overview h3 { margin-top: 36px; font: 500 2rem/1.1 var(--serif); }
 @media (max-width: 1280px) {
   .desktop-nav { display: none; }
   .menu-toggle { display: grid; }
@@ -81,7 +78,6 @@
   .contact-options article { padding: 24px; }
   .rqke-experience .contact-form, .contact-brief { padding: 30px 0 0; }
   .project-rail-controls { display: none; }
-  .case-demo-cover { padding-inline: 16px; }
 }
 html.rqke-force-mobile .rk-hero-stage { height: auto !important; min-height: 0 !important; padding-top: 190px; padding-bottom: 12px; }
 html.rqke-force-mobile .rk-hero-sculpture { top: 80px !important; height: 160px !important; width: 180px !important; opacity: .55; }
@@ -123,7 +119,7 @@ html.rqke-force-mobile .rqke-experience .project-rail-track { width: 100% !impor
 html.rqke-force-mobile .rqke-experience .project-rail-card, html.rqke-force-mobile .rqke-experience .project-rail-end { width: 100% !important; flex: 0 0 auto !important; aspect-ratio: auto !important; }
 html.rqke-force-mobile .rqke-experience .project-rail-copy { flex-shrink: 0; }
 /* Long Russian headings must fit even while the web font is unavailable. */
-.rqke-experience h1, .rqke-experience h2, .rqke-experience h3, .case-title { overflow-wrap: anywhere; }
+.rqke-experience h1, .rqke-experience h2, .rqke-experience h3 { overflow-wrap: anywhere; }
 html.rqke-force-mobile .rqke-experience h1, html.rqke-force-mobile .rqke-experience h2, html.rqke-force-mobile .rqke-experience h3 { overflow-wrap: anywhere; }
 html.rqke-force-mobile .rqke-experience .projects-rail-heading h2 { width: 100% !important; max-width: none !important; font-size: clamp(1.65rem, 7.3vw, 2.6rem) !important; }
 @media (max-height: 850px), (prefers-reduced-motion: reduce) {
@@ -150,6 +146,19 @@ html.rqke-force-mobile .rk-hero-actions { gap: 8px; margin-top: 12px; }
 html.rqke-force-mobile .rk-hero-actions a { flex: 1 1 100%; min-height: 44px; padding: 8px !important; font-size: .75rem; letter-spacing: 0; gap: 8px; }
 html.rqke-force-mobile .rk-hero-actions .rk-roll { white-space: nowrap; }
 html.rqke-force-mobile .rk-hero-actions svg { width: 14px; flex-shrink: 0; }
+/* Portrait tablets reuse the phone composition at a larger scale. */
+@media (min-width: 768px) and (orientation: portrait) {
+  html.rqke-force-mobile .rk-hero-stage { display: flex; flex-direction: column; justify-content: flex-end; padding-bottom: 16px; }
+  html.rqke-force-mobile .rk-hero-sculpture { top: 84px !important; height: calc(var(--hero-art-space) - 100px) !important; width: min(62vw, calc((var(--hero-art-space) - 100px) * .9)) !important; max-width: none !important; }
+  html.rqke-force-mobile .rk-hero-wordmark { top: calc(84px + (var(--hero-art-space) - 100px) / 4) !important; left: 24px !important; font-size: clamp(110px, 19vw, 200px) !important; }
+  html.rqke-force-mobile .rk-hero-copy { margin: 0 16px; padding: clamp(26px, 4vw, 40px) !important; }
+  html.rqke-force-mobile .rk-hero-kicker { margin-bottom: 14px; font-size: 11px; letter-spacing: .09em; }
+  html.rqke-force-mobile .rk-hero-copy h1 { font-size: clamp(2.5rem, 6vw, 3.6rem) !important; }
+  html.rqke-force-mobile .rk-hero-lead { max-width: 60ch; margin-top: 16px; font-size: 1.08rem !important; line-height: 1.55; }
+  html.rqke-force-mobile .rk-hero-hint { margin-top: 14px; font-size: 1rem; }
+  html.rqke-force-mobile .rk-hero-actions { gap: 10px; margin-top: 20px; }
+  html.rqke-force-mobile .rk-hero-actions a { min-height: 56px; font-size: .85rem; letter-spacing: .03em; }
+}
 html.rqke-force-mobile .rk-hero-shell + .rk-hero-traits { margin: 0 !important; padding: 32px 24px !important; width: 100% !important; max-width: none; border-inline: 0; background: var(--rk-ivory); }
 
 .rk-journey-list { row-gap: clamp(150px, 13vw, 210px); }
@@ -161,6 +170,13 @@ html.rqke-force-mobile .rk-journey-card > div:nth-child(2) small { display: inli
 html.rqke-force-mobile .rk-journey-list { row-gap: 80px !important; }
 .rqke-experience .rk-journey-card[data-reveal] { transform: none !important; }
 html.rqke-force-mobile .rk-journey-path { display: block !important; }
+/* Stage details on phones and tablets: size to content instead of a tall, mostly empty panel. */
+html.rqke-force-mobile .rk-journey-dialog { width: min(640px, calc(100vw - 24px)); }
+html.rqke-force-mobile .rk-journey-dialog > div { min-height: 0; justify-content: flex-start; padding: 76px clamp(22px, 5vw, 40px) clamp(22px, 5vw, 36px); }
+html.rqke-force-mobile .rk-journey-dialog > div > button { top: 14px; right: 14px; }
+html.rqke-force-mobile .rk-journey-dialog > div > p:first-of-type { margin-bottom: 16px; }
+html.rqke-force-mobile .rk-journey-dialog h2 { margin-bottom: 18px; font-size: clamp(2.4rem, 9vw, 4rem); }
+html.rqke-force-mobile .rk-journey-dialog h2 + p { margin-bottom: 28px; line-height: 1.6; }
 .rk-mobile-menu nav a[aria-current="location"] { background: var(--rk-bronze-action); color: var(--rk-paper); padding-inline: 12px; }
 .rk-mobile-menu nav a[aria-current="location"] small { color: var(--rk-paper); }
 
@@ -218,3 +234,6 @@ html { scrollbar-gutter: stable; }
   .booking-modal .booking-frame, .booking-modal .booking-frame iframe { min-height: 700px; }
   .booking-timezone, .booking-loading, .booking-modal-fallback { margin-inline: 14px; }
 }
+/* On touch screens the calendar can also be opened as Cal.com's own page, one tap away. */
+.booking-standalone { display: none; margin-left: auto; padding: 10px 4px; color: var(--rk-marble); font-size: .8rem; text-decoration: underline; text-underline-offset: 3px; white-space: nowrap; }
+@media (pointer: coarse) { .booking-standalone { display: inline-flex; } }

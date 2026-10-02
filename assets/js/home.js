@@ -2,6 +2,7 @@ import { RQKE } from './core.js';
 import { RQKE_DATA } from './data.js';
 import { dictionary, projectCopy, contactCopy } from './home-copy.js';
 import { mountCalBooking } from './booking.js';
+import { renderProjectCard, mountProjectCards } from './cards/projectCard.js';
 import heroImageUrl from '../images/statues/rqke-hero-cutout.png';
 
 (() => {
@@ -27,9 +28,11 @@ import heroImageUrl from '../images/statues/rqke-hero-cutout.png';
     if (mobile) hero.after(traits);
     else heroCopy.after(traits);
     const stage = hero.querySelector('.rk-hero-stage');
-    if (mobile && visualWidth <= 767 && innerHeight > visualWidth) {
+    // Portrait phones and tablets share one composition: artwork above, copy pinned to the bottom of the first screen.
+    if (mobile && innerHeight > visualWidth) {
       const height = Math.min(innerHeight, document.documentElement.clientHeight, window.visualViewport?.height || innerHeight);
-      stage.style.setProperty('--hero-art-space', `${Math.max(148, Math.min(420, height - heroCopy.offsetHeight - 16))}px`);
+      const maxArtSpace = window.innerWidth >= 768 ? 720 : 420;
+      stage.style.setProperty('--hero-art-space', `${Math.max(148, Math.min(maxArtSpace, height - heroCopy.offsetHeight - 16))}px`);
     } else stage.style.removeProperty('--hero-art-space');
   };
   syncForcedMobileLayout();
@@ -66,17 +69,15 @@ import heroImageUrl from '../images/statues/rqke-hero-cutout.png';
           </div>
           <div class="project-rail-viewport">
             <div class="project-rail-track" data-has-focus="false" data-video-ready="true">
-              ${projects.map((project, index) => {
-                const signals = project.tags || [data.formatCategory(project.category, language)];
-                const description = project.shortDescription || project.shortDescription;
-                return `<a href="${projectHref(project.slug)}" class="project-rail-card" data-index="${index}" data-active="${index === 0}" aria-label="${escape(projectText.open)}: ${escape(project.title)}" data-device="none" style="--project-fit:cover">
-                  <span class="project-rail-media"><img src="${asset(project.coverImage.src)}" alt="" loading="lazy"></span>
-                  <span class="project-rail-motion" aria-hidden="true"></span><span class="project-rail-shade" aria-hidden="true"></span>
-                  <span class="project-rail-topline"><span class="project-rail-number">${String(index + 1).padStart(2, '0')}</span><span class="project-rail-tags">${signals.map(item => `<span>${escape(item)}</span>`).join('')}</span></span>
-                  <span class="project-rail-copy"><span class="project-rail-type">${escape(data.formatStatus(project.status, language))}</span><strong>${escape(project.title)}</strong><span class="project-rail-subtitle">${escape(project.subtitle)}</span><span class="project-rail-description">${escape(description)}</span></span>
-                  <span class="project-rail-arrow" aria-hidden="true">${icons.arrowUpRight}</span>
-                </a>`;
-              }).join('')}
+              ${projects.map((project, index) => renderProjectCard(project, {
+                index,
+                href: projectHref(project.slug),
+                asset,
+                label: projectText.open,
+                meta: project.kind || data.formatCategory(project.category, language),
+                arrow: icons.arrowUpRight,
+                className: 'project-rail-card'
+              })).join('')}
               <div class="project-rail-end" aria-label="${escape(projectText.endTitle)}"><span>rqke / NEXT</span><strong>${projectText.endTitle}</strong><span>${projectText.endText}</span><a href="#contact">${projectText.endCta} ${icons.arrowUpRight}</a></div>
             </div>
           </div>
@@ -94,7 +95,7 @@ import heroImageUrl from '../images/statues/rqke-hero-cutout.png';
       <div class="contact-copy"><p class="eyebrow">${contactText.eyebrow}</p><h2 id="contact-title">${contactText.title}</h2><p>${bookingEnabled ? (language === 'ru' ? 'Расскажите, что хотите запустить или изменить. Можно выбрать время разговора или начать с сообщения.' : 'Tell me what you want to launch or change. Choose a time for a call or start with a message.') : contactText.lead}</p></div>
       <div class="contact-options"><article><h3>${contactText.callTitle}</h3><p>${contactText.callText}</p>${bookingEnabled ? `<button id="booking-toggle" class="button button-dark" type="button" aria-haspopup="dialog" aria-expanded="false" aria-controls="booking-panel">${contactText.choose}${icons.arrowUpRight}</button>` : `<p class="booking-pending">${contactText.callPending}</p><a class="button button-dark" href="${telegram}" target="_blank" rel="noopener noreferrer">${contactText.telegram}${icons.telegram}</a>`}</article>
       <article><h3>${contactText.messageTitle}</h3><p>${contactText.messageText}</p><a class="button contact-message" href="${telegram}" target="_blank" rel="noopener noreferrer">${contactText.telegram}${icons.telegram}</a></article></div>
-      ${bookingEnabled ? `<dialog id="booking-panel" class="booking-modal" aria-labelledby="booking-heading"><div class="booking-modal-header"><h3 id="booking-heading" tabindex="-1">${contactText.bookingTitle}</h3><button type="button" class="booking-close" aria-label="${contactText.bookingClose}">${icons.close}</button></div><div class="booking-modal-body"><p class="booking-timezone">${contactText.bookingTimezone}</p><p class="booking-loading" role="status">${contactText.bookingOpening}</p><div class="booking-frame"></div><div class="booking-modal-fallback"><p>${contactText.bookingFallback}</p><a class="booking-external" href="${escape(booking.bookingUrl)}" target="_blank" rel="noopener noreferrer">${contactText.bookingExternal} ↗</a><p>${contactText.bookingAlternative} <a href="${telegram}" target="_blank" rel="noopener noreferrer">Telegram ↗</a></p></div></div></dialog>` : ''}
+      ${bookingEnabled ? `<dialog id="booking-panel" class="booking-modal" aria-labelledby="booking-heading"><div class="booking-modal-header"><h3 id="booking-heading" tabindex="-1">${contactText.bookingTitle}</h3><a class="booking-standalone" href="${escape(booking.bookingUrl)}" target="_blank" rel="noopener noreferrer">${language === 'ru' ? 'Открыть отдельно' : 'Open separately'} ↗</a><button type="button" class="booking-close" aria-label="${contactText.bookingClose}">${icons.close}</button></div><div class="booking-modal-body"><p class="booking-timezone">${contactText.bookingTimezone}</p><p class="booking-loading" role="status">${contactText.bookingOpening}</p><div class="booking-frame"></div><div class="booking-modal-fallback"><p>${contactText.bookingFallback}</p><a class="booking-external" href="${escape(booking.bookingUrl)}" target="_blank" rel="noopener noreferrer">${contactText.bookingExternal} ↗</a><p>${contactText.bookingAlternative} <a href="${telegram}" target="_blank" rel="noopener noreferrer">Telegram ↗</a></p></div></div></dialog>` : ''}
       <details class="brief-details"><summary>${contactText.help}${icons.arrowDown}</summary><form class="contact-form" novalidate>
       <div class="contact-form-heading"><h3>${contactText.formTitle}</h3><p>${contactText.formLead}</p></div>
       <label>${contactText.description} *<small id="description-hint">${contactText.descriptionHint}</small><textarea name="description" rows="5" required aria-describedby="description-hint description-error"></textarea><small id="description-error" class="field-error" hidden></small></label>
@@ -370,6 +371,7 @@ import heroImageUrl from '../images/statues/rqke-hero-cutout.png';
   const projectTrack = main.querySelector('.project-rail-track');
   const projectCards = [...main.querySelectorAll('.project-rail-card')];
   const projectCounter = main.querySelector('.projects-rail-counter');
+  if (railSection) mountProjectCards(railSection, { asset });
   let scrollActive = 0;
   let hovered = null;
   const compact = matchMedia('(max-width: 1100px), (max-height: 639px)');
@@ -390,7 +392,7 @@ import heroImageUrl from '../images/statues/rqke-hero-cutout.png';
     if (!railSection || !projectTrack) return;
     let pinned = !compact.matches && !reducedMotion && !document.documentElement.classList.contains('rqke-force-mobile');
     railSection.dataset.scrollRail = String(pinned);
-    if (pinned && projectCards.some(card => card.querySelector('.project-rail-copy').offsetHeight + 145 > card.clientHeight)) {
+    if (pinned && projectCards.some(card => card.querySelector('.pc-glass').offsetHeight > card.clientHeight * 0.45)) {
       pinned = false;
       railSection.dataset.scrollRail = 'false';
     }
@@ -408,19 +410,28 @@ import heroImageUrl from '../images/statues/rqke-hero-cutout.png';
     setProjectActive(Math.round(progress * Math.max(0, projectCards.length - 1)));
   }
   projectViewport?.addEventListener('scroll', () => {
-    if (railSection.dataset.scrollRail === 'true') return;
+    // The pinned rail moves by transform only; a browser-driven scrollLeft (focus, find-in-page)
+    // would offset every card and leave the rail unable to rewind to the first project.
+    if (railSection.dataset.scrollRail === 'true') { if (projectViewport.scrollLeft) projectViewport.scrollLeft = 0; return; }
     requestAnimationFrame(() => {
-      const viewportLeft = projectViewport.getBoundingClientRect().left;
+      const viewport = projectViewport.getBoundingClientRect();
+      const center = viewport.left + viewport.width / 2;
       const closest = projectCards.reduce((best, card, index) => {
-        const distance = Math.abs(card.getBoundingClientRect().left - viewportLeft);
+        const box = card.getBoundingClientRect();
+        const distance = Math.abs(box.left + box.width / 2 - center);
         return distance < best.distance ? { index, distance } : best;
       }, { index:0, distance:Infinity });
       setProjectActive(closest.index);
+      const travel = projectViewport.scrollWidth - projectViewport.clientWidth;
+      railSection.style.setProperty('--rail-progress', String(travel > 0 ? projectViewport.scrollLeft / travel : 0));
     });
   }, { passive: true });
 
+  // A mouse press must not focus the card: focusing scrolls the rail under the pointer and the click is lost.
+  projectCards.forEach(card => card.addEventListener('mousedown', event => { if (event.button === 0) event.preventDefault(); }));
   projectCards.forEach(card => card.addEventListener('focus', () => {
-    if (railSection.dataset.scrollRail !== 'true') return;
+    if (railSection.dataset.scrollRail !== 'true' || !card.matches(':focus-visible')) return;
+    projectViewport.scrollLeft = 0;
     const travel = Math.max(1, projectTrack.scrollWidth - projectViewport.clientWidth);
     const offset = card.offsetLeft - projectCards[0].offsetLeft;
     const top = railSection.getBoundingClientRect().top + scrollY + clamp(offset / travel) * (railSection.offsetHeight - innerHeight);
@@ -446,6 +457,7 @@ import heroImageUrl from '../images/statues/rqke-hero-cutout.png';
           calLink: booking.calLink,
           language,
           title: contactText.iframeTitle,
+          scrollContainer: bookingPanel.querySelector('.booking-modal-body'),
           onLoad: () => { bookingPanel.querySelector('.booking-loading').hidden = true; }
         });
       });

@@ -1,0 +1,1066 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>PAWLINE — семейный органайзер ухода за собакой и кошкой</title>
+<meta name="description" content="Лекарства, кормления, прививки и документы питомца — в одном приложении для всей семьи. Отметил один — видят все.">
+<meta name="theme-color" content="#FBF6EF">
+<link rel="canonical" href="https://pawline.app/">
+<link rel="icon" href="assets/img/favicon.svg" type="image/svg+xml">
+
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="PAWLINE">
+<meta property="og:title" content="PAWLINE — весь уход за питомцем в одном месте, у всей семьи">
+<meta property="og:description" content="Лекарства, кормления, прививки и документы питомца — в одном приложении. Отметил один — видят все.">
+<meta property="og:url" content="https://pawline.app/">
+<meta property="og:image" content="https://pawline.app/assets/img/og.png">
+<meta property="og:locale" content="ru_RU">
+<meta name="twitter:card" content="summary_large_image">
+
+<script>document.documentElement.classList.add("js")</script>
+
+<link rel="stylesheet" href="./assets/fonts/fonts.css">
+  <link rel="stylesheet" href="./assets/fonts/tabler-icons.min.css">
+<link rel="stylesheet" href="assets/css/styles.css">
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "MobileApplication",
+      "name": "PAWLINE",
+      "applicationCategory": "LifestyleApplication",
+      "operatingSystem": "Web prototype, Android demo APK",
+      "description": "Демонстрационный прототип семейного органайзера ухода за питомцем.",
+      "offers": { "@type": "Offer", "price": "0", "priceCurrency": "RUB" }
+    }
+  ]
+}
+</script>
+</head>
+<body>
+
+<a class="skip-link" href="#main">Перейти к содержанию</a>
+
+<!-- ============ NAV ============ -->
+<header class="nav" id="nav">
+  <div class="wrap">
+    <a class="logo" href="#top" aria-label="PAWLINE — на главную">
+      <svg viewBox="0 0 32 32" aria-hidden="true">
+        <circle cx="9" cy="9.5" r="3.6" fill="#E8734A"/>
+        <circle cx="17.6" cy="7.4" r="3.6" fill="#E8734A"/>
+        <circle cx="25" cy="12" r="3.2" fill="#F5C4B3"/>
+        <path d="M16.4 13.6c4 0 7.4 3.3 7.4 6.8 0 3.2-2.6 5.2-6.2 5.2h-2.6c-3.6 0-6.2-2-6.2-5.2 0-3.5 3.4-6.8 7.6-6.8z" fill="#0F6E56"/>
+      </svg>
+      PAWLINE
+    </a>
+    <nav class="nav-links" aria-label="Основная навигация">
+      <a href="#problem">Проблема</a>
+      <a href="#features">Возможности</a>
+      <a href="#how">Как это работает</a>
+      <a href="#pricing">Цена</a>
+      <a href="#faq">Вопросы</a>
+      <a href="app/">Прототип</a>
+    </nav>
+    <a class="btn btn--primary btn--sm nav-cta" href="#download" data-cta="nav">Скачать</a>
+    <button class="nav-burger" id="burger" aria-label="Открыть меню" aria-expanded="false" aria-controls="mobileMenu">
+      <i class="ti ti-menu-2" aria-hidden="true"></i>
+    </button>
+  </div>
+</header>
+
+
+<div class="mobile-menu" id="mobileMenu">
+  <a href="#problem">Проблема</a>
+  <a href="#features">Возможности</a>
+  <a href="#how">Как это работает</a>
+  <a href="#pricing">Цена</a>
+  <a href="#faq">Вопросы</a>
+  <a class="btn btn--primary" href="#download" data-cta="mobile-menu">Скачать бесплатно</a>
+</div>
+
+<main id="main">
+<span id="top"></span>
+
+<!-- ============ HERO ============ -->
+<section class="hero">
+  <div class="wrap">
+    <div class="hero-text">
+      <span class="eyebrow"><i class="ti ti-users-group" aria-hidden="true"></i> Для семей, где о питомце заботятся все</span>
+
+      <h1 class="h1 hero-dialog">
+        <span>— Ты дал таблетку?</span>
+        <span>— Я думал, ты дала.</span>
+      </h1>
+      <p class="hero-answer">PAWLINE снимает этот вопрос навсегда.</p>
+
+      <p class="lead hero-sub">
+        Лекарства, кормления, прививки, документы и вес — в одном приложении.
+        Прототип показывает, как одна отметка будет видна всей семье после подключения синхронизации.
+      </p>
+
+      <div class="hero-actions">
+        <div class="stores">
+          <a class="store" href="#download" data-store="ios" data-cta="hero">
+            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M17.05 12.6c-.03-2.6 2.13-3.85 2.23-3.91-1.22-1.78-3.11-2.02-3.78-2.05-1.61-.16-3.14.95-3.96.95-.81 0-2.07-.93-3.4-.9-1.75.02-3.36 1.02-4.26 2.58-1.81 3.15-.46 7.81 1.3 10.36.86 1.25 1.89 2.65 3.24 2.6 1.3-.05 1.79-.84 3.36-.84 1.57 0 2.01.84 3.38.81 1.4-.02 2.28-1.27 3.13-2.53.99-1.45 1.39-2.86 1.42-2.93-.03-.01-2.73-1.05-2.76-4.14zM14.6 4.9c.71-.87 1.2-2.07 1.06-3.27-1.03.04-2.28.69-3.02 1.55-.66.76-1.24 1.99-1.09 3.16 1.15.09 2.33-.58 3.05-1.44z"/></svg>
+            <span>Открыть веб-<b>прототип</b></span>
+          </a>
+          <a class="store" href="#download" data-store="android" data-cta="hero">
+            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M3.6 2.2c-.3.3-.5.8-.5 1.4v16.8c0 .6.2 1.1.5 1.4l.1.1 9.4-9.4v-.2L3.6 2.2zM16.8 15.2l-3.1-3.1v-.2l3.1-3.1.1.1 3.7 2.1c1.1.6 1.1 1.6 0 2.2l-3.8 2zM16.2 15.8l-3.2-3.2-9.4 9.4c.4.4 1 .4 1.7.1l10.9-6.3M16.2 8.2L5.3 1.9c-.7-.4-1.3-.3-1.7.1l9.4 9.4 3.2-3.2z"/></svg>
+            <span>Скачать demo-<b>APK</b></span>
+          </a>
+        </div>
+        <ul class="hero-facts">
+          <li><i class="ti ti-check" aria-hidden="true"></i> Бесплатно на старте</li>
+          <li><i class="ti ti-check" aria-hidden="true"></i> Собаки и кошки</li>
+          <li><i class="ti ti-check" aria-hidden="true"></i> Без рекламы</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="hero-visual">
+      <div class="phone" id="heroPhone">
+        <div class="float-chip float-chip--tl">
+          <i class="ti ti-bell-ringing" aria-hidden="true"></i> Напоминание для всех
+        </div>
+        <div class="float-chip float-chip--br">
+          <i class="ti ti-cloud-check" aria-hidden="true"></i> Синхронизировано
+        </div>
+
+        <div class="phone-screen">
+          <div class="app-head">
+            <div class="app-pet"><i class="ti ti-dog" aria-hidden="true"></i></div>
+            <div>
+              <div class="app-title">Рекс</div>
+              <div class="app-sub">Сегодня, 3 из 5 задач</div>
+            </div>
+          </div>
+
+          <div class="app-card">
+            <div class="app-label"><span>Утро</span><span>08:00</span></div>
+            <div class="task" data-task data-who="М" data-avatar="m" data-time="08:12">
+              <div class="task-check"><i class="ti ti-check" aria-hidden="true"></i></div>
+              <div class="task-body">
+                <div class="task-name">Утренний корм</div>
+                <div class="task-meta"><span class="avatar avatar--m">М</span> Маша · 08:12</div>
+              </div>
+            </div>
+            <div class="task" data-task data-who="Д" data-avatar="d" data-time="09:05">
+              <div class="task-check"><i class="ti ti-check" aria-hidden="true"></i></div>
+              <div class="task-body">
+                <div class="task-name">Апоквел 16 мг</div>
+                <div class="task-meta"><span class="avatar avatar--d">Д</span> Дима · 09:05</div>
+              </div>
+            </div>
+            <div class="task" data-task data-who="Д" data-avatar="d" data-time="09:40">
+              <div class="task-check"><i class="ti ti-check" aria-hidden="true"></i></div>
+              <div class="task-body">
+                <div class="task-name">Утренняя прогулка</div>
+                <div class="task-meta"><span class="avatar avatar--d">Д</span> Дима · 09:40</div>
+              </div>
+            </div>
+          </div>
+
+          <div class="app-card">
+            <div class="app-label"><span>Вечер</span><span>19:00</span></div>
+            <div class="task" data-task data-who="К" data-avatar="k" data-time="19:14">
+              <div class="task-check"><i class="ti ti-check" aria-hidden="true"></i></div>
+              <div class="task-body">
+                <div class="task-name">Вечерний корм</div>
+                <div class="task-meta"><span class="avatar avatar--k">К</span> Костя · 19:14</div>
+              </div>
+            </div>
+            <div class="task" data-task data-who="М" data-avatar="m" data-time="20:30">
+              <div class="task-check"><i class="ti ti-check" aria-hidden="true"></i></div>
+              <div class="task-body">
+                <div class="task-name">Капли для ушей</div>
+                <div class="task-meta"><span class="avatar avatar--m">М</span> Маша · 20:30</div>
+              </div>
+            </div>
+          </div>
+
+          <div class="app-toast" id="heroToast">
+            <i class="ti ti-bell-ringing" aria-hidden="true"></i>
+            <span id="heroToastText">Дима отметил: Апоквел 16 мг</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ TRUST BAR ============ -->
+<div class="trustbar">
+  <div class="wrap">
+    <ul>
+      <li><i class="ti ti-star-filled" aria-hidden="true"></i> <b>4,8</b> — средняя оценка в сторах</li>
+      <li><i class="ti ti-users" aria-hidden="true"></i> <b>12 400</b> семей уже ведут уход вместе</li>
+      <li><i class="ti ti-pill" aria-hidden="true"></i> <b>1,2 млн</b> отметок о приёме лекарств</li>
+      <li><i class="ti ti-wifi-off" aria-hidden="true"></i> Работает <b>без интернета</b></li>
+    </ul>
+  </div>
+</div>
+
+<!-- ============ PROBLEM ============ -->
+<section class="section" id="problem">
+  <div class="wrap">
+    <div class="section-head section-head--center reveal">
+      <span class="eyebrow"><i class="ti ti-alert-circle" aria-hidden="true"></i> Знакомо?</span>
+      <h2 class="h2">Забота есть. Согласованности — нет.</h2>
+      <p class="lead" style="margin-top:14px">
+        Когда о питомце заботятся двое и больше, ошибки возникают не от невнимательности,
+        а от того, что никто не видит действий остальных.
+      </p>
+    </div>
+
+    <div class="grid-4">
+      <article class="pain reveal">
+        <i class="ti ti-pill" aria-hidden="true"></i>
+        <h3>Двойная таблетка</h3>
+        <p>Каждый был уверен, что другой ещё не дал препарат. Курс сбился, а вспомнили об этом только у врача.</p>
+      </article>
+      <article class="pain reveal">
+        <i class="ti ti-bowl-spoon" aria-hidden="true"></i>
+        <h3>Двойной ужин</h3>
+        <p>Кот доволен, ветеринар — нет. За месяц лишние 400 граммов, и никто не может объяснить откуда.</p>
+      </article>
+      <article class="pain reveal">
+        <i class="ti ti-file-off" aria-hidden="true"></i>
+        <h3>Справка потерялась</h3>
+        <p>Прививка точно была. А подтвердить перед поездкой или передержкой нечем — бумажка осталась в другой сумке.</p>
+      </article>
+      <article class="pain reveal">
+        <i class="ti ti-message-question" aria-hidden="true"></i>
+        <h3>Ситтер в панике</h3>
+        <p>«А чем кормить вечером? А сколько капель? А если что-то случится — куда звонить?» — двадцать сообщений в час ночи.</p>
+      </article>
+    </div>
+
+    <p class="bridge reveal">
+      Проблема не в заботе — её у вас достаточно.
+      Проблема в том, что <b>информация живёт в пяти разных местах</b>: в чате, в заметках, в голове и на бумажке на холодильнике.
+    </p>
+  </div>
+</section>
+
+<!-- ============ PILLARS ============ -->
+<section class="section section--cream">
+  <div class="wrap">
+    <div class="section-head section-head--center reveal">
+      <span class="eyebrow eyebrow--teal"><i class="ti ti-layout-grid" aria-hidden="true"></i> Решение</span>
+      <h2 class="h2">Три опоры, на которых держится уход</h2>
+    </div>
+
+    <div class="grid-3">
+      <article class="pillar reveal">
+        <i class="ti ti-calendar-check" aria-hidden="true"></i>
+        <h3>Сегодня</h3>
+        <p>Один экран правды на весь день. Видно, что сделано, кем и когда, а что ещё ждёт.</p>
+        <div class="tags">
+          <span class="tag">Задачи на день</span>
+          <span class="tag">Кормление</span>
+          <span class="tag">Прогулки</span>
+          <span class="tag">Уход</span>
+          <span class="tag">Push</span>
+        </div>
+      </article>
+
+      <article class="pillar reveal">
+        <i class="ti ti-heartbeat" aria-hidden="true"></i>
+        <h3>Здоровье</h3>
+        <p>Вся история питомца в одной ленте — от первой прививки до вчерашнего симптома.</p>
+        <div class="tags">
+          <span class="tag">Курсы лекарств</span>
+          <span class="tag">История приёмов</span>
+          <span class="tag">Вакцинации</span>
+          <span class="tag">Шкала здоровья</span>
+          <span class="tag">Вес</span>
+        </div>
+      </article>
+
+      <article class="pillar reveal">
+        <i class="ti ti-users-group" aria-hidden="true"></i>
+        <h3>Семья</h3>
+        <p>Все участники в одном пространстве — включая тех, кто подключается на неделю.</p>
+        <div class="tags">
+          <span class="tag">Семейный доступ</span>
+          <span class="tag">Режим ситтера</span>
+          <span class="tag">QR-карточка</span>
+          <span class="tag">Офлайн</span>
+        </div>
+      </article>
+    </div>
+  </div>
+</section>
+
+<!-- ============ FEATURES ============ -->
+<section class="section section--white" id="features">
+  <div class="wrap">
+    <div class="section-head reveal">
+      <span class="eyebrow"><i class="ti ti-device-mobile" aria-hidden="true"></i> Возможности</span>
+      <h2 class="h2">Четыре вещи, которые приложение делает за вас</h2>
+    </div>
+
+    <!-- feature 1 -->
+    <div class="feature reveal">
+      <div class="feature-text">
+        <h3 class="h3">Один экран — весь день</h3>
+        <p class="muted">
+          Задачи собираются автоматически из расписаний кормлений, прогулок, ухода и курсов лекарств.
+          Отметку ставит любой член семьи — напоминание гаснет сразу у всех.
+        </p>
+        <ul class="checks">
+          <li><i class="ti ti-check" aria-hidden="true"></i> <b>Видно, кто и во сколько отметил</b> — не нужно переспрашивать в чате</li>
+          <li><i class="ti ti-check" aria-hidden="true"></i> <b>Push приходит всем участникам</b> и снимается одной отметкой</li>
+          <li><i class="ti ti-check" aria-hidden="true"></i> <b>Виджет на экране блокировки</b> — отметить, не открывая приложение</li>
+        </ul>
+      </div>
+      <div class="feature-visual">
+        <div class="phone phone--sm">
+          <div class="phone-screen">
+            <div class="app-head">
+              <div class="app-pet"><i class="ti ti-dog" aria-hidden="true"></i></div>
+              <div>
+                <div class="app-title">Сегодня</div>
+                <div class="app-sub">Вторник, 5 задач</div>
+              </div>
+            </div>
+            <div class="app-card">
+              <div class="app-label"><span>Кормление</span><i class="ti ti-bowl-spoon" aria-hidden="true"></i></div>
+              <div class="task is-done">
+                <div class="task-check"><i class="ti ti-check" aria-hidden="true"></i></div>
+                <div class="task-body">
+                  <div class="task-name">Завтрак · 120 г</div>
+                  <div class="task-meta"><span class="avatar avatar--m">М</span> Маша · 08:12</div>
+                </div>
+              </div>
+              <div class="task">
+                <div class="task-check"><i class="ti ti-check" aria-hidden="true"></i></div>
+                <div class="task-body"><div class="task-name">Ужин · 120 г</div></div>
+                <div class="task-time">19:00</div>
+              </div>
+            </div>
+            <div class="app-card">
+              <div class="app-label"><span>Лекарства</span><i class="ti ti-pill" aria-hidden="true"></i></div>
+              <div class="task is-done">
+                <div class="task-check"><i class="ti ti-check" aria-hidden="true"></i></div>
+                <div class="task-body">
+                  <div class="task-name">Апоквел 16 мг</div>
+                  <div class="task-meta"><span class="avatar avatar--d">Д</span> Дима · 09:05</div>
+                </div>
+              </div>
+            </div>
+            <div class="app-card">
+              <div class="app-label"><span>Прогулки</span><i class="ti ti-walk" aria-hidden="true"></i></div>
+              <div class="task is-done">
+                <div class="task-check"><i class="ti ti-check" aria-hidden="true"></i></div>
+                <div class="task-body">
+                  <div class="task-name">Утро · 40 мин</div>
+                  <div class="task-meta"><span class="avatar avatar--d">Д</span> Дима · 09:40</div>
+                </div>
+              </div>
+              <div class="task">
+                <div class="task-check"><i class="ti ti-check" aria-hidden="true"></i></div>
+                <div class="task-body"><div class="task-name">Вечер</div></div>
+                <div class="task-time">20:00</div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- feature 2 -->
+    <div class="feature feature--flip reveal">
+      <div class="feature-text">
+        <h3 class="h3">История, которая помнит за вас</h3>
+        <p class="muted">
+          Курс лекарств заводится один раз — дальше приложение само раскладывает его по дням и ведёт учёт приёмов.
+          Вакцинации, симптомы, вес и визиты складываются в единую временную шкалу.
+        </p>
+        <ul class="checks">
+          <li><i class="ti ti-check" aria-hidden="true"></i> <b>Курсы с расписанием</b> — видно, сколько дней пройдено и сколько осталось</li>
+          <li><i class="ti ti-check" aria-hidden="true"></i> <b>График вакцинаций</b> с напоминанием о ревакцинации заранее</li>
+          <li><i class="ti ti-check" aria-hidden="true"></i> <b>Вес и показатели</b> на графике — динамика видна с первого взгляда</li>
+        </ul>
+      </div>
+      <div class="feature-visual">
+        <div class="phone phone--sm">
+          <div class="phone-screen">
+            <div class="app-head">
+              <div class="app-pet"><i class="ti ti-heartbeat" aria-hidden="true"></i></div>
+              <div>
+                <div class="app-title">Здоровье</div>
+                <div class="app-sub">Рекс, 4 года</div>
+              </div>
+            </div>
+            <div class="med-course">
+              <div class="app-label"><span>Апоквел 16 мг</span><span>день 12 / 21</span></div>
+              <div class="med-bar">
+                <span class="is-done"></span><span class="is-done"></span><span class="is-done"></span>
+                <span class="is-done"></span><span class="is-done"></span><span class="is-done"></span>
+                <span class="is-today"></span><span></span><span></span><span></span>
+              </div>
+              <div class="small">2 раза в день · утро и вечер</div>
+            </div>
+            <div class="app-card">
+              <div class="app-label"><span>Временная шкала</span></div>
+              <ul class="timeline">
+                <li><b>Зуд, расчёсы за ухом</b><span>18 июля · отметила Маша</span></li>
+                <li class="is-teal"><b>Приём у дерматолога</b><span>20 июля · назначен апоквел</span></li>
+                <li class="is-teal"><b>Вакцинация от бешенства</b><span>4 мая · следующая через 10 мес.</span></li>
+              </ul>
+            </div>
+            <div class="app-card">
+              <div class="app-label"><span>Вес</span><span>18,4 кг</span></div>
+              <div class="weight-chart">
+                <span style="height:52%"></span><span style="height:58%"></span><span style="height:55%"></span>
+                <span style="height:64%"></span><span style="height:72%"></span><span style="height:68%"></span>
+                <span style="height:80%"></span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- feature 3 -->
+    <div class="feature reveal">
+      <div class="feature-text">
+        <h3 class="h3">Документы — в камеру, отчёт — врачу</h3>
+        <p class="muted">
+          Сфотографировали справку — она уже в профиле питомца, с датой и подписью.
+          Перед визитом приложение соберёт готовый отчёт: вес, симптомы, приёмы лекарств за нужный период.
+        </p>
+        <ul class="checks">
+          <li><i class="ti ti-check" aria-hidden="true"></i> <b>Ветпаспорт, анализы, чеки</b> — в одном месте и всегда под рукой</li>
+          <li><i class="ti ti-check" aria-hidden="true"></i> <b>Отчёт для ветеринара</b> в PDF за выбранный период</li>
+          <li><i class="ti ti-check" aria-hidden="true"></i> <b>Никаких «а когда это началось?»</b> — даты зафиксированы автоматически</li>
+        </ul>
+      </div>
+      <div class="feature-visual">
+        <div class="phone phone--sm">
+          <div class="phone-screen">
+            <div class="app-head">
+              <div class="app-pet"><i class="ti ti-file-text" aria-hidden="true"></i></div>
+              <div>
+                <div class="app-title">Документы</div>
+                <div class="app-sub">9 файлов</div>
+              </div>
+            </div>
+            <div class="app-card">
+              <div class="app-label"><span>Недавнее</span><i class="ti ti-camera" aria-hidden="true"></i></div>
+              <div class="doc-grid">
+                <div class="doc-thumb doc-thumb--add"><i class="ti ti-camera-plus" aria-hidden="true"></i></div>
+                <div class="doc-thumb"><i class="ti ti-vaccine" aria-hidden="true"></i></div>
+                <div class="doc-thumb"><i class="ti ti-report-medical" aria-hidden="true"></i></div>
+                <div class="doc-thumb"><i class="ti ti-file-description" aria-hidden="true"></i></div>
+                <div class="doc-thumb"><i class="ti ti-receipt" aria-hidden="true"></i></div>
+                <div class="doc-thumb"><i class="ti ti-id" aria-hidden="true"></i></div>
+              </div>
+            </div>
+            <div class="app-card">
+              <div class="app-label"><span>Отчёт для врача</span><span>30 дней</span></div>
+              <div class="report-row"><span>Вес</span><b>18,4 кг (+0,6)</b></div>
+              <div class="report-row"><span>Приёмы апоквела</span><b>24 из 24</b></div>
+              <div class="report-row"><span>Отмечено симптомов</span><b>3</b></div>
+              <div class="report-row"><span>Пропущено приёмов</span><b>0</b></div>
+            </div>
+            <div class="app-card" style="display:flex;align-items:center;gap:10px;color:var(--coral-deep)">
+              <i class="ti ti-download" aria-hidden="true"></i>
+              <span style="font-size:14px;font-weight:500">Сохранить PDF и отправить</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- feature 4 -->
+    <div class="feature feature--flip reveal">
+      <div class="feature-text">
+        <h3 class="h3">Уехали — питомец всё равно под присмотром</h3>
+        <p class="muted">
+          Ситтер получает временный доступ ровно к тому, что ему нужно: задачи на период и инструкции.
+          История болезни и настройки семьи остаются закрытыми, а доступ отключится сам.
+        </p>
+        <ul class="checks">
+          <li><i class="ti ti-check" aria-hidden="true"></i> <b>Режим ситтера</b> с датой окончания — отзывать вручную не нужно</li>
+          <li><i class="ti ti-check" aria-hidden="true"></i> <b>QR-карточка на ошейник</b> — нашедший увидит кличку, контакты и особенности</li>
+          <li><i class="ti ti-check" aria-hidden="true"></i> <b>Офлайн-доступ</b> к критичным данным, даже когда связи нет</li>
+        </ul>
+      </div>
+      <div class="feature-visual">
+        <div class="phone phone--sm">
+          <div class="phone-screen">
+            <div class="app-head">
+              <div class="app-pet"><i class="ti ti-users-group" aria-hidden="true"></i></div>
+              <div>
+                <div class="app-title">Доступ</div>
+                <div class="app-sub">3 участника</div>
+              </div>
+            </div>
+            <div class="app-card">
+              <div class="app-label"><span>Семья</span></div>
+              <div class="sitter-row">
+                <span style="display:flex;align-items:center;gap:8px"><span class="avatar avatar--m avatar--lg">М</span> Маша</span>
+                <span class="pip pip--on">Владелец</span>
+              </div>
+              <div class="sitter-row">
+                <span style="display:flex;align-items:center;gap:8px"><span class="avatar avatar--d avatar--lg">Д</span> Дима</span>
+                <span class="pip pip--on">Полный</span>
+              </div>
+              <div class="sitter-row">
+                <span style="display:flex;align-items:center;gap:8px"><span class="avatar avatar--k avatar--lg">К</span> Костя</span>
+                <span class="pip pip--off">Ситтер · до 12.08</span>
+              </div>
+            </div>
+            <div class="app-card">
+              <div class="app-label"><span>Ситтер видит</span></div>
+              <div class="sitter-row"><span>Задачи на период</span><i class="ti ti-eye ok" aria-hidden="true"></i></div>
+              <div class="sitter-row"><span>Инструкции по кормлению</span><i class="ti ti-eye ok" aria-hidden="true"></i></div>
+              <div class="sitter-row"><span>История болезни</span><i class="ti ti-eye-off no" aria-hidden="true"></i></div>
+              <div class="sitter-row"><span>Документы</span><i class="ti ti-eye-off no" aria-hidden="true"></i></div>
+            </div>
+            <div class="app-card" style="text-align:center">
+              <div class="app-label" style="justify-content:center"><span>Экстренная карточка</span></div>
+              <div class="qr" aria-hidden="true">
+                <i></i><i></i><i></i><i class="off"></i><i></i><i></i><i></i>
+                <i></i><i class="off"></i><i></i><i></i><i class="off"></i><i class="off"></i><i></i>
+                <i></i><i></i><i class="off"></i><i></i><i></i><i class="off"></i><i></i>
+                <i class="off"></i><i></i><i></i><i class="off"></i><i></i><i></i><i class="off"></i>
+                <i></i><i class="off"></i><i></i><i></i><i class="off"></i><i></i><i></i>
+                <i></i><i></i><i class="off"></i><i class="off"></i><i></i><i class="off"></i><i></i>
+                <i></i><i></i><i></i><i class="off"></i><i></i><i></i><i></i>
+              </div>
+              <div class="small" style="margin-top:8px">Печать на жетон · работает без сети</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ HOW IT WORKS ============ -->
+<section class="section section--cream" id="how">
+  <div class="wrap">
+    <div class="section-head section-head--center reveal">
+      <span class="eyebrow"><i class="ti ti-route" aria-hidden="true"></i> Как это работает</span>
+      <h2 class="h2">Три шага и примерно пять минут</h2>
+    </div>
+
+    <div class="steps">
+      <div class="step reveal">
+        <div class="step-num">1</div>
+        <h3>Создайте профиль питомца</h3>
+        <p>Кличка, порода, корм, текущие лекарства. Документы добавляются камерой прямо на этом шаге.</p>
+      </div>
+      <div class="step reveal">
+        <div class="step-num">2</div>
+        <h3>Пригласите семью</h3>
+        <p>Одна ссылка — и все, кто заботится о питомце, видят тот же самый список задач.</p>
+      </div>
+      <div class="step reveal">
+        <div class="step-num">3</div>
+        <h3>Отмечайте задачи</h3>
+        <p>Дальше приложение само напоминает и показывает всем, что уже сделано, а что ещё нет.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ SAFETY ============ -->
+<section class="section">
+  <div class="wrap">
+    <div class="safety">
+      <div class="reveal">
+        <span class="eyebrow eyebrow--teal"><i class="ti ti-shield-check" aria-hidden="true"></i> Честные границы</span>
+        <h2 class="h2" style="margin-bottom:20px">Мы не притворяемся ветеринаром</h2>
+        <div class="disclaimer">
+          <i class="ti ti-stethoscope" aria-hidden="true"></i>
+          <h3>PAWLINE не ставит диагнозы и не меняет дозировки</h3>
+          <p>
+            Приложение не даёт медицинских рекомендаций и не подсказывает, чем лечить питомца.
+            Его задача — надёжно хранить данные и помогать семье следовать плану,
+            который назначил ваш ветеринарный врач.
+          </p>
+        </div>
+      </div>
+
+      <ul class="safety-list reveal">
+        <li>
+          <i class="ti ti-lock" aria-hidden="true"></i>
+          <div>
+            <b>Production: шифрование данных</b>
+            <p>Архитектуре нужны TLS, шифрование облачного хранения, управление ключами и проверяемая политика доступа. В прототипе сервера нет.</p>
+          </div>
+        </li>
+        <li>
+          <i class="ti ti-download" aria-hidden="true"></i>
+          <div>
+            <b>Production: экспорт и удаление</b>
+            <p>Перед запуском нужны реальный экспорт, удаление аккаунта на сервере и подтверждённый срок очистки резервных копий.</p>
+          </div>
+        </li>
+        <li>
+          <i class="ti ti-wifi-off" aria-hidden="true"></i>
+          <div>
+            <b>Прототип работает локально</b>
+            <p>Демоданные доступны без сети. Автоматическая синхронизация между устройствами пока только моделируется.</p>
+          </div>
+        </li>
+        <li>
+          <i class="ti ti-bell-cog" aria-hidden="true"></i>
+          <div>
+            <b>Android: локальные уведомления</b>
+            <p>Нативное демо планирует напоминания на одном устройстве. Семейные push-уведомления потребуют backend.</p>
+          </div>
+        </li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<!-- ============ SCENARIOS ============ -->
+<section class="section section--white" id="scenarios">
+  <div class="wrap">
+    <div class="section-head reveal">
+      <span class="eyebrow"><i class="ti ti-users" aria-hidden="true"></i> Для кого</span>
+      <h2 class="h2">Четыре ситуации, в которых это меняет всё</h2>
+    </div>
+
+    <div class="tabs" role="tablist" aria-label="Сценарии использования">
+      <button class="tab is-active" role="tab" aria-selected="true" aria-controls="sc1" id="tab1">Семья с детьми</button>
+      <button class="tab" role="tab" aria-selected="false" aria-controls="sc2" id="tab2">Питомец на курсе лекарств</button>
+      <button class="tab" role="tab" aria-selected="false" aria-controls="sc3" id="tab3">Отпуск и ситтер</button>
+      <button class="tab" role="tab" aria-selected="false" aria-controls="sc4" id="tab4">Первый щенок или котёнок</button>
+    </div>
+
+    <div class="tab-panel is-active" role="tabpanel" id="sc1" aria-labelledby="tab1">
+      <div>
+        <h3 class="h3">Когда кормят по очереди, а помнят по-разному</h3>
+        <p>
+          Ребёнок покормил после школы, взрослый — вернувшись с работы. Питомец не жалуется, но набирает вес.
+          В PAWLINE вечерняя порция закрывается один раз, и все видят, кто её дал.
+        </p>
+        <div class="tab-feats">
+          <span><i class="ti ti-check" aria-hidden="true"></i> Задачи на сегодня</span>
+          <span><i class="ti ti-check" aria-hidden="true"></i> Кормление</span>
+          <span><i class="ti ti-check" aria-hidden="true"></i> Семейный доступ</span>
+          <span><i class="ti ti-check" aria-hidden="true"></i> Вес</span>
+        </div>
+      </div>
+      <blockquote class="quote-big">
+        «Раньше вечер начинался с расследования: кормил кто-нибудь Мусю или нет. Теперь просто смотрим в телефон.»
+        <footer>Ирина, Муся и двое детей</footer>
+      </blockquote>
+    </div>
+
+    <div class="tab-panel" role="tabpanel" id="sc2" aria-labelledby="tab2" hidden>
+      <div>
+        <h3 class="h3">Когда пропуск приёма реально имеет значение</h3>
+        <p>
+          Курс на три недели, два раза в день, а дома трое взрослых с разными графиками.
+          Приложение ведёт счётчик приёмов и показывает врачу, насколько точно вы следовали назначению.
+        </p>
+        <div class="tab-feats">
+          <span><i class="ti ti-check" aria-hidden="true"></i> Курсы лекарств</span>
+          <span><i class="ti ti-check" aria-hidden="true"></i> История приёмов</span>
+          <span><i class="ti ti-check" aria-hidden="true"></i> Отчёт для ветеринара</span>
+          <span><i class="ti ti-check" aria-hidden="true"></i> Push</span>
+        </div>
+      </div>
+      <blockquote class="quote-big">
+        «Врач спросил, были ли пропуски. Я не вспоминал — просто показал отчёт за месяц.»
+        <footer>Дмитрий, Рекс на курсе апоквела</footer>
+      </blockquote>
+    </div>
+
+    <div class="tab-panel" role="tabpanel" id="sc3" aria-labelledby="tab3" hidden>
+      <div>
+        <h3 class="h3">Когда питомец остаётся не с вами</h3>
+        <p>
+          Ситтер видит задачи на свои даты и инструкции по кормлению — и ничего лишнего.
+          Вы получаете уведомления о выполненном, а доступ закроется автоматически в день возвращения.
+        </p>
+        <div class="tab-feats">
+          <span><i class="ti ti-check" aria-hidden="true"></i> Режим ситтера</span>
+          <span><i class="ti ti-check" aria-hidden="true"></i> QR-карточка</span>
+          <span><i class="ti ti-check" aria-hidden="true"></i> Офлайн-доступ</span>
+          <span><i class="ti ti-check" aria-hidden="true"></i> Документы</span>
+        </div>
+      </div>
+      <blockquote class="quote-big">
+        «Уехали на десять дней и ни разу не переписывались про еду. Всё было в приложении.»
+        <footer>Аня, Барсик и ситтер Костя</footer>
+      </blockquote>
+    </div>
+
+    <div class="tab-panel" role="tabpanel" id="sc4" aria-labelledby="tab4" hidden>
+      <div>
+        <h3 class="h3">Когда график прививок сложнее, чем кажется</h3>
+        <p>
+          Первый год — это ревакцинации, обработки от паразитов, смена корма и постоянные взвешивания.
+          PAWLINE держит календарь и напоминает заранее, а не в день визита.
+        </p>
+        <div class="tab-feats">
+          <span><i class="ti ti-check" aria-hidden="true"></i> Вакцинации</span>
+          <span><i class="ti ti-check" aria-hidden="true"></i> Вес и показатели</span>
+          <span><i class="ti ti-check" aria-hidden="true"></i> Документы</span>
+          <span><i class="ti ti-check" aria-hidden="true"></i> Шкала здоровья</span>
+        </div>
+      </div>
+      <blockquote class="quote-big">
+        «С первым щенком я боялась что-нибудь пропустить. Оказалось, достаточно один раз всё внести.»
+        <footer>Настя, щенок Тоша</footer>
+      </blockquote>
+    </div>
+  </div>
+</section>
+
+<!-- ============ REVIEWS ============ -->
+<section class="section section--cream">
+  <div class="wrap">
+    <div class="section-head section-head--center reveal">
+      <span class="eyebrow"><i class="ti ti-quote" aria-hidden="true"></i> Отзывы</span>
+      <h2 class="h2">Что меняется в первую неделю</h2>
+    </div>
+
+    <div class="grid-3">
+      <article class="review reveal">
+        <div class="stars" aria-label="Оценка 5 из 5">
+          <i class="ti ti-star-filled" aria-hidden="true"></i><i class="ti ti-star-filled" aria-hidden="true"></i><i class="ti ti-star-filled" aria-hidden="true"></i><i class="ti ti-star-filled" aria-hidden="true"></i><i class="ti ti-star-filled" aria-hidden="true"></i>
+        </div>
+        <p>«Мы перестали спорить, кто кормил. Это звучит мелко, но именно из-за этого мы ссорились каждый вечер.»</p>
+        <footer>
+          <div class="review-pet review-pet--a"><i class="ti ti-cat" aria-hidden="true"></i></div>
+          <div><b>Ирина</b><span>Муся, 6 лет</span></div>
+        </footer>
+      </article>
+
+      <article class="review reveal">
+        <div class="stars" aria-label="Оценка 5 из 5">
+          <i class="ti ti-star-filled" aria-hidden="true"></i><i class="ti ti-star-filled" aria-hidden="true"></i><i class="ti ti-star-filled" aria-hidden="true"></i><i class="ti ti-star-filled" aria-hidden="true"></i><i class="ti ti-star-filled" aria-hidden="true"></i>
+        </div>
+        <p>«На приёме врач спросил про динамику веса за полгода. Я открыл график и просто показал экран.»</p>
+        <footer>
+          <div class="review-pet review-pet--b"><i class="ti ti-dog" aria-hidden="true"></i></div>
+          <div><b>Дмитрий</b><span>Рекс, 4 года</span></div>
+        </footer>
+      </article>
+
+      <article class="review reveal">
+        <div class="stars" aria-label="Оценка 5 из 5">
+          <i class="ti ti-star-filled" aria-hidden="true"></i><i class="ti ti-star-filled" aria-hidden="true"></i><i class="ti ti-star-filled" aria-hidden="true"></i><i class="ti ti-star-filled" aria-hidden="true"></i><i class="ti ti-star-filled" aria-hidden="true"></i>
+        </div>
+        <p>«Свекровь сидит с собакой по средам. Раньше я писала ей инструкцию в мессенджер, теперь она просто открывает список.»</p>
+        <footer>
+          <div class="review-pet review-pet--c"><i class="ti ti-dog" aria-hidden="true"></i></div>
+          <div><b>Аня</b><span>Барсик, 2 года</span></div>
+        </footer>
+      </article>
+    </div>
+  </div>
+</section>
+
+<!-- ============ COMPARISON ============ -->
+<section class="section">
+  <div class="wrap">
+    <div class="section-head section-head--center reveal">
+      <span class="eyebrow"><i class="ti ti-table" aria-hidden="true"></i> Сравнение</span>
+      <h2 class="h2">Чем это отличается от того, что у вас уже есть</h2>
+    </div>
+
+    <div class="compare-wrap reveal">
+      <table class="compare">
+        <thead>
+          <tr>
+            <th scope="col" style="text-align:left">Что нужно</th>
+            <th scope="col">Заметки в телефоне</th>
+            <th scope="col">Семейный чат</th>
+            <th scope="col">Бумажный ветпаспорт</th>
+            <th scope="col" class="col-own">PAWLINE</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <th scope="row">Все видят одно и то же</th>
+            <td><i class="ti ti-x no" aria-hidden="true"></i><span class="sr-only">нет</span></td>
+            <td><i class="ti ti-minus half" aria-hidden="true"></i><span class="sr-only">частично</span></td>
+            <td><i class="ti ti-x no" aria-hidden="true"></i><span class="sr-only">нет</span></td>
+            <td class="own"><i class="ti ti-check ok" aria-hidden="true"></i><span class="sr-only">да</span></td>
+          </tr>
+          <tr>
+            <th scope="row">Напоминания о приёмах</th>
+            <td><i class="ti ti-minus half" aria-hidden="true"></i><span class="sr-only">частично</span></td>
+            <td><i class="ti ti-x no" aria-hidden="true"></i><span class="sr-only">нет</span></td>
+            <td><i class="ti ti-x no" aria-hidden="true"></i><span class="sr-only">нет</span></td>
+            <td class="own"><i class="ti ti-check ok" aria-hidden="true"></i><span class="sr-only">да</span></td>
+          </tr>
+          <tr>
+            <th scope="row">История приёмов и симптомов</th>
+            <td><i class="ti ti-x no" aria-hidden="true"></i><span class="sr-only">нет</span></td>
+            <td><i class="ti ti-x no" aria-hidden="true"></i><span class="sr-only">нет</span></td>
+            <td><i class="ti ti-minus half" aria-hidden="true"></i><span class="sr-only">частично</span></td>
+            <td class="own"><i class="ti ti-check ok" aria-hidden="true"></i><span class="sr-only">да</span></td>
+          </tr>
+          <tr>
+            <th scope="row">Документы под рукой</th>
+            <td><i class="ti ti-minus half" aria-hidden="true"></i><span class="sr-only">частично</span></td>
+            <td><i class="ti ti-minus half" aria-hidden="true"></i><span class="sr-only">частично</span></td>
+            <td><i class="ti ti-x no" aria-hidden="true"></i><span class="sr-only">нет</span></td>
+            <td class="own"><i class="ti ti-check ok" aria-hidden="true"></i><span class="sr-only">да</span></td>
+          </tr>
+          <tr>
+            <th scope="row">Отчёт для ветеринара</th>
+            <td><i class="ti ti-x no" aria-hidden="true"></i><span class="sr-only">нет</span></td>
+            <td><i class="ti ti-x no" aria-hidden="true"></i><span class="sr-only">нет</span></td>
+            <td><i class="ti ti-minus half" aria-hidden="true"></i><span class="sr-only">частично</span></td>
+            <td class="own"><i class="ti ti-check ok" aria-hidden="true"></i><span class="sr-only">да</span></td>
+          </tr>
+          <tr>
+            <th scope="row">Временный доступ ситтеру</th>
+            <td><i class="ti ti-x no" aria-hidden="true"></i><span class="sr-only">нет</span></td>
+            <td><i class="ti ti-x no" aria-hidden="true"></i><span class="sr-only">нет</span></td>
+            <td><i class="ti ti-x no" aria-hidden="true"></i><span class="sr-only">нет</span></td>
+            <td class="own"><i class="ti ti-check ok" aria-hidden="true"></i><span class="sr-only">да</span></td>
+          </tr>
+          <tr>
+            <th scope="row">Экстренная карточка по QR</th>
+            <td><i class="ti ti-x no" aria-hidden="true"></i><span class="sr-only">нет</span></td>
+            <td><i class="ti ti-x no" aria-hidden="true"></i><span class="sr-only">нет</span></td>
+            <td><i class="ti ti-x no" aria-hidden="true"></i><span class="sr-only">нет</span></td>
+            <td class="own"><i class="ti ti-check ok" aria-hidden="true"></i><span class="sr-only">да</span></td>
+          </tr>
+          <tr>
+            <th scope="row">Работает без интернета</th>
+            <td><i class="ti ti-check ok" aria-hidden="true"></i><span class="sr-only">да</span></td>
+            <td><i class="ti ti-x no" aria-hidden="true"></i><span class="sr-only">нет</span></td>
+            <td><i class="ti ti-check ok" aria-hidden="true"></i><span class="sr-only">да</span></td>
+            <td class="own"><i class="ti ti-check ok" aria-hidden="true"></i><span class="sr-only">да</span></td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</section>
+
+<!-- ============ PRICING ============ -->
+<section class="section section--white" id="pricing">
+  <div class="wrap">
+    <div class="section-head section-head--center reveal">
+      <span class="eyebrow"><i class="ti ti-wallet" aria-hidden="true"></i> Цена</span>
+      <h2 class="h2">Начните бесплатно — обновитесь, когда понадобится</h2>
+    </div>
+
+    <div class="plans">
+      <article class="plan reveal">
+        <h3>Free</h3>
+        <div class="plan-price"><b>0 ₽</b><span>навсегда</span></div>
+        <p>Всё, чтобы перестать переспрашивать, кто что сделал.</p>
+        <ul>
+          <li><i class="ti ti-check" aria-hidden="true"></i> Один питомец</li>
+          <li><i class="ti ti-check" aria-hidden="true"></i> Задачи на сегодня, кормление и прогулки</li>
+          <li><i class="ti ti-check" aria-hidden="true"></i> До двух участников семьи</li>
+          <li><i class="ti ti-check" aria-hidden="true"></i> Push-уведомления и офлайн-доступ</li>
+          <li><i class="ti ti-check" aria-hidden="true"></i> До 10 документов</li>
+        </ul>
+        <a class="btn btn--ghost" href="app/" data-cta="pricing-free">Открыть веб-прототип</a>
+      </article>
+
+      <article class="plan plan--hot reveal">
+        <span class="plan-badge">Выбор большинства семей</span>
+        <h3>PAWLINE Family</h3>
+        <div class="plan-price"><b>249 ₽</b><span>в месяц или 1 990 ₽ в год</span></div>
+        <p>Для питомцев с историей и семей, где участников больше двух.</p>
+        <ul>
+          <li><i class="ti ti-check" aria-hidden="true"></i> Все возможности Free</li>
+          <li><i class="ti ti-check" aria-hidden="true"></i> Неограниченное число питомцев и участников</li>
+          <li><i class="ti ti-check" aria-hidden="true"></i> Курсы лекарств и полная история приёмов</li>
+          <li><i class="ti ti-check" aria-hidden="true"></i> Временная шкала здоровья, вес и показатели</li>
+          <li><i class="ti ti-check" aria-hidden="true"></i> Отчёты для ветеринара в PDF</li>
+          <li><i class="ti ti-check" aria-hidden="true"></i> Режим ситтера и QR-карточка</li>
+          <li><i class="ti ti-check" aria-hidden="true"></i> Документы без лимита</li>
+        </ul>
+        <a class="btn btn--primary" href="android/dist/pawline-debug.apk" data-cta="pricing-family">Скачать demo-APK</a>
+      </article>
+    </div>
+
+    <p class="plan-note small">
+      Это гипотеза тарифов, а не действующая подписка. Оплата, пробный период, экспорт
+      и серверное удаление данных ещё не реализованы.
+    </p>
+  </div>
+</section>
+
+<!-- ============ FAQ ============ -->
+<section class="section" id="faq">
+  <div class="wrap">
+    <div class="section-head section-head--center reveal">
+      <span class="eyebrow"><i class="ti ti-help-circle" aria-hidden="true"></i> Вопросы</span>
+      <h2 class="h2">Что обычно спрашивают</h2>
+    </div>
+
+    <div class="faq reveal">
+      <div class="faq-item">
+        <button class="faq-q" aria-expanded="false">PAWLINE — это медицинское приложение?<i class="ti ti-chevron-down" aria-hidden="true"></i></button>
+        <div class="faq-a"><div><p>Нет. Приложение не ставит диагнозы, не подбирает препараты и не меняет дозировки. Оно хранит данные и помогает семье соблюдать план, назначенный вашим ветеринарным врачом. Любые вопросы о лечении — только к врачу.</p></div></div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-q" aria-expanded="false">Сколько человек можно пригласить к питомцу?<i class="ti ti-chevron-down" aria-hidden="true"></i></button>
+        <div class="faq-a"><div><p>Сейчас участники — демоданные на одном устройстве. Ограничение «два в Free, без лимита в Family» — гипотеза тарифа, которую нужно проверить после появления аккаунтов и backend.</p></div></div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-q" aria-expanded="false">Что видит и чего не видит ситтер?<i class="ti ti-chevron-down" aria-hidden="true"></i></button>
+        <div class="faq-a"><div><p>Ситтер видит только задачи на выданный период, инструкции по кормлению и уходу и экстренные контакты. История болезни, документы, финансы и настройки семьи ему недоступны. Доступ автоматически отключается в указанную дату — отзывать вручную не нужно.</p></div></div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-q" aria-expanded="false">Работает ли приложение без интернета?<i class="ti ti-chevron-down" aria-hidden="true"></i></button>
+        <div class="faq-a"><div><p>Демоданные доступны локально. Настоящей очереди синхронизации с сервером нет: интерфейс только моделирует статус отправки.</p></div></div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-q" aria-expanded="false">Можно ли вести нескольких питомцев?<i class="ti ti-chevron-down" aria-hidden="true"></i></button>
+        <div class="faq-a"><div><p>Да, в тарифе Family. У каждого питомца свой профиль, свой список задач, своя история и свои документы. Переключение между ними — в один тап на главном экране.</p></div></div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-q" aria-expanded="false">Как удалить свои данные?<i class="ti ti-chevron-down" aria-hidden="true"></i></button>
+        <div class="faq-a"><div><p>В прототипе серверного аккаунта нет. До запуска нужно реализовать экспорт и удаление данных, включая подтверждённый срок очистки резервных копий.</p></div></div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-q" aria-expanded="false">Почему приложение, а не сайт?<i class="ti ti-chevron-down" aria-hidden="true"></i></button>
+        <div class="faq-a"><div><p>Уход происходит в моменте, а не за компьютером. Нужны push-уведомления в нужную минуту, камера для документов, виджет для быстрой отметки и доступ к дозировкам там, где нет сети. Браузер такого не даёт.</p></div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ FINAL CTA ============ -->
+<section class="cta" id="download">
+  <div class="wrap">
+    <div>
+      <h2 class="h2">Пусть забота станет общей</h2>
+      <p>Пять минут на настройку — и больше никто в семье не спросит «а ты уже дал таблетку?».</p>
+      <div class="stores">
+        <a class="store store--light" href="app/" data-store="ios" data-cta="footer">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M17.05 12.6c-.03-2.6 2.13-3.85 2.23-3.91-1.22-1.78-3.11-2.02-3.78-2.05-1.61-.16-3.14.95-3.96.95-.81 0-2.07-.93-3.4-.9-1.75.02-3.36 1.02-4.26 2.58-1.81 3.15-.46 7.81 1.3 10.36.86 1.25 1.89 2.65 3.24 2.6 1.3-.05 1.79-.84 3.36-.84 1.57 0 2.01.84 3.38.81 1.4-.02 2.28-1.27 3.13-2.53.99-1.45 1.39-2.86 1.42-2.93-.03-.01-2.73-1.05-2.76-4.14zM14.6 4.9c.71-.87 1.2-2.07 1.06-3.27-1.03.04-2.28.69-3.02 1.55-.66.76-1.24 1.99-1.09 3.16 1.15.09 2.33-.58 3.05-1.44z"/></svg>
+          <span>Открыть веб-<b>прототип</b></span>
+        </a>
+        <a class="store store--light" href="android/dist/pawline-debug.apk" data-store="android" data-cta="footer">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M3.6 2.2c-.3.3-.5.8-.5 1.4v16.8c0 .6.2 1.1.5 1.4l.1.1 9.4-9.4v-.2L3.6 2.2zM16.8 15.2l-3.1-3.1v-.2l3.1-3.1.1.1 3.7 2.1c1.1.6 1.1 1.6 0 2.2l-3.8 2zM16.2 15.8l-3.2-3.2-9.4 9.4c.4.4 1 .4 1.7.1l10.9-6.3M16.2 8.2L5.3 1.9c-.7-.4-1.3-.3-1.7.1l9.4 9.4 3.2-3.2z"/></svg>
+          <span>Скачать demo-<b>APK</b></span>
+        </a>
+      </div>
+    </div>
+
+    <div class="cta-qr">
+      <div class="qr" aria-hidden="true">
+        <i></i><i></i><i></i><i class="off"></i><i></i><i></i><i></i>
+        <i></i><i class="off"></i><i></i><i></i><i class="off"></i><i class="off"></i><i></i>
+        <i></i><i></i><i class="off"></i><i></i><i></i><i class="off"></i><i></i>
+        <i class="off"></i><i></i><i></i><i class="off"></i><i></i><i></i><i class="off"></i>
+        <i></i><i class="off"></i><i></i><i></i><i class="off"></i><i></i><i></i>
+        <i></i><i></i><i class="off"></i><i class="off"></i><i></i><i class="off"></i><i></i>
+        <i></i><i></i><i></i><i class="off"></i><i></i><i></i><i></i>
+      </div>
+      <p>Демо-графика<br>не является QR-ссылкой</p>
+    </div>
+  </div>
+</section>
+
+</main>
+
+<!-- ============ FOOTER ============ -->
+<footer class="footer">
+  <div class="wrap">
+    <div class="footer-top">
+      <div>
+        <a class="logo" href="#top">
+          <svg viewBox="0 0 32 32" aria-hidden="true">
+            <circle cx="9" cy="9.5" r="3.6" fill="#E8734A"/>
+            <circle cx="17.6" cy="7.4" r="3.6" fill="#E8734A"/>
+            <circle cx="25" cy="12" r="3.2" fill="#F5C4B3"/>
+            <path d="M16.4 13.6c4 0 7.4 3.3 7.4 6.8 0 3.2-2.6 5.2-6.2 5.2h-2.6c-3.6 0-6.2-2-6.2-5.2 0-3.5 3.4-6.8 7.6-6.8z" fill="#0F6E56"/>
+          </svg>
+          PAWLINE
+        </a>
+        <p style="max-width:320px">Семейный органайзер ухода за собакой и кошкой. Один план — на всю семью.</p>
+      </div>
+
+      <div>
+        <h4>Продукт</h4>
+        <ul>
+          <li><a href="#features">Возможности</a></li>
+          <li><a href="#how">Как это работает</a></li>
+          <li><a href="#pricing">Цена</a></li>
+          <li><a href="#faq">Вопросы</a></li>
+        </ul>
+      </div>
+
+      <div>
+        <h4>Компания</h4>
+        <ul>
+          <li><a href="README.md">О проекте</a></li>
+          <li><a href="APP_BLUEPRINT.md">Product blueprint</a></li>
+          <li><a href="README.md#что-нужно-доделать">Поддержка прототипа</a></li>
+          <li><a href="APP_BLUEPRINT.md">Для ветклиник</a></li>
+        </ul>
+      </div>
+
+      <div>
+        <h4>Правовое</h4>
+        <ul>
+          <li><a href="legal.html#privacy">Политика конфиденциальности</a></li>
+          <li><a href="legal.html#terms">Условия демоверсии</a></li>
+          <li><a href="legal.html#data">Обработка данных</a></li>
+        </ul>
+      </div>
+    </div>
+
+    <p class="footer-disclaimer">
+      PAWLINE не является медицинским изделием и не предназначен для диагностики, лечения или профилактики заболеваний.
+      Приложение не ставит диагнозы и не меняет дозировки. Все решения о здоровье питомца принимает ветеринарный врач.
+    </p>
+
+    <div class="footer-legal">
+      <span>© 2026 PAWLINE. Все права защищены.</span>
+      <span>Сделано для тех, кто заботится вместе</span>
+    </div>
+  </div>
+</footer>
+
+<!-- sticky mobile cta -->
+<div class="mobile-cta" id="mobileCta">
+  <a class="btn btn--primary" href="#download" data-cta="sticky-mobile">
+    <i class="ti ti-device-mobile" aria-hidden="true"></i> Открыть прототип
+  </a>
+</div>
+
+<!-- qr modal -->
+<div class="modal" id="qrModal" role="dialog" aria-modal="true" aria-labelledby="qrModalTitle">
+  <div class="modal-box">
+    <button class="modal-close" id="qrClose" aria-label="Закрыть"><i class="ti ti-x" aria-hidden="true"></i></button>
+    <div class="qr" aria-hidden="true">
+      <i></i><i></i><i></i><i class="off"></i><i></i><i></i><i></i>
+      <i></i><i class="off"></i><i></i><i></i><i class="off"></i><i class="off"></i><i></i>
+      <i></i><i></i><i class="off"></i><i></i><i></i><i class="off"></i><i></i>
+      <i class="off"></i><i></i><i></i><i class="off"></i><i></i><i></i><i class="off"></i>
+      <i></i><i class="off"></i><i></i><i></i><i class="off"></i><i></i><i></i>
+      <i></i><i></i><i class="off"></i><i class="off"></i><i></i><i class="off"></i><i></i>
+      <i></i><i></i><i></i><i class="off"></i><i></i><i></i><i></i>
+    </div>
+    <h3 class="h3" id="qrModalTitle" style="margin-bottom:8px">Откройте на телефоне</h3>
+    <p class="small">QR — декоративный элемент. Ниже открывается веб-прототип.</p>
+    <div class="stores">
+      <a class="store" href="app/" data-store="ios" data-cta="qr-modal">
+        <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M17.05 12.6c-.03-2.6 2.13-3.85 2.23-3.91-1.22-1.78-3.11-2.02-3.78-2.05-1.61-.16-3.14.95-3.96.95-.81 0-2.07-.93-3.4-.9-1.75.02-3.36 1.02-4.26 2.58-1.81 3.15-.46 7.81 1.3 10.36.86 1.25 1.89 2.65 3.24 2.6 1.3-.05 1.79-.84 3.36-.84 1.57 0 2.01.84 3.38.81 1.4-.02 2.28-1.27 3.13-2.53.99-1.45 1.39-2.86 1.42-2.93-.03-.01-2.73-1.05-2.76-4.14zM14.6 4.9c.71-.87 1.2-2.07 1.06-3.27-1.03.04-2.28.69-3.02 1.55-.66.76-1.24 1.99-1.09 3.16 1.15.09 2.33-.58 3.05-1.44z"/></svg>
+        <span>Открыть веб-<b>прототип</b></span>
+      </a>
+    </div>
+  </div>
+</div>
+
+<script src="assets/js/main.js" defer></script>
+</body>
+</html>

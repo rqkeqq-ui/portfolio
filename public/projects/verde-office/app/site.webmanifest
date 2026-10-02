@@ -1,0 +1,14 @@
+{
+  "name": "Verde Office — озеленение офисов по подписке",
+  "short_name": "Verde Office",
+  "description": "Проектируем, устанавливаем и обслуживаем растения в офисе по договору.",
+  "lang": "ru",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#FAF9F6",
+  "theme_color": "#1E4D3B",
+  "icons": [
+    { "src": "assets/favicon.svg", "sizes": "any", "type": "image/svg+xml" },
+    { "src": "assets/icon-512.png", "sizes": "512x512", "type": "image/png", "purpose": "any maskable" }
+  ]
+}

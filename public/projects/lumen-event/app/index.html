@@ -1,0 +1,889 @@
+<!DOCTYPE html>
+<html lang="ru" data-mood="classic">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>LUMEN EVENT — световое оформление свадеб, корпоративов и частных событий</title>
+<meta name="description" content="Соберите атмосферу своего события за 3 минуты: выберите стиль света и зоны — получите moodboard и прозрачную смету. Свет, декор и техническое оформление под ключ.">
+<meta name="theme-color" content="#0E0C0A">
+
+<meta property="og:type" content="website">
+<meta property="og:title" content="LUMEN EVENT — свет, который делает событие таким, каким вы его представляли">
+<meta property="og:description" content="Конструктор зон мероприятия: выберите атмосферу и зоны — получите moodboard и смету с понятным составом цены.">
+<meta property="og:locale" content="ru_RU">
+
+<link rel="stylesheet" href="./assets/fonts/fonts.css">
+  <!-- Анимации появления включаются только при живом JS: без него страница видима целиком. -->
+<script>document.documentElement.classList.add('js');</script>
+
+<link rel="stylesheet" href="assets/css/tokens.css">
+<link rel="stylesheet" href="assets/css/base.css">
+<link rel="stylesheet" href="assets/css/components.css">
+<link rel="stylesheet" href="assets/css/sections.css">
+</head>
+<body>
+
+<!-- ============ 0. ПОЛОСА ПРОВЕРКИ ДАТЫ + ШАПКА ============ -->
+<div class="topbar">
+  <div class="announce" id="announce">
+    <div class="wrap announce__in">
+      <span class="announce__label">Проверьте, свободна ли ваша дата</span>
+      <form class="datecheck" data-datecheck>
+        <input type="date" class="datecheck__input" aria-label="Дата события" data-datecheck-input>
+        <button type="submit" class="btn btn--ghost btn--sm">Проверить</button>
+      </form>
+      <output class="datecheck__out" data-datecheck-out aria-live="polite"></output>
+    </div>
+  </div>
+
+  <header class="header">
+    <div class="wrap header__in">
+      <a class="logo" href="#hero" aria-label="LUMEN EVENT — на главную">
+        <span class="logo__dot" aria-hidden="true"></span>
+        <span class="logo__text">LUMEN<span class="logo__thin"> EVENT</span></span>
+      </a>
+
+      <nav class="nav" id="nav">
+        <a href="#atmosphere">Атмосферы</a>
+        <a href="#constructor">Конструктор</a>
+        <a href="#portfolio">Работы</a>
+        <a href="#reliability">Надёжность</a>
+        <a href="#b2b">Агентствам</a>
+        <a href="#faq">Вопросы</a>
+      </nav>
+
+      <div class="header__actions">
+        <a class="btn btn--primary btn--sm" href="#constructor">Собрать событие</a>
+        <button class="burger" type="button" aria-label="Меню" aria-expanded="false" data-burger>
+          <span></span><span></span><span></span>
+        </button>
+      </div>
+    </div>
+  </header>
+</div>
+
+<main>
+
+<!-- ============ 1. HERO ============ -->
+<section class="hero" id="hero">
+  <div class="hero__stage" aria-hidden="true">
+    <img class="hero__photo" src="assets/img/hero.jpg" alt="" fetchpriority="high" decoding="async">
+    <div class="hero__glow hero__glow--a"></div>
+    <div class="hero__glow hero__glow--b"></div>
+    <div class="hero__glow hero__glow--c"></div>
+    <div class="hero__strings" data-strings></div>
+    <div class="hero__grain"></div>
+  </div>
+
+  <div class="wrap hero__in">
+    <p class="eyebrow reveal">Демо-концепт · световое оформление событий</p>
+
+    <h1 class="hero__title reveal">
+      Свет, который делает ваше событие<br>
+      <em>таким, каким вы его представляли</em>
+    </h1>
+
+    <p class="hero__lead reveal">
+      Соберите атмосферу своего события за&nbsp;3&nbsp;минуты — и&nbsp;получите moodboard,
+      состав работ и&nbsp;смету, в&nbsp;которой видно, за&nbsp;что вы платите.
+    </p>
+
+    <div class="hero__moods reveal" role="group" aria-label="Быстрый выбор атмосферы">
+      <span class="hero__moods-label">Попробуйте:</span>
+      <div class="chips" data-mood-chips></div>
+    </div>
+
+    <div class="hero__cta reveal">
+      <a class="btn btn--primary btn--lg" href="#constructor">Собрать своё событие</a>
+      <a class="btn btn--quiet btn--lg" href="#portfolio">Смотреть работы</a>
+    </div>
+
+    <p class="hero__note reveal">Бесплатный выезд на площадку · ответ в течение 2&nbsp;часов</p>
+  </div>
+
+  <a class="scrollhint" href="#proof" aria-label="Листать дальше"><span></span></a>
+</section>
+
+<!-- ============ 2. ПРУФ-ПОЛОСА ============ -->
+<section class="proof" id="proof">
+  <div class="wrap proof__in">
+    <ul class="proof__stats">
+      <li><b data-count="250">250</b><span>событий оформлено</span></li>
+      <li><b data-count="6">6</b><span>лет на рынке</span></li>
+      <li><b data-count="40">40</b><span>площадок-партнёров</span></li>
+      <li><b>1</b><span>день на монтаж</span></li>
+    </ul>
+    <ul class="proof__logos" aria-label="Площадки, с которыми мы работаем">
+      <li>УСАДЬБА&nbsp;СВЕТЛОЕ</li>
+      <li>LOFT&nbsp;№9</li>
+      <li>ГРАНД&nbsp;ХОЛЛ</li>
+      <li>ТЕРРАСА&nbsp;VERDE</li>
+      <li>ШАТЁР&nbsp;ПОЛЯНА</li>
+      <li>ARTPLACE</li>
+    </ul>
+    <p class="proof__demo">
+      Демо-проект: статистика, площадки, кейсы и отзывы вымышлены. Формы собирают бриф локально
+      и ничего не отправляют.
+    </p>
+  </div>
+</section>
+
+<!-- ============ 3. БОЛЬ → РЕШЕНИЕ ============ -->
+<section class="pain" id="pain">
+  <div class="wrap">
+    <div class="pain__grid">
+      <div class="pain__text reveal">
+        <p class="eyebrow">Как обычно происходит</p>
+        <h2 class="h2">Не собирайте референсы.<br>Соберите событие.</h2>
+        <p class="lead">
+          Обычно клиент присылает подрядчику тридцать несвязанных картинок из&nbsp;интернета,
+          получает в&nbsp;ответ одну цифру без расшифровки — и&nbsp;до&nbsp;последнего дня не&nbsp;понимает,
+          как всё это будет выглядеть на&nbsp;его площадке.
+        </p>
+        <ul class="pain__list">
+          <li><b>Видно результат.</b> Каждая зона показана в&nbsp;выбранной вами атмосфере — до&nbsp;подписания договора.</li>
+          <li><b>Видно цену.</b> Смета собирается по&nbsp;строкам: наведите на&nbsp;строку — подсветится зона.</li>
+          <li><b>Видно задачу.</b> На&nbsp;выходе — единый бриф вместо папки со&nbsp;скриншотами.</li>
+        </ul>
+        <a class="btn btn--primary" href="#atmosphere">Начать с атмосферы</a>
+      </div>
+
+      <div class="pain__viz reveal" aria-hidden="true">
+        <div class="chaos">
+          <span class="chaos__item">хочу примерно так</span>
+          <span class="chaos__item">но теплее</span>
+          <span class="chaos__item">и без этого</span>
+          <span class="chaos__item">IMG_2841.jpg</span>
+          <span class="chaos__item">видела в Pinterest</span>
+          <span class="chaos__item">сколько будет стоить?</span>
+          <span class="chaos__item">screenshot_14.png</span>
+        </div>
+        <div class="chaos__arrow"><span></span></div>
+        <div class="board">
+          <div class="board__head">
+            <b>Свадьба · 14 августа</b>
+            <span>ваш moodboard</span>
+          </div>
+          <div class="board__grid">
+            <i style="--i:0;background-image:url(assets/img/zone-ceremony.jpg)"></i>
+            <i style="--i:1;background-image:url(assets/img/zone-tables.jpg)"></i>
+            <i style="--i:2;background-image:url(assets/img/zone-dancefloor.jpg)"></i>
+            <i style="--i:3;background-image:url(assets/img/zone-garden.jpg)"></i>
+            <i style="--i:4;background-image:url(assets/img/zone-photozone.jpg)"></i>
+            <i style="--i:5;background-image:url(assets/img/zone-facade.jpg)"></i>
+          </div>
+          <div class="board__foot"><span>6 зон · смета</span><b>196 000 – 248 000 ₽</b></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ 4. ВЫБОР АТМОСФЕРЫ ============ -->
+<section class="atmo" id="atmosphere">
+  <div class="wrap">
+    <header class="sec-head reveal">
+      <p class="eyebrow">Шаг 1</p>
+      <h2 class="h2">Выберите атмосферу</h2>
+      <p class="lead">
+        Атмосфера задаёт характер света и&nbsp;перекрашивает всё дальше: превью зон,
+        moodboard и&nbsp;сам этот сайт. Можно выбрать основную — и&nbsp;дополнительную,
+        например классику на&nbsp;церемонию и&nbsp;клуб на&nbsp;танцпол.
+      </p>
+    </header>
+  </div>
+
+  <div class="atmo__rail" data-atmo-rail role="radiogroup" aria-label="Стиль света"></div>
+
+  <div class="wrap">
+    <div class="atmo__second reveal">
+      <span>Дополнительная атмосфера для танцпола и&nbsp;афтепати:</span>
+      <div class="chips" data-mood-second></div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ 5. КОНСТРУКТОР ЗОН ============ -->
+<section class="cfg" id="constructor">
+  <div class="wrap">
+    <header class="sec-head reveal">
+      <p class="eyebrow">Шаг 2</p>
+      <h2 class="h2">Соберите зоны мероприятия</h2>
+      <p class="lead">
+        Включайте зоны — они загораются на&nbsp;плане площадки,
+        а&nbsp;смета пересобирается в&nbsp;реальном времени.
+      </p>
+    </header>
+
+    <div class="cfg__layout">
+
+      <!-- ЛЕВО: план площадки -->
+      <div class="cfg__stage">
+        <div class="venue" data-venue>
+          <svg viewBox="0 0 800 600" class="venue__svg" role="img" aria-label="Схема площадки с зонами оформления">
+            <defs>
+              <radialGradient id="lampGlow" cx="50%" cy="50%" r="50%">
+                <stop offset="0%" stop-color="var(--accent)" stop-opacity=".9"/>
+                <stop offset="100%" stop-color="var(--accent)" stop-opacity="0"/>
+              </radialGradient>
+            </defs>
+
+            <!-- участок -->
+            <g class="venue__ground">
+              <path d="M60 470 L400 560 L740 470 L740 250 L400 170 L60 250 Z"/>
+              <path class="venue__ground-line" d="M400 170 L400 560"/>
+              <path class="venue__ground-line" d="M60 360 L740 360"/>
+            </g>
+
+            <!-- САД -->
+            <g class="zone" data-zone="garden">
+              <circle class="zone__lamp" cx="110" cy="300" r="16"/>
+              <circle class="zone__lamp" cx="160" cy="430" r="14"/>
+              <circle class="zone__lamp" cx="690" cy="300" r="16"/>
+              <circle class="zone__lamp" cx="640" cy="440" r="14"/>
+              <circle class="zone__lamp" cx="300" cy="520" r="12"/>
+              <circle class="zone__lamp" cx="510" cy="525" r="12"/>
+              <circle class="zone__halo" cx="110" cy="300" r="52"/>
+              <circle class="zone__halo" cx="690" cy="300" r="52"/>
+              <circle class="zone__halo" cx="160" cy="430" r="46"/>
+              <circle class="zone__halo" cx="640" cy="440" r="46"/>
+              <text class="zone__label" x="118" y="262">Сад</text>
+            </g>
+
+            <!-- ФАСАД -->
+            <g class="zone" data-zone="facade">
+              <path class="zone__shape" d="M330 545 L400 563 L470 545 L470 500 L400 484 L330 500 Z"/>
+              <path class="zone__accent" d="M330 500 L400 484 L470 500"/>
+              <circle class="zone__halo" cx="400" cy="520" r="72"/>
+              <text class="zone__label" x="400" y="585">Фасад и вход</text>
+            </g>
+
+            <!-- ЦЕРЕМОНИЯ -->
+            <g class="zone" data-zone="ceremony">
+              <path class="zone__shape" d="M150 258 L250 234 L250 300 L150 324 Z"/>
+              <path class="zone__accent" d="M150 258 L250 234"/>
+              <path class="zone__accent" d="M160 330 L250 308"/>
+              <path class="zone__accent" d="M170 348 L250 328"/>
+              <circle class="zone__halo" cx="200" cy="280" r="78"/>
+              <text class="zone__label" x="205" y="222">Церемония</text>
+            </g>
+
+            <!-- СТОЛЫ -->
+            <g class="zone" data-zone="tables">
+              <ellipse class="zone__shape" cx="300" cy="392" rx="34" ry="17"/>
+              <ellipse class="zone__shape" cx="390" cy="424" rx="34" ry="17"/>
+              <ellipse class="zone__shape" cx="215" cy="424" rx="34" ry="17"/>
+              <ellipse class="zone__shape" cx="305" cy="462" rx="34" ry="17"/>
+              <circle class="zone__halo" cx="300" cy="392" r="44"/>
+              <circle class="zone__halo" cx="390" cy="424" r="44"/>
+              <circle class="zone__halo" cx="215" cy="424" r="44"/>
+              <circle class="zone__halo" cx="305" cy="462" r="44"/>
+              <text class="zone__label" x="295" y="506">Столы</text>
+            </g>
+
+            <!-- ТАНЦПОЛ -->
+            <g class="zone" data-zone="dancefloor">
+              <path class="zone__shape" d="M470 380 L590 352 L660 372 L540 402 Z"/>
+              <path class="zone__accent" d="M500 388 L610 362"/>
+              <path class="zone__accent" d="M520 396 L630 369"/>
+              <circle class="zone__halo" cx="565" cy="378" r="86"/>
+              <text class="zone__label" x="580" y="432">Танцпол</text>
+            </g>
+
+            <!-- СЦЕНА -->
+            <g class="zone" data-zone="stage">
+              <path class="zone__shape" d="M560 300 L680 272 L680 324 L560 352 Z"/>
+              <path class="zone__accent" d="M560 300 L680 272"/>
+              <path class="zone__beam" d="M600 292 L575 400 L650 382 Z"/>
+              <circle class="zone__halo" cx="620" cy="312" r="70"/>
+              <text class="zone__label" x="622" y="258">Сцена</text>
+            </g>
+
+            <!-- ФОТОЗОНА -->
+            <g class="zone" data-zone="photozone">
+              <path class="zone__shape" d="M120 372 L190 356 L190 412 L120 428 Z"/>
+              <path class="zone__accent" d="M132 384 L178 372"/>
+              <path class="zone__accent" d="M132 402 L166 392"/>
+              <circle class="zone__halo" cx="155" cy="392" r="60"/>
+              <text class="zone__label" x="150" y="452">Фотозона</text>
+            </g>
+          </svg>
+
+          <p class="venue__hint" data-venue-hint>Включите первую зону — площадка начнёт светиться</p>
+        </div>
+
+        <div class="params">
+          <div class="param">
+            <label class="param__label" for="cfg-date">Дата события</label>
+            <div class="datecheck" data-datecheck>
+              <input type="date" id="cfg-date" class="datecheck__input" data-datecheck-input data-datecheck-main>
+              <output class="datecheck__out" data-datecheck-out aria-live="polite"></output>
+            </div>
+          </div>
+
+          <div class="param">
+            <span class="param__label">Гостей</span>
+            <div class="segmented" data-guests role="radiogroup" aria-label="Количество гостей"></div>
+          </div>
+
+          <div class="param">
+            <label class="param__label" for="cfg-budget">
+              Ориентир бюджета: <b data-budget-value>250 000 ₽</b>
+            </label>
+            <input type="range" id="cfg-budget" class="range" min="60000" max="600000" step="10000" value="250000" data-budget>
+            <p class="param__hint" data-budget-hint></p>
+          </div>
+        </div>
+      </div>
+
+      <!-- ПРАВО: зоны + смета -->
+      <div class="cfg__panel">
+        <div class="zones" data-zones></div>
+
+        <aside class="estimate" data-estimate aria-live="polite">
+          <div class="estimate__head">
+            <h3>Предварительная смета</h3>
+            <button class="estimate__reset" type="button" data-reset>Сбросить</button>
+          </div>
+          <ul class="estimate__lines" data-estimate-lines></ul>
+          <div class="estimate__total">
+            <span>Итого</span>
+            <b data-estimate-total>—</b>
+          </div>
+          <p class="estimate__note">
+            Цена — вилка. Точная сумма фиксируется после бесплатного осмотра площадки
+            и&nbsp;не&nbsp;меняется после подписания договора.
+          </p>
+          <button class="btn btn--primary btn--block" type="button" data-goto-result disabled>
+            Показать moodboard и бриф
+          </button>
+        </aside>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ 6. РЕЗУЛЬТАТ ============ -->
+<section class="result" id="result" data-result hidden>
+  <div class="wrap">
+    <header class="sec-head">
+      <p class="eyebrow">Шаг 3</p>
+      <h2 class="h2">Ваше событие собрано</h2>
+      <p class="lead">Это и&nbsp;есть бриф, который уйдёт менеджеру вместе с&nbsp;заявкой — вместо папки со&nbsp;скриншотами.</p>
+    </header>
+
+    <div class="result__grid">
+      <article class="moodboard" data-moodboard>
+        <header class="moodboard__head">
+          <div>
+            <h3 data-mb-title>Событие</h3>
+            <p data-mb-sub>—</p>
+          </div>
+          <div class="moodboard__palette" data-mb-palette aria-label="Палитра света"></div>
+        </header>
+        <div class="moodboard__tiles" data-mb-tiles></div>
+        <footer class="moodboard__foot">
+          <span data-mb-count>—</span>
+          <b data-mb-total>—</b>
+        </footer>
+      </article>
+
+      <div class="result__side">
+        <form class="lead-form" data-lead-form>
+          <h3>Отправить заявку с этим брифом</h3>
+          <p class="lead-form__note">Конфигурация, смета и&nbsp;moodboard прикрепятся автоматически.</p>
+          <label class="field">
+            <span>Как к вам обращаться</span>
+            <input type="text" name="name" required placeholder="Анна">
+          </label>
+          <label class="field">
+            <span>Телефон или мессенджер</span>
+            <input type="tel" name="phone" required placeholder="+7 900 000-00-00">
+          </label>
+          <label class="field">
+            <span>Площадка, если уже выбрана</span>
+            <input type="text" name="venue" placeholder="Усадьба Светлое / ещё ищем">
+          </label>
+          <button class="btn btn--primary btn--block" type="submit">Отправить бриф</button>
+          <p class="lead-form__legal">Нажимая кнопку, вы соглашаетесь с политикой обработки данных.</p>
+        </form>
+
+        <div class="result__extra">
+          <button class="btn btn--quiet btn--block" type="button" data-mb-email>Получить moodboard на почту</button>
+          <button class="btn btn--quiet btn--block" type="button" data-mb-share>Поделиться конфигурацией</button>
+          <p class="result__hint" data-result-hint></p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ 7. ЗАГРУЗКА ПЛОЩАДКИ ============ -->
+<section class="venue-up" id="venue">
+  <div class="wrap venue-up__in">
+    <div class="venue-up__text reveal">
+      <p class="eyebrow">Самое частое сомнение</p>
+      <h2 class="h2">Покажите вашу площадку —<br>покажем, как она будет светиться</h2>
+      <p class="lead">
+        Пришлите 3–5&nbsp;фотографий зала, сада или фасада. В&nbsp;течение 24&nbsp;часов
+        наш художник по&nbsp;свету вернёт эскиз: те&nbsp;же кадры, но&nbsp;с&nbsp;вашим светом
+        в&nbsp;выбранной атмосфере.
+      </p>
+      <ul class="ticks">
+        <li>Бесплатно и без обязательств</li>
+        <li>С площадками-партнёрами покажем готовые кейсы сразу</li>
+        <li>Если площадка ещё не выбрана — подскажем, где ваш сценарий соберётся дешевле</li>
+      </ul>
+    </div>
+
+    <div class="dropzone reveal" data-dropzone tabindex="0" role="button"
+         aria-label="Загрузить фотографии площадки">
+      <input type="file" accept="image/*" multiple hidden data-dropzone-input>
+      <div class="dropzone__inner">
+        <span class="dropzone__icon" aria-hidden="true"></span>
+        <b>Перетащите фото площадки</b>
+        <span class="dropzone__sub">или нажмите, чтобы выбрать · до 5 файлов</span>
+      </div>
+      <ul class="dropzone__files" data-dropzone-files></ul>
+    </div>
+  </div>
+</section>
+
+<!-- ============ 8. ПОРТФОЛИО ============ -->
+<section class="folio" id="portfolio">
+  <div class="wrap">
+    <header class="sec-head reveal">
+      <p class="eyebrow">Работы</p>
+      <h2 class="h2">Та же площадка — без нашего света и с ним</h2>
+      <p class="lead">Потяните ползунок: слева площадка в дежурном освещении, справа — она же после нашего монтажа.</p>
+    </header>
+
+    <div class="folio__filters reveal" data-folio-filters>
+      <button class="pill is-active" data-filter="all" type="button">Все</button>
+      <button class="pill" data-filter="wedding" type="button">Свадьбы</button>
+      <button class="pill" data-filter="corporate" type="button">Корпоративы</button>
+      <button class="pill" data-filter="restaurant" type="button">Рестораны</button>
+      <button class="pill" data-filter="private" type="button">Частные</button>
+    </div>
+
+    <div class="folio__grid" data-folio-grid>
+
+      <article class="case reveal" data-type="wedding" data-mood="garden">
+        <div class="ba" data-ba>
+          <img class="ba__img ba__img--off" src="assets/img/case-usadba.jpg" alt="Усадьба Светлое в дежурном освещении" loading="lazy" decoding="async">
+          <img class="ba__img ba__img--on" src="assets/img/case-usadba.jpg" alt="Усадьба Светлое со световым оформлением" loading="lazy" decoding="async">
+          <input type="range" class="ba__range" min="0" max="100" value="55" aria-label="Сравнить: без света и со светом">
+          <span class="ba__handle" aria-hidden="true"></span>
+          <span class="ba__tag ba__tag--l">без света</span>
+          <span class="ba__tag ba__tag--r">со светом</span>
+        </div>
+        <div class="case__body">
+          <h3>Свадьба в «Усадьбе Светлое»</h3>
+          <p>Сказочный сад · 90 гостей · церемония, столы, сад, фотозона</p>
+          <div class="case__foot"><b>180 000 – 220 000 ₽</b><a href="#constructor" data-preset="garden">Хочу так же →</a></div>
+        </div>
+      </article>
+
+      <article class="case reveal" data-type="corporate" data-mood="neon">
+        <div class="ba" data-ba>
+          <img class="ba__img ba__img--off" src="assets/img/case-grandhall.jpg" alt="Гранд Холл в дежурном освещении" loading="lazy" decoding="async">
+          <img class="ba__img ba__img--on" src="assets/img/case-grandhall.jpg" alt="Гранд Холл со световым оформлением" loading="lazy" decoding="async">
+          <input type="range" class="ba__range" min="0" max="100" value="45" aria-label="Сравнить: без света и со светом">
+          <span class="ba__handle" aria-hidden="true"></span>
+          <span class="ba__tag ba__tag--l">без света</span>
+          <span class="ba__tag ba__tag--r">со светом</span>
+        </div>
+        <div class="case__body">
+          <h3>Новогодний корпоратив, Гранд Холл</h3>
+          <p>Неон и глянец · 240 гостей · сцена, танцпол, фотозона, фасад</p>
+          <div class="case__foot"><b>320 000 – 390 000 ₽</b><a href="#constructor" data-preset="neon">Хочу так же →</a></div>
+        </div>
+      </article>
+
+      <article class="case reveal" data-type="restaurant" data-mood="drama">
+        <div class="ba" data-ba>
+          <img class="ba__img ba__img--off" src="assets/img/case-verde.jpg" alt="Терраса Verde в дежурном освещении" loading="lazy" decoding="async">
+          <img class="ba__img ba__img--on" src="assets/img/case-verde.jpg" alt="Терраса Verde со световым оформлением" loading="lazy" decoding="async">
+          <input type="range" class="ba__range" min="0" max="100" value="50" aria-label="Сравнить: без света и со светом">
+          <span class="ba__handle" aria-hidden="true"></span>
+          <span class="ba__tag ba__tag--l">без света</span>
+          <span class="ba__tag ba__tag--r">со светом</span>
+        </div>
+        <div class="case__body">
+          <h3>Постоянный свет ресторана «Verde»</h3>
+          <p>Драматичный вечер · терраса и зал · сезонная схема на лето</p>
+          <div class="case__foot"><b>240 000 ₽ + сервис</b><a href="#constructor" data-preset="drama">Хочу так же →</a></div>
+        </div>
+      </article>
+
+      <article class="case reveal" data-type="private" data-mood="classic">
+        <div class="ba" data-ba>
+          <img class="ba__img ba__img--off" src="assets/img/case-house.jpg" alt="Загородный дом в дежурном освещении" loading="lazy" decoding="async">
+          <img class="ba__img ba__img--on" src="assets/img/case-house.jpg" alt="Загородный дом со световым оформлением" loading="lazy" decoding="async">
+          <input type="range" class="ba__range" min="0" max="100" value="60" aria-label="Сравнить: без света и со светом">
+          <span class="ba__handle" aria-hidden="true"></span>
+          <span class="ba__tag ba__tag--l">без света</span>
+          <span class="ba__tag ba__tag--r">со светом</span>
+        </div>
+        <div class="case__body">
+          <h3>Юбилей в загородном доме</h3>
+          <p>Тёплая классика · 45 гостей · сад, столы, фасад</p>
+          <div class="case__foot"><b>110 000 – 140 000 ₽</b><a href="#constructor" data-preset="classic">Хочу так же →</a></div>
+        </div>
+      </article>
+
+      <article class="case reveal" data-type="wedding" data-mood="minimal">
+        <div class="ba" data-ba>
+          <img class="ba__img ba__img--off" src="assets/img/case-loft.jpg" alt="LOFT №9 в дежурном освещении" loading="lazy" decoding="async">
+          <img class="ba__img ba__img--on" src="assets/img/case-loft.jpg" alt="LOFT №9 со световым оформлением" loading="lazy" decoding="async">
+          <input type="range" class="ba__range" min="0" max="100" value="50" aria-label="Сравнить: без света и со светом">
+          <span class="ba__handle" aria-hidden="true"></span>
+          <span class="ba__tag ba__tag--l">без света</span>
+          <span class="ba__tag ba__tag--r">со светом</span>
+        </div>
+        <div class="case__body">
+          <h3>Свадьба в LOFT №9</h3>
+          <p>Минимализм · 70 гостей · архитектурный свет, столы, танцпол</p>
+          <div class="case__foot"><b>150 000 – 185 000 ₽</b><a href="#constructor" data-preset="minimal">Хочу так же →</a></div>
+        </div>
+      </article>
+
+      <article class="case reveal" data-type="corporate" data-mood="club">
+        <div class="ba" data-ba>
+          <img class="ba__img ba__img--off" src="assets/img/case-artplace.jpg" alt="ARTPLACE в дежурном освещении" loading="lazy" decoding="async">
+          <img class="ba__img ba__img--on" src="assets/img/case-artplace.jpg" alt="ARTPLACE со световым оформлением" loading="lazy" decoding="async">
+          <input type="range" class="ba__range" min="0" max="100" value="40" aria-label="Сравнить: без света и со светом">
+          <span class="ba__handle" aria-hidden="true"></span>
+          <span class="ba__tag ba__tag--l">без света</span>
+          <span class="ba__tag ba__tag--r">со светом</span>
+        </div>
+        <div class="case__body">
+          <h3>Афтепати конференции, ARTPLACE</h3>
+          <p>Клубная энергия · 300 гостей · полный шоу-сетап и лазеры</p>
+          <div class="case__foot"><b>410 000 – 480 000 ₽</b><a href="#constructor" data-preset="club">Хочу так же →</a></div>
+        </div>
+      </article>
+
+    </div>
+  </div>
+</section>
+
+<!-- ============ 9. КАК МЫ РАБОТАЕМ ============ -->
+<section class="process" id="process">
+  <div class="wrap">
+    <header class="sec-head reveal">
+      <p class="eyebrow">Процесс</p>
+      <h2 class="h2">Пять шагов и ни одного сюрприза</h2>
+    </header>
+
+    <ol class="steps">
+      <li class="step reveal"><span class="step__n">01</span>
+        <h3>Заявка с брифом</h3>
+        <p>Из конструктора приходит готовый состав зон. Отвечаем в течение 2 часов в рабочее время.</p>
+        <span class="step__time">2 часа</span>
+      </li>
+      <li class="step reveal"><span class="step__n">02</span>
+        <h3>Выезд на площадку</h3>
+        <p>Бесплатно смотрим зал, замеряем, проверяем электрику. Возвращаемся с эскизом и точной сметой.</p>
+        <span class="step__time">48 часов</span>
+      </li>
+      <li class="step reveal"><span class="step__n">03</span>
+        <h3>Договор с фиксированной ценой</h3>
+        <p>Смета не растёт после подписания. Изменения — только по вашей инициативе и с новым расчётом.</p>
+        <span class="step__time">1 день</span>
+      </li>
+      <li class="step reveal"><span class="step__n">04</span>
+        <h3>Монтаж и тест накануне</h3>
+        <p>Заезжаем за день. Вечером прогоняем все световые сценарии, чтобы утром не было неожиданностей.</p>
+        <span class="step__time">−1 день</span>
+      </li>
+      <li class="step reveal"><span class="step__n">05</span>
+        <h3>Событие и демонтаж</h3>
+        <p>Дежурный техник ведёт свет весь вечер. Демонтаж ночью или утром — как удобно площадке.</p>
+        <span class="step__time">день Х</span>
+      </li>
+    </ol>
+  </div>
+</section>
+
+<!-- ============ 10. ТЕХНИЧЕСКАЯ НАДЁЖНОСТЬ ============ -->
+<section class="rely" id="reliability">
+  <div class="wrap">
+    <header class="sec-head reveal">
+      <p class="eyebrow">Инженерия</p>
+      <h2 class="h2">Свет не должен подвести в главный вечер</h2>
+      <p class="lead">Всё, что обычно выясняется в момент, когда что-то уже сломалось.</p>
+    </header>
+
+    <div class="rely__grid">
+      <article class="rely__card reveal">
+        <h3>Резервное питание</h3>
+        <p>Генераторы и ИБП на площадке. Если выбивает щиток площадки, свет продолжает работать — гости этого не замечают.</p>
+      </article>
+      <article class="rely__card reveal">
+        <h3>Дежурный техник</h3>
+        <p>Инженер остаётся на весь вечер и ведёт световые сцены по таймингу программы. Входит в любой пакет.</p>
+      </article>
+      <article class="rely__card reveal">
+        <h3>Сертифицированное оборудование</h3>
+        <p>Приборы с пожарными сертификатами, допуски на высотные работы, проверенные такелаж и подвесы.</p>
+      </article>
+      <article class="rely__card reveal">
+        <h3>План Б на погоду</h3>
+        <p>Уличные приборы IP65. Для каждой уличной зоны заранее прописан сценарий переноса под шатёр.</p>
+      </article>
+      <article class="rely__card reveal">
+        <h3>Страховка ответственности</h3>
+        <p>Гражданская ответственность перед площадкой и гостями застрахована. Площадки-партнёры знают нас по этому пункту.</p>
+      </article>
+      <article class="rely__card reveal">
+        <h3>Тихий монтаж</h3>
+        <p>Работаем в окна площадки и не мешаем банкетной службе. Демонтаж — без шума и до утренней уборки.</p>
+      </article>
+    </div>
+  </div>
+</section>
+
+<!-- ============ 11. ДЛЯ АГЕНТСТВ ============ -->
+<section class="b2b" id="b2b">
+  <div class="wrap b2b__in">
+    <div class="b2b__text reveal">
+      <p class="eyebrow">B2B</p>
+      <h2 class="h2">Агентствам и площадкам</h2>
+      <p class="lead">Работаем субподрядом под вашим брендом и не выходим на вашего клиента напрямую.</p>
+
+      <div class="b2b__cols">
+        <div>
+          <h3>Агентствам</h3>
+          <ul class="ticks">
+            <li>Партнёрская комиссия по прозрачной шкале</li>
+            <li>White-label: приезжаем без своих логотипов</li>
+            <li>Техрайдеры и визуализации для ваших презентаций</li>
+            <li>Выделенный менеджер и ночной монтаж</li>
+          </ul>
+        </div>
+        <div>
+          <h3>Площадкам и ресторанам</h3>
+          <ul class="ticks">
+            <li>Постоянное оформление зала и террасы</li>
+            <li>Сезонные инсталляции: Новый год, лето, тематика</li>
+            <li>Аренда с обслуживанием и заменой приборов</li>
+            <li>Свет как причина выбрать именно вашу площадку</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    <form class="b2b__form reveal" data-b2b-form>
+      <h3>Получить партнёрские условия</h3>
+      <p class="lead-form__note">Пришлём прайс, шкалу комиссии и техрайдеры в PDF.</p>
+      <label class="field"><span>Компания</span><input type="text" name="company" required placeholder="Агентство «Пример»"></label>
+      <label class="field"><span>Имя и роль</span><input type="text" name="name" required placeholder="Мария, продюсер"></label>
+      <label class="field"><span>Телефон или почта</span><input type="text" name="contact" required placeholder="mail@agency.ru"></label>
+      <button class="btn btn--primary btn--block" type="submit">Запросить условия</button>
+    </form>
+  </div>
+</section>
+
+<!-- ============ 12. ОТЗЫВЫ ============ -->
+<section class="reviews" id="reviews">
+  <div class="wrap">
+    <header class="sec-head reveal">
+      <p class="eyebrow">Отзывы</p>
+      <h2 class="h2">Что говорят после события</h2>
+    </header>
+
+    <div class="reviews__grid">
+      <figure class="review reveal">
+        <blockquote>Я весь год боялась, что получится „не как на картинке“. Оказалось наоборот: вечером зал выглядел лучше, чем на эскизе. Отдельное спасибо технику — свет менялся ровно под тайминг.</blockquote>
+        <figcaption><span class="ava" data-ava="АД">АД</span><b>Анна и Денис</b><span>Свадьба, Усадьба Светлое</span><a href="#portfolio">смотреть проект</a></figcaption>
+      </figure>
+      <figure class="review reveal">
+        <blockquote>Согласовывала смету с финдиром — впервые не пришлось объяснять, откуда цифра. В смете было расписано по зонам, вопросов не возникло вообще.</blockquote>
+        <figcaption><span class="ava" data-ava="ЕК">ЕК</span><b>Екатерина</b><span>Event-менеджер, Гранд Холл</span><a href="#portfolio">смотреть проект</a></figcaption>
+      </figure>
+      <figure class="review reveal">
+        <blockquote>Работаем вместе третий сезон. Приезжают со своим питанием, не трогают наш щиток, монтируют ночью и уезжают до открытия. Для площадки это решающее.</blockquote>
+        <figcaption><span class="ava" data-ava="ИС">ИС</span><b>Игорь С.</b><span>Управляющий, терраса Verde</span><a href="#b2b">партнёрам</a></figcaption>
+      </figure>
+      <figure class="review reveal">
+        <blockquote>Отдали на субподряд корпоратив на 240 человек. Приехали без своих логотипов, клиент был уверен, что это наша команда. Комиссия пришла в тот же месяц.</blockquote>
+        <figcaption><span class="ava" data-ava="МП">МП</span><b>Мария П.</b><span>Продюсер, event-агентство</span><a href="#b2b">партнёрам</a></figcaption>
+      </figure>
+    </div>
+  </div>
+</section>
+
+<!-- ============ 13. FAQ ============ -->
+<section class="faq" id="faq">
+  <div class="wrap faq__in">
+    <header class="sec-head sec-head--left reveal">
+      <p class="eyebrow">Вопросы</p>
+      <h2 class="h2">Отвечаем прямо</h2>
+      <p class="lead">Если вашего вопроса нет — напишите в мессенджер, ответим текстом, а не звонком.</p>
+      <div class="faq__contacts">
+        <a class="btn btn--quiet" href="#final">Написать в Telegram</a>
+        <a class="btn btn--quiet" href="#final">WhatsApp</a>
+      </div>
+    </header>
+
+    <div class="acc reveal">
+      <details class="acc__item">
+        <summary>Сколько это стоит?</summary>
+        <div class="acc__body">
+          <p>Зависит от числа зон и площадки. Ориентиры по нашим последним проектам: свадьба на 80 гостей — 120 000 – 250 000 ₽, корпоратив на 200+ — от 300 000 ₽, камерное частное событие — от 90 000 ₽. Точную вилку под ваш сценарий покажет <a href="#constructor">конструктор</a>.</p>
+        </div>
+      </details>
+      <details class="acc__item">
+        <summary>За сколько нужно бронировать дату?</summary>
+        <div class="acc__body">
+          <p>В сезон (июнь–сентябрь) популярные субботы разбирают за 4–6 месяцев. Вне сезона обычно достаточно 3–4 недель. Проверить конкретную дату можно в полосе наверху — календарь показывает реальную загрузку бригад.</p>
+        </div>
+      </details>
+      <details class="acc__item">
+        <summary>Что входит в цену, а что оплачивается отдельно?</summary>
+        <div class="acc__body">
+          <p>В зоны входят оборудование, монтаж, настройка и дежурный техник на событии. Отдельными строками в смете идут резервное питание и логистика за город — мы показываем их сразу, а не в счёте по факту. Уличные зоны зимой считаются с надбавкой на обогрев и влагозащиту, конструктор это учитывает.</p>
+        </div>
+      </details>
+      <details class="acc__item">
+        <summary>Что будет, если пойдёт дождь или отключат электричество?</summary>
+        <div class="acc__body">
+          <p>Уличные приборы имеют защиту IP65 и работают под дождём. На каждую уличную зону заранее прописан сценарий переноса под шатёр — решение принимается за 4 часа до события. По питанию мы не зависим от щитка площадки: привозим генератор и ИБП.</p>
+        </div>
+      </details>
+      <details class="acc__item">
+        <summary>Можно увидеть свет заранее, до события?</summary>
+        <div class="acc__body">
+          <p>Да, тремя способами. Конструктор показывает каждую зону в выбранной атмосфере. По фото вашей площадки художник рисует эскиз за 24 часа — <a href="#venue">загрузить фото</a>. И накануне события мы прогоняем все сценарии на месте, вы можете приехать и посмотреть.</p>
+        </div>
+      </details>
+      <details class="acc__item">
+        <summary>Работаете за городом и в других городах?</summary>
+        <div class="acc__body">
+          <p>До 60 км от города — стандартная строка логистики в смете. Дальше и в другие регионы выезжаем, считаем индивидуально: транспорт, проживание бригады, иногда аренда части оборудования на месте — так дешевле для вас.</p>
+        </div>
+      </details>
+      <details class="acc__item">
+        <summary>Когда монтаж и не мешает ли он подготовке зала?</summary>
+        <div class="acc__body">
+          <p>Заезжаем за день до события или в ночь. Согласовываем окна с площадкой и банкетной службой заранее, высотные работы делаем до прихода флористов и декораторов. Демонтаж — ночью после события или ранним утром.</p>
+        </div>
+      </details>
+      <details class="acc__item">
+        <summary>Работаете с агентствами?</summary>
+        <div class="acc__body">
+          <p>Да, значительная часть проектов — субподряд. Работаем white-label, не выходим на вашего клиента, привозим техрайдеры и визуализации для ваших презентаций. Условия — в <a href="#b2b">разделе для агентств</a>.</p>
+        </div>
+      </details>
+    </div>
+  </div>
+</section>
+
+<!-- ============ 14. ФИНАЛЬНЫЙ CTA ============ -->
+<section class="final" id="final">
+  <div class="final__glow" aria-hidden="true"></div>
+  <div class="wrap final__in">
+    <h2 class="h2 reveal">Ваша дата ещё свободна?</h2>
+    <p class="lead reveal">Проверьте — и мы забронируем окно на бесплатный выезд.</p>
+
+    <div class="final__card reveal">
+      <div class="final__brief" data-final-brief hidden>
+        <span class="final__brief-badge">Ваш бриф готов</span>
+        <p data-final-brief-text></p>
+      </div>
+
+      <form class="final__form" data-final-form>
+        <div class="final__row">
+          <label class="field"><span>Имя</span><input type="text" name="name" required placeholder="Анна"></label>
+          <label class="field"><span>Телефон</span><input type="tel" name="phone" required placeholder="+7 900 000-00-00"></label>
+        </div>
+        <div class="final__row">
+          <label class="field">
+            <span>Дата события</span>
+            <div class="datecheck" data-datecheck>
+              <input type="date" class="datecheck__input" data-datecheck-input>
+              <output class="datecheck__out" data-datecheck-out aria-live="polite"></output>
+            </div>
+          </label>
+          <label class="field">
+            <span>Тип события</span>
+            <select name="type">
+              <option>Свадьба</option><option>Корпоратив</option>
+              <option>Ресторан</option><option>Частное событие</option>
+            </select>
+          </label>
+        </div>
+        <button class="btn btn--primary btn--lg btn--block" type="submit">Отправить заявку</button>
+        <p class="final__note">Ответим в течение 2 часов в рабочее время. Консультация и выезд на площадку — бесплатно.</p>
+      </form>
+
+      <div class="final__alt">
+        <span>Проще написать?</span>
+        <a class="btn btn--quiet btn--sm" href="#final">Telegram</a>
+        <a class="btn btn--quiet btn--sm" href="#final">WhatsApp</a>
+        <a class="btn btn--quiet btn--sm" href="tel:+70000000000">+7 000 000-00-00</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+</main>
+
+<!-- ============ 15. FOOTER ============ -->
+<footer class="footer">
+  <div class="wrap footer__in">
+    <div class="footer__brand">
+      <a class="logo" href="#hero"><span class="logo__dot" aria-hidden="true"></span>
+        <span class="logo__text">LUMEN<span class="logo__thin"> EVENT</span></span></a>
+      <p>Световое оформление свадеб, корпоративов, ресторанов и частных событий. Работаем по городу и области, выезжаем в регионы.</p>
+    </div>
+    <nav class="footer__nav" aria-label="Разделы">
+      <b>Разделы</b>
+      <a href="#atmosphere">Атмосферы</a>
+      <a href="#constructor">Конструктор</a>
+      <a href="#portfolio">Работы</a>
+      <a href="#process">Как работаем</a>
+      <a href="#reliability">Надёжность</a>
+      <a href="#b2b">Агентствам</a>
+      <a href="#faq">Вопросы</a>
+    </nav>
+    <div class="footer__contacts">
+      <b>Контакты</b>
+      <a href="tel:+70000000000">+7 000 000-00-00</a>
+      <a href="mailto:hello@lumen.event">hello@lumen.event</a>
+      <a href="#final">Telegram · WhatsApp</a>
+      <a href="#final">Instagram · VK</a>
+    </div>
+    <div class="footer__legal">
+      <b>Документы</b>
+      <a href="#faq">Политика конфиденциальности</a>
+      <a href="#faq">Договор оферты</a>
+      <p>ООО «Люмен Ивент» · ИНН 0000000000</p>
+    </div>
+  </div>
+  <div class="wrap footer__bottom">
+    <span>© 2026 LUMEN EVENT</span>
+    <span>Цены на сайте — ориентировочные и не являются публичной офертой</span>
+  </div>
+</footer>
+
+<!-- Итог «в кармане»: панель сметы лежит под длинным списком зон,
+     поэтому во время выбора сумма не видна — эта строка её дублирует. -->
+<div class="cfgbar" data-cfgbar aria-hidden="true">
+  <div class="wrap cfgbar__in">
+    <span class="cfgbar__sum">
+      <b data-cfgbar-total>—</b>
+      <span data-cfgbar-zones>—</span>
+    </span>
+    <button class="btn btn--primary btn--sm" type="button" data-cfgbar-cta>Показать бриф</button>
+  </div>
+</div>
+
+<div class="toast" data-toast role="status" aria-live="polite"></div>
+
+<script src="assets/js/data.js"></script>
+<script src="assets/js/configurator.js"></script>
+<script src="assets/js/app.js"></script>
+</body>
+</html>

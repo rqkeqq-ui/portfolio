@@ -42,6 +42,11 @@ jobs:
           test -f dist/projects/index.html
           test -f dist/projects/beauty-booking/index.html
           test -f dist/projects/library-system/index.html
+          for slug in northcut weekly-table verde-office therma-home pawline nord-module lumen-event fixflow; do
+            test -f "dist/projects/$slug/index.html"
+            test -f "dist/projects/$slug/app/index.html"
+          done
+          test -f dist/assets/images/previews/beauty-booking-1.webp
           test -f dist/assets/images/statues/rqke-hero-cutout.png
 
       - name: Configure GitHub Pages

@@ -1,0 +1,5 @@
+1:"$Sreact.fragment"
+2:I[1123,[],""]
+3:I[319,[],""]
+:HL["/portfolio/projects/northcut/app/_next/static/css/24d46f7f07b3016c.css","style"]
+0:{"rsc":["$","$1","c",{"children":[[["$","link","0",{"rel":"stylesheet","href":"/portfolio/projects/northcut/app/_next/static/css/24d46f7f07b3016c.css","precedence":"next"}]],["$","html",null,{"lang":"ru","children":["$","body",null,{"className":"__variable_e39659 __variable_37692c","children":["$","$L2",null,{"parallelRouterKey":"children","template":["$","$L3",null,{}]}]}]}]]}],"isPartial":false,"staleTime":300,"varyParams":null,"buildId":"rWsU-rosNbYGKkzR4WNY5"}

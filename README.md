@@ -23,6 +23,24 @@ Dev: http://localhost:5173/. Сборка: `npm run build`; просмотр с�
 
 Главная подключает `assets/css/experience.css`, который импортирует global, home и revision в этом порядке, сохраняя порядок стилей при сборке.
 
+## BeautyBook
+
+Страница проекта показывает настоящий фронтенд дипломного BeautyBook в рамке браузера. Next.js/React/TypeScript-версия перенесена на HTML, CSS и JS: `projects/beauty-booking/app/index.html`, стили `assets/css/beautybook.css` (исходный `globals.css` без изменений и блок демо-входа в конце), скрипты `assets/js/beautybook/`, фото `assets/images/beautybook/`.
+
+Маршруты работают через `#/…`, поэтому GitHub Pages не нужны rewrites. Express, PostgreSQL и Redis заменены модулем `api.js`: данные из `seed.ts` и демо-записи хранятся в `localStorage`, правила те же — генерация слотов по графику, запрет пересечений, отмена не позже чем за 2 часа, один отзыв на запись. Демо-аккаунты `client@`, `owner@`, `admin@beautybook.local`, пароль `Demo12345!`; на странице входа есть кнопки быстрого входа. Маршрут `#/demo/reset` возвращает исходные данные.
+
+## Кейсы и демо
+
+Тексты восьми кейсов (North Cut, WEEKLY TABLE, Verde Office, Therma Home, PAWLINE, Nord Module, Lumen Event, FixFlow) лежат в `assets/js/projectCatalog.js`; `data.js` ставит их между BeautyBook и библиотекой. Страница кейса — `projects/<slug>/index.html`; Vite находит такие страницы сам.
+
+Живые версии сайтов лежат в `public/projects/<slug>/app/` и попадают в `dist` как есть. Их нужно коммитить: исходники проектов находятся вне репозитория, и CI до них не дотянется.
+
+- `node tools/sync-demos.mjs [slug]` копирует статические сайты: только то, что нужно браузеру, без тестов, серверов и `data/`.
+- `node tools/export-next-demos.mjs [slug]` собирает Next.js-проекты во временной копии с `output: 'export'` и basePath `/portfolio/projects/<slug>/app`. У FixFlow `/api/*` заменяются демо-реализацией в браузере. Исходные репозитории не меняются. Dev и preview Vite отдают `/portfolio/*` из корня, поэтому экспорт работает и локально.
+- `node tools/capture-projects.mjs [slug]` снимает обложку, галерею и кадры превью для карточек. Перед запуском выполните `npm i --no-save playwright-core sharp` (нужен установленный Chrome) и поднимите `npm run dev`.
+
+Карточки проектов (`assets/js/cards/`) используются на главной и в архиве. Фон — WebGL-шейдер: один общий контекст рисует только видимые карточки. Эффект и палитра проекта задаются в `LOOKS` в `projectCard.js`. В центре карточки пролистываются кадры из `assets/images/previews` с переходами между страницами. На компьютере это происходит при наведении, на сенсорных экранах — у самой видимой карточки. При reduced motion фон статичный, а пролистывания нет.
+
 ## Запись
 
 30 минут, ежедневно 13:00–20:00 UTC+7. Cal.com: окно 14 дней, минимум за 24 часа, перерыв 15 минут, до 3 встреч в день, проверка занятости Google Календаря. Google Meet выбран местом проведения. Посетитель выбирает часовой пояс и формат 12/24 часа в интерфейсе записи; начальный формат зависит от настроек браузера.

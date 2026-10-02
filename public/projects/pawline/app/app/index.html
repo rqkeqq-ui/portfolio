@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>PAWLINE — прототип приложения</title>
+<meta name="description" content="Интерактивный прототип приложения PAWLINE: задачи на сегодня, курсы лекарств, семейный доступ и офлайн-режим.">
+<meta name="theme-color" content="#F4F0EA">
+<link rel="icon" href="../assets/img/favicon.svg" type="image/svg+xml">
+<link rel="stylesheet" href="../assets/fonts/tabler-icons.min.css">
+<link rel="stylesheet" href="css/app.css">
+</head>
+<body>
+
+<div class="device">
+  <div class="app">
+    <header class="appbar" id="appbar"></header>
+
+    <main class="screen" id="screen">
+      <div class="empty"><i class="ti ti-paw" aria-hidden="true"></i><b>Загрузка</b></div>
+    </main>
+
+    <nav class="tabbar" id="tabbar" aria-label="Разделы приложения"></nav>
+
+    <div class="toast-wrap" id="toast" role="status" aria-live="polite"></div>
+    <div class="sheet-backdrop" id="sheet" role="dialog" aria-modal="true"></div>
+  </div>
+</div>
+
+<script src="js/store.js"></script>
+<script src="js/app.js"></script>
+</body>
+</html>
